@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetofinal_fic;
+
 
 /**
  *
  * @author bruno
  */
-public class ProjetoFinal_FIC {
+public class Main {
 
     /**
      * @param args the command line arguments
