@@ -9,6 +9,11 @@ package beans;
  *
  * @author bruno
  */
-public class Aluno {
+public class Aluno extends Pessoa{
+    
+    
+    public void verDiario(){
+        
+    }
     
 }

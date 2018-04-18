@@ -9,6 +9,11 @@ package beans;
  *
  * @author bruno
  */
-public class Professor {
+public class Professor extends Pessoa{
     
+    private Diario turma;
+    
+    
+    
+  
 }
