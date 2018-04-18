@@ -12,11 +12,11 @@ public class Diario {
     private Professor professor;
     private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
 
-    public void cadastrarAluno() {
-
+    public void cadastrarAluno(Aluno aluno) {
+        //teste
     }
 
-    public void removerAluno() {
+    public void removerAluno(Aluno aluno) {
 
     }
 

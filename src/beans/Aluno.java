@@ -11,7 +11,7 @@ package beans;
  */
 public class Aluno extends Pessoa{
     
-    
+    //testando comit
     public void verDiario(){
         
     }
