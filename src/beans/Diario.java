@@ -12,33 +12,37 @@ import java.util.ArrayList;
  * @author Ramalho
  */
 public class Diario {
+//    O professor que tem um diario
+//    private Professor professor;
 
-    private Professor professor;
-    private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
+//    Esse array tem que ficar na classe Banco
+//    private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
 
-    public void cadastrarAluno(Aluno aluno) {
+    private int quantidadeEtapas;
+    private float media;
+
+    public int getQuantidadeEtapas() {
+        return quantidadeEtapas;
+    }
+
+    public void setQuantidadeEtapas(int quantidadeEtapas) {
+        this.quantidadeEtapas = quantidadeEtapas;
+    }
+
+    public float getMedia() {
+        return media;
+    }
+
+    public void setMedia(float media) {
+        this.media = media;
+    }
+    
+    public void alocarAlunoNaTurma(Aluno aluno) {
         //teste
     }
 
-    public void removerAluno(Aluno aluno) {
+    public void removerAlunoDaTurma(Aluno aluno) {
 
-    }
-
-    
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public ArrayList<Aluno> getListadeAlunos() {
-        return listadeAlunos;
-    }
-
-    public void setListadeAlunos(ArrayList<Aluno> listadeAlunos) {
-        this.listadeAlunos = listadeAlunos;
     }
 
 }

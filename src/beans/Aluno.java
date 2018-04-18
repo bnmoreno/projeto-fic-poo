@@ -10,10 +10,15 @@ package beans;
  * @author bruno
  */
 public class Aluno extends Pessoa{
+
     
-    //testando comit
-    public void verDiario(){
+    public void alterarDados(Aluno aluno) {
+    
+    }
+    
+    public void verBoletim(){
         
     }
+
     
 }

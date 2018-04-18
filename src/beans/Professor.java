@@ -12,8 +12,11 @@ package beans;
 public class Professor extends Pessoa{
     
     private Diario turma;
+
     
+    public void alterarDados(Professor professor) {
     
+    }
     
   
 }
