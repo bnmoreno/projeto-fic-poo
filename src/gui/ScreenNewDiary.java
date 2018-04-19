@@ -45,6 +45,8 @@ public class ScreenNewDiary extends JGradientPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(800, 700));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
@@ -52,7 +54,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jPanel2.setMinimumSize(new java.awt.Dimension(1000, 900));
         jPanel2.setName(""); // NOI18N
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
+        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0};
         jPanel2.setLayout(jPanel2Layout);
 
@@ -69,6 +71,7 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -85,7 +88,7 @@ public class ScreenNewDiary extends JGradientPanel {
 
         jLabel5.setText("Logout");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(30, 30, 0, 30);
@@ -124,6 +127,7 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
         jPanel2.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -142,7 +146,7 @@ public class ScreenNewDiary extends JGradientPanel {
 
         jButton3.setText("Criar Diario");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 30);
@@ -163,6 +167,20 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         jPanel2.add(jButton5, gridBagConstraints);
 
+        jLabel1.setText("Nome do Diario:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        jPanel2.add(jLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 250;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
+        jPanel2.add(jTextField2, gridBagConstraints);
+
         add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,6 +190,7 @@ public class ScreenNewDiary extends JGradientPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -182,5 +201,6 @@ public class ScreenNewDiary extends JGradientPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
