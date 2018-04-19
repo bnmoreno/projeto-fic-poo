@@ -14,23 +14,23 @@ import javax.swing.JOptionPane;
  */
 public class Banco {
  
-    private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
+    private ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
     
-    public void cadastrarAluno(Aluno aluno){
-        boolean status = listadeAlunos.add(aluno);
-        if(status){
-            JOptionPane.showMessageDialog(null, "ALUNO CADASTRADO COM SUCESSO!");
-        }else{
-            JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR ALUNO!!");
-        }
+    public boolean cadastrarAluno(Aluno aluno){
+        boolean status = listaDeAlunos.add(aluno);
+        return status;
     }
-    public void removerAluno(Aluno aluno){
-        boolean status = listadeAlunos.remove(aluno);
-        if(status){
-            JOptionPane.showMessageDialog(null, "ALUNO REMOVIDO DO SISTEMA COM SUCESSO!");
-        }else{
-            JOptionPane.showMessageDialog(null, "ERRO AO REMOVER ALUNO!!");
-        }
+    public boolean removerAluno(Aluno aluno){
+        boolean status = listaDeAlunos.remove(aluno);
+        return status;
     }
+//    public void alterarDadosAluno(String matricula){
+//        boolean teste;
+//        for(Aluno a: listaDeAlunos){
+//            if(matricula.equals(a.getMatricula())){
+//                
+//            }
+//        }
+//    }
     
 }
