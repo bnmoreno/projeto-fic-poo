@@ -5,6 +5,10 @@
  */
 package gui;
 
+import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+
 /**
  *
  * @author andre
@@ -14,8 +18,16 @@ public class PrincipalJanela extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalJanela
      */
+    private CardLayout cd01 = new CardLayout();
+    private ArrayList<JPanel> cartoes = new ArrayList<JPanel>();
     public PrincipalJanela() {
         initComponents();
+        jPanel1.setLayout(cd01);
+        ScreenNewDiary pVermelho = new ScreenNewDiary();
+        cartoes.add(pVermelho);
+        jPanel1.add(pVermelho, "vermelho");
+        CardLayout cd =  (CardLayout) jPanel1.getLayout();
+        cd.show(jPanel1, "vermelho");
     }
 
     /**
@@ -27,18 +39,27 @@ public class PrincipalJanela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(1200, 700));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 700));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 701, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -46,5 +67,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
