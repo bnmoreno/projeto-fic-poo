@@ -20,16 +20,41 @@ public class PrincipalJanela extends javax.swing.JFrame {
      */
     private CardLayout cd01 = new CardLayout();
     private ArrayList<JPanel> cartoes = new ArrayList<JPanel>();
+    
     public PrincipalJanela() {
         initComponents();
-        jPanel1.setLayout(cd01);
-        ScreenNewDiary pVermelho = new ScreenNewDiary();
-        cartoes.add(pVermelho);
-        jPanel1.add(pVermelho, "vermelho");
-        CardLayout cd =  (CardLayout) jPanel1.getLayout();
-        cd.show(jPanel1, "vermelho");
+            //layout do inicio
+            jPanel1.setLayout(cd01);
+            ScreenNewDiary pVermelho = new ScreenNewDiary();
+            cartoes.add(pVermelho);
+            jPanel1.add(pVermelho, "vermelho");
+            CardLayout cd =  (CardLayout) jPanel1.getLayout();
+            cd.show(jPanel1, "vermelho");
+        
     }
+    
+    public void mudarDeTela(JPanel tela, String nomeDaTela) {
+        if (!cartoes.isEmpty()) {
+            boolean flag = false;
+            for (JPanel t : cartoes) {
+                if (t.getClass().isInstance(tela)) {
+                    flag = true;
+                }
+            }
+            if (!flag) {
 
+                cartoes.add(tela);
+                jPanel1.add(tela, nomeDaTela);
+            }
+        } else {
+
+            cartoes.add(tela);
+            jPanel1.add(tela, nomeDaTela);
+        }
+        cartoes.removeAll(cartoes);
+        CardLayout layoutDeCartao = (CardLayout) jPanel1.getLayout();
+        layoutDeCartao.show(jPanel1, nomeDaTela);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

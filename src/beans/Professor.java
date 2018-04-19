@@ -15,6 +15,7 @@ public class Professor extends Pessoa{
 
     private Diario turma;
     
+    //construtor
     public Professor(Diario turma, String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
         super(matricula, nome, cpf, endereco, telefone, nascimento, perfil);
         this.turma = turma;
