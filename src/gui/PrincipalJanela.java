@@ -23,6 +23,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     
     public PrincipalJanela() {
         initComponents();
+            this.setExtendedState(MAXIMIZED_BOTH);
             //layout do inicio
             jPanel1.setLayout(cd01);
             ScreenNewDiary pVermelho = new ScreenNewDiary();
