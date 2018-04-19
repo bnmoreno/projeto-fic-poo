@@ -5,6 +5,8 @@
  */
 package beans;
 
+import java.util.Date;
+
 /**
  *
  * @author bruno
@@ -12,8 +14,20 @@ package beans;
 public class Aluno extends Pessoa{
 
     
-    public void alterarDados(Aluno aluno) {
     
+    private String nomePai;
+    private String nomeMae;
+    
+    
+    //contrustor
+    public Aluno(String nomePai, String nomeMae, String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+        super(matricula, nome, cpf, endereco, telefone, nascimento, perfil);
+        this.nomePai = nomePai;
+        this.nomeMae = nomeMae;
+    }
+
+    public void alterarDados(String matricula) {
+        
     }
     
     public void verBoletim(){

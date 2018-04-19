@@ -19,8 +19,6 @@ public abstract class Pessoa {
     
     private String matricula;
     private String nome;
-    private String nomePai;
-    private String nomeMae;
     private String cpf;
     private String endereco;
     private String telefone;
@@ -34,6 +32,23 @@ public abstract class Pessoa {
 //    }
 
     //public abstract void alterarDados();
+
+    public Pessoa() {
+    
+    }
+
+    
+    public Pessoa(String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.nascimento = nascimento;
+        this.perfil = perfil;
+    }
+    
+    
     
     public String getMatricula() {
         return matricula;
@@ -49,22 +64,6 @@ public abstract class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getNomePai() {
-        return nomePai;
-    }
-
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-
-    public String getNomeMae() {
-        return nomeMae;
-    }
-
-    public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
     }
     
     public String getCpf() {

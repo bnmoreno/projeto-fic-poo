@@ -5,14 +5,28 @@
  */
 package beans;
 
+import java.util.Date;
+
 /**
  *
  * @author bruno
  */
 public class Professor extends Pessoa{
-    
-    private Diario turma;
 
+    private Diario turma;
+    
+    public Professor(Diario turma, String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+        super(matricula, nome, cpf, endereco, telefone, nascimento, perfil);
+        this.turma = turma;
+    }
+
+    public Diario getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Diario turma) {
+        this.turma = turma;
+    }
     
     public void alterarDados(Professor professor) {
     

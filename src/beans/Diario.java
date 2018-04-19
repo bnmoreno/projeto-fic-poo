@@ -1,7 +1,4 @@
-
 package beans;
-
-import java.util.ArrayList;
 
 /**
  *
@@ -15,8 +12,8 @@ public class Diario {
 //    private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
 
     private int quantidadeEtapas;
-    private float media;
-
+    private float notafinal;
+    
     public int getQuantidadeEtapas() {
         return quantidadeEtapas;
     }
@@ -25,12 +22,12 @@ public class Diario {
         this.quantidadeEtapas = quantidadeEtapas;
     }
 
-    public float getMedia() {
-        return media;
+    public float getNotafinal() {
+        return notafinal;
     }
 
-    public void setMedia(float media) {
-        this.media = media;
+    public void setNotafinal(float notafinal) {
+        this.notafinal = notafinal;
     }
     
     public void alocarAlunoNaTurma(Aluno aluno) {
