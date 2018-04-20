@@ -8,6 +8,7 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -151,6 +152,11 @@ public class ScreenNewDiary extends JGradientPanel {
         jPanel2.add(jButton3, gridBagConstraints);
 
         jButton4.setText("Remover");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -159,6 +165,11 @@ public class ScreenNewDiary extends JGradientPanel {
         jPanel2.add(jButton4, gridBagConstraints);
 
         jButton5.setText("Adicionar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -199,6 +210,20 @@ public class ScreenNewDiary extends JGradientPanel {
         jTextField2.setVisible(false);
         jLabel1.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String aluno = (String) jTable1.getValueAt(jTable1.getSelectedRow(),0);
+        model = (DefaultTableModel)TabelaDeDiario.getModel();
+        //ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
+        for(Aluno a:banco.getAlunos())
+            if(aluno.equals(a.getMatricula()))
+                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        model.removeRow(TabelaDeDiario.getSelectedRow());
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
