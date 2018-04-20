@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -14,18 +15,17 @@ import javax.swing.table.TableColumnModel;
  * @author marcio
  */
 
-public class ScreenDiary extends javax.swing.JPanel {
+public class ScreenDiary extends JGradientPanel {
     private byte cont;
     private DefaultTableModel model;
     /**
      * Creates new form ScreenDiary
      */
     public ScreenDiary() {
+        super(Color.WHITE, Color.BLUE);
         initComponents();
         model = (DefaultTableModel)jTable1.getModel();
         cont = 1;
-        JTextField test = new JTextField();
-        model.addRow(new Object[]{model.getColumnClass(0)});
     }
     
 
