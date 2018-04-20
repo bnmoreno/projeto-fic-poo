@@ -5,20 +5,26 @@
  */
 package gui;
 
+import beans.Aluno;
+import beans.Banco;
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author marcio
  */
 public class ScreenNewDiary extends JGradientPanel {
-
-    /**
-     * Creates new form FrameUsuario
-     */
+     private DefaultTableModel model;
+    Banco banco;
     public ScreenNewDiary() {
         super(Color.BLUE,Color.BLACK);
         initComponents();
+        banco = banco = new Banco();
+        banco.prencherParaTeste();
+        model = (DefaultTableModel)jTable1.getModel();
+        for(Aluno a : banco.getAlunos())
+            model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
     }
 
     /**
@@ -105,6 +111,7 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         jPanel2.add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -113,6 +120,7 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         jPanel2.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;

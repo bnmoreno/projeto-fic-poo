@@ -5,6 +5,7 @@
  */
 package gui;
 
+import beans.Banco;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
     
     public PrincipalJanela() {
         initComponents();
+            
             this.setExtendedState(MAXIMIZED_BOTH);
+            //jButton1.setVisible(false);
             //layout do inicio
             jPanel3.setLayout(cd01);
             ScreenNewDiary diary = new ScreenNewDiary();

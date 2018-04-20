@@ -5,6 +5,8 @@
  */
 package gui;
 
+import beans.Aluno;
+import beans.Banco;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -18,13 +20,20 @@ import javax.swing.table.TableColumnModel;
 public class ScreenDiary extends JGradientPanel {
     private byte cont;
     private DefaultTableModel model;
+    Banco banco;
+    
     /**
      * Creates new form ScreenDiary
      */
     public ScreenDiary() {
         super(Color.WHITE, Color.BLUE);
         initComponents();
+        banco = new Banco();
+        banco.prencherParaTeste();
+     
         model = (DefaultTableModel)jTable1.getModel();
+        for(Aluno a : banco.getAlunos())
+            model.addRow(new Object[]{a.getMatricula(),a.getNome()});
         cont = 1;
     }
     
@@ -55,6 +64,11 @@ public class ScreenDiary extends JGradientPanel {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

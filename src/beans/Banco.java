@@ -6,6 +6,7 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +25,16 @@ public class Banco {
         boolean status = listaDeAlunos.remove(aluno);
         return status;
     }
+    public ArrayList<Aluno> getAlunos(){
+        return listaDeAlunos;
+    }
+    public void prencherParaTeste(){
+        cadastrarAluno(new Aluno("João", "Maria", "201", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "202", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "203", "Fulano", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "204", "Sicrano", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "205", "Beotrano", "111", "endereco", "telefone", new Date(), 'A'));
+   }
 //    public void alterarDadosAluno(String matricula){
 //        boolean teste;
 //        for(Aluno a: listaDeAlunos){
