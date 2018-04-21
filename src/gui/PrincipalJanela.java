@@ -82,7 +82,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         acessar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         login = new javax.swing.JTextField();
-        senha = new javax.swing.JTextField();
+        senha = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -97,7 +97,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.CardLayout());
 
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0};
+        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
         jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
         jPanel2.setLayout(jPanel2Layout);
 
@@ -181,7 +181,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 191;
         gridBagConstraints.ipady = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         jPanel2.add(senha, gridBagConstraints);
 
         jPanel3.add(jPanel2, "card2");
@@ -260,6 +260,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField login;
-    private javax.swing.JTextField senha;
+    private javax.swing.JPasswordField senha;
     // End of variables declaration//GEN-END:variables
 }
