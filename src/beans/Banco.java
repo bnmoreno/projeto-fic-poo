@@ -15,19 +15,46 @@ import javax.swing.JOptionPane;
  */
 public class Banco {
  
-    private ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
+    public static ArrayList<Aluno> listaDeAlunos = new ArrayList<Aluno>();
+    public static ArrayList<Aluno> alunosMatriculadosDiario = new ArrayList<Aluno>();
+    public static ArrayList<Professor> professorCadastrados = new ArrayList<Professor>();
     
     public boolean cadastrarAluno(Aluno aluno){
-        boolean status = listaDeAlunos.add(aluno);
-        return status;
+        return listaDeAlunos.add(aluno);
     }
     public boolean removerAluno(Aluno aluno){
-        boolean status = listaDeAlunos.remove(aluno);
-        return status;
+        return listaDeAlunos.remove(aluno);
     }
     public ArrayList<Aluno> getAlunos(){
         return listaDeAlunos;
     }
+
+    //metodos para colocar aluno na turma
+    public boolean adicionarAlunoNoDiario(Aluno aluno){
+        return alunosMatriculadosDiario.add(aluno);
+    }
+    //metodo para retirar aluno da turma
+    public boolean removerAlunoDoDiario(Aluno aluno){
+        return alunosMatriculadosDiario.remove(aluno);
+    }
+    public static ArrayList<Aluno> getListaDeAlunos() {
+        return listaDeAlunos;
+    }
+
+    public static ArrayList<Professor> getProfessorCadastrados() {
+        return professorCadastrados;
+    }
+    
+    public Object alterarDados(Object obj){
+//        if(){
+//            
+//        }else if(){
+//            
+//        }else if(){
+//            
+        return obj;
+    }
+    
     public void prencherParaTeste(){
         cadastrarAluno(new Aluno("João", "Maria", "201", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
         cadastrarAluno(new Aluno("João", "Maria", "202", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
