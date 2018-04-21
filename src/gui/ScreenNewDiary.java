@@ -19,8 +19,13 @@ public class ScreenNewDiary extends JGradientPanel {
     public ScreenNewDiary() {
         super(Color.BLUE,Color.BLACK);
         initComponents();
+        
         model = (DefaultTableModel)jTable1.getModel();
         for(Aluno a : Banco.listaDeAlunos)
+            model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
+       
+        model = (DefaultTableModel)TabelaDeDiario.getModel();
+        for(Aluno a : Banco.alunosMatriculadosDiario)
             model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
     }
 
@@ -209,12 +214,16 @@ public class ScreenNewDiary extends JGradientPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String aluno = (String) jTable1.getValueAt(jTable1.getSelectedRow(),0);
+        model = (DefaultTableModel)jTable1.getModel();
+        model.removeRow(jTable1.getSelectedRow());
         model = (DefaultTableModel)TabelaDeDiario.getModel();
-        //ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
-        for(Aluno a:Banco.listaDeAlunos)
-            if(aluno.equals(a.getMatricula()))
+        for(Aluno a:Banco.listaDeAlunos){
+            if(aluno.equals(a.getMatricula())){
+                Banco.removerAluno(a);
+                Banco.adicionarAlunoNoDiario(a);
                 model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
-        
+            }
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

@@ -20,19 +20,19 @@ public class Banco {
     public static ArrayList<Professor> professorCadastrados = new ArrayList<Professor>();
     public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
     
-    public boolean cadastrarAluno(Aluno aluno){
+    public static boolean cadastrarAluno(Aluno aluno){
         return listaDeAlunos.add(aluno);
     }
-    public boolean removerAluno(Aluno aluno){
+    public static boolean removerAluno(Aluno aluno){
         return listaDeAlunos.remove(aluno);
     }
 
     //metodos para colocar aluno na turma
-    public boolean adicionarAlunoNoDiario(Aluno aluno){
+    public static boolean adicionarAlunoNoDiario(Aluno aluno){
         return alunosMatriculadosDiario.add(aluno);
     }
     //metodo para retirar aluno da turma
-    public boolean removerAlunoDoDiario(Aluno aluno){
+    public static boolean removerAlunoDoDiario(Aluno aluno){
         return alunosMatriculadosDiario.remove(aluno);
     }
     //Lancador de notas

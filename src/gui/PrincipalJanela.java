@@ -36,7 +36,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         banco = new Banco();
         banco.prencherParaTeste();
         this.setExtendedState(MAXIMIZED_BOTH);   
-        jMenuBar1.setVisible(false);
+        jMenuBar1.setVisible(false);//
     }
     
     public void mudarDeTela(JPanel tela, String nomeDaTela) {
@@ -73,8 +73,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new JGradientPanel(Color.WHITE,Color.BLUE);
+        jPanel2 = new JGradientPanel(Color.WHITE,Color.BLUE);
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
