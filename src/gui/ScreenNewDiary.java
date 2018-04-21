@@ -8,7 +8,6 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
