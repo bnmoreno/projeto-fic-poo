@@ -215,6 +215,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
             jMenuBar1.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Login ou senha incorreta");
+            //
         }
 
     }//GEN-LAST:event_acessarActionPerformed
