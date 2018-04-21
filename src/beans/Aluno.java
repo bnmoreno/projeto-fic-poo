@@ -6,6 +6,7 @@
 package beans;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,11 +27,22 @@ public class Aluno extends Pessoa{
         this.nomeMae = nomeMae;
     }
 
-    public void alterarDados(String matricula) {
-        
+    public Aluno alterarDados(String matricula) {
+        Aluno a = null;       
+        for (Aluno aluno : Banco.listaDeAlunos) {
+            if(matricula.equals(aluno.getMatricula())){
+                a = aluno;
+            }
+        }
+        if(a!=null){
+            return a;
+        }else{
+            JOptionPane.showConfirmDialog(null, "ALUNO NÃO ENCONTRADO NO SISTEMA!!!!");
+            return null;
+        }        
     }
     
-    public void verBoletim(){
+    public void verBoletim(String matricula){
         
     }
 

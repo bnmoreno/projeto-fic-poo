@@ -6,6 +6,7 @@
 package beans;
 
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,8 +30,8 @@ public class Professor extends Pessoa{
         this.turma = turma;
     }
     
-    public void alterarDados(Professor professor) {
-    
+    public void alterarDados(String matricula) {
+        
     }
     
   
