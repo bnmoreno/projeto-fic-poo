@@ -26,9 +26,6 @@ public class Banco {
     public boolean removerAluno(Aluno aluno){
         return listaDeAlunos.remove(aluno);
     }
-    public ArrayList<Aluno> getAlunos(){
-        return listaDeAlunos;
-    }
 
     //metodos para colocar aluno na turma
     public boolean adicionarAlunoNoDiario(Aluno aluno){

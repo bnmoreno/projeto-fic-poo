@@ -16,14 +16,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ScreenNewDiary extends JGradientPanel {
      private DefaultTableModel model;
-    Banco banco;
     public ScreenNewDiary() {
         super(Color.BLUE,Color.BLACK);
         initComponents();
-        banco = banco = new Banco();
-        banco.prencherParaTeste();
         model = (DefaultTableModel)jTable1.getModel();
-        for(Aluno a : banco.getAlunos())
+        for(Aluno a : Banco.listaDeAlunos)
             model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
     }
 
@@ -214,7 +211,7 @@ public class ScreenNewDiary extends JGradientPanel {
         String aluno = (String) jTable1.getValueAt(jTable1.getSelectedRow(),0);
         model = (DefaultTableModel)TabelaDeDiario.getModel();
         //ArrayList<Aluno> listaDeAlunos = new ArrayList<>();
-        for(Aluno a:banco.getAlunos())
+        for(Aluno a:Banco.listaDeAlunos)
             if(aluno.equals(a.getMatricula()))
                 model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
         

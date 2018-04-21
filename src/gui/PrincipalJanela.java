@@ -29,10 +29,12 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private CardLayout cd01 = new CardLayout();
     private ArrayList<JPanel> cartoes = new ArrayList<JPanel>();
     private JPanel ultimoPainel;
-    
+    private Banco banco;
     public PrincipalJanela() {
         initComponents();
         //layout do inicio
+        banco = new Banco();
+        banco.prencherParaTeste();
         this.setExtendedState(MAXIMIZED_BOTH);   
         jMenuBar1.setVisible(false);
     }

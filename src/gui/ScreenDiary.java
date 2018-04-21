@@ -20,7 +20,6 @@ import javax.swing.table.TableColumnModel;
 public class ScreenDiary extends JGradientPanel {
     private byte cont;
     private DefaultTableModel model;
-    Banco banco;
     
     /**
      * Creates new form ScreenDiary
@@ -28,11 +27,11 @@ public class ScreenDiary extends JGradientPanel {
     public ScreenDiary() {
         super(Color.WHITE, Color.BLUE);
         initComponents();
-        banco = new Banco();
-        banco.prencherParaTeste();
+        
      
         model = (DefaultTableModel)jTable1.getModel();
-        for(Aluno a : banco.getAlunos())
+        model.setNumRows(0);
+        for(Aluno a : Banco.listaDeAlunos)
             model.addRow(new Object[]{a.getMatricula(),a.getNome()});
         cont = 1;
     }
