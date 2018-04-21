@@ -28,8 +28,7 @@ public class Aluno extends Pessoa{
     }
 
     public Aluno alterarDados(String matricula) {
-        Aluno a = null;
-        boolean teste = false;
+        Aluno a = null;       
         for (Aluno aluno : Banco.listaDeAlunos) {
             if(matricula.equals(aluno.getMatricula())){
                 a = aluno;
@@ -43,7 +42,7 @@ public class Aluno extends Pessoa{
         }        
     }
     
-    public void verBoletim(){
+    public void verBoletim(String matricula){
         
     }
 

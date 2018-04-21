@@ -18,6 +18,7 @@ public class Banco {
     public static ArrayList<Aluno> listaDeAlunos = new ArrayList<Aluno>();
     public static ArrayList<Aluno> alunosMatriculadosDiario = new ArrayList<Aluno>();
     public static ArrayList<Professor> professorCadastrados = new ArrayList<Professor>();
+    public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
     
     public boolean cadastrarAluno(Aluno aluno){
         return listaDeAlunos.add(aluno);
@@ -37,6 +38,13 @@ public class Banco {
     public boolean removerAlunoDoDiario(Aluno aluno){
         return alunosMatriculadosDiario.remove(aluno);
     }
+    //Lancador de notas
+    //static apenas para teste
+    public static boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
+        Notas lancarNota = new Notas(a.getNome(),a.getCpf(),a.getMatricula(), notas);
+        return todasAsNotasDosAluno.add(lancarNota);
+    }
+    
     public static ArrayList<Aluno> getListaDeAlunos() {
         return listaDeAlunos;
     }
