@@ -210,6 +210,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jButton3.setVisible(false);
         jTextField2.setVisible(false);
         jLabel1.setVisible(false);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -228,6 +229,7 @@ public class ScreenNewDiary extends JGradientPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         model.removeRow(TabelaDeDiario.getSelectedRow());
+ 
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

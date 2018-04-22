@@ -36,6 +36,14 @@ public class Diario {
     }
 
     
+    
+
+
+
+
+    
+
+    
 
     public String getNome() {
         return nome;

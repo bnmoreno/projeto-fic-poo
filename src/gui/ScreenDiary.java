@@ -7,6 +7,7 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
+import beans.Diario;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
