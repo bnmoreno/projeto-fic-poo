@@ -7,6 +7,7 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
+import beans.Diario;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -31,7 +32,7 @@ public class ScreenDiary extends JGradientPanel {
      
         model = (DefaultTableModel)jTable1.getModel();
         model.setNumRows(0);
-        for(Aluno a : Banco.listaDeAlunos)
+        for(Aluno a : Banco.alunosMatriculadosDiario)
             model.addRow(new Object[]{a.getMatricula(),a.getNome()});
         cont = 1;
     }
