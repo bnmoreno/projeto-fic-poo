@@ -90,7 +90,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 700));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel3.setMaximumSize(new java.awt.Dimension(680, 700));
@@ -105,15 +104,15 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/use.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 7;
         gridBagConstraints.ipady = -14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jLabel5, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Arial", 2, 36)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Tela de Login");
+        jLabel6.setText("Faça seu Login");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

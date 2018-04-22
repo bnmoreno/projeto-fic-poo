@@ -8,6 +8,7 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -217,13 +218,15 @@ public class ScreenNewDiary extends JGradientPanel {
         model = (DefaultTableModel)jTable1.getModel();
         model.removeRow(jTable1.getSelectedRow());
         model = (DefaultTableModel)TabelaDeDiario.getModel();
-        for(Aluno a:Banco.listaDeAlunos){
+        ArrayList<Aluno> l = Banco.listaDeAlunos;
+        for(Aluno a:l){
             if(aluno.equals(a.getMatricula())){
                 Banco.removerAluno(a);
                 Banco.adicionarAlunoNoDiario(a);
                 model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
             }
         }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
