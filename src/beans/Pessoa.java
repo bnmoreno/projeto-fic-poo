@@ -23,13 +23,15 @@ public abstract class Pessoa {
     private String endereco;
     private String telefone;
     private Date nascimento;
+    private String senha;
+    
+    
     private char perfil;
     
-    //Não precisa
-//    @Override
-//    public String toString() {
-//        return String.format("Nome: %s\nMatricula: %s\n", nome, matricula);
-//    }
+    @Override
+    public String toString() {
+        return  nome;
+    }
 
     //public abstract void alterarDados();
 
@@ -38,14 +40,23 @@ public abstract class Pessoa {
     }
 
     
-    public Pessoa(String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+    public Pessoa(String matricula,String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
         this.matricula = matricula;
+        this.senha = senha;
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
         this.telefone = telefone;
         this.nascimento = nascimento;
         this.perfil = perfil;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

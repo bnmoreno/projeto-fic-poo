@@ -16,34 +16,37 @@ public class Diario {
     Banco bankDiario = new Banco();
     
     private String nome;
-    private ArrayList<Object> notasLancadas;
+    private ArrayList<Aluno> listaDeAlunos;
     private int quantidadeEtapas;
     private float notafinal, mediaAprovado, mediaReprovado;
+
     
     //criando diario apenas como o nome
     public Diario(String nome){
         this.nome = nome;
     }
-    
-    public Diario(String nome, ArrayList<Object> notasLancadas, int quantidadeEtapas, float notafinal, float mediaAprovado, float mediaReprovado) {
+
+    public Diario(String nome, ArrayList<Aluno> listaDeAlunos) {
         this.nome = nome;
-        this.notasLancadas = notasLancadas;
+        this.listaDeAlunos = listaDeAlunos;
+    }
+    
+
+    public Diario(String nome, ArrayList<Aluno> alunos, int quantidadeEtapas, float notafinal, float mediaAprovado, float mediaReprovado) {
+        this.nome = nome;
+        this.listaDeAlunos = alunos;
         this.quantidadeEtapas = quantidadeEtapas;
         this.notafinal = notafinal;
         this.mediaAprovado = mediaAprovado;
         this.mediaReprovado = mediaReprovado;
-        
+    }
+    public ArrayList<Aluno> getAlunos() {
+        return listaDeAlunos;
     }
 
-    
-    
-
-
-
-
-    
-
-    
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.listaDeAlunos = alunos;
+    }
 
     public String getNome() {
         return nome;
@@ -51,14 +54,6 @@ public class Diario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
-    public void setNotasLancadas(ArrayList<Object> notasLancadas) {
-        this.notasLancadas = notasLancadas;
-    }
-
-    public ArrayList<Object> getNotasLancadas() {
-        return notasLancadas;
     }
     
     public int getQuantidadeEtapas() {
@@ -93,49 +88,6 @@ public class Diario {
         this.mediaReprovado = mediaReprovado;
     }
     
-    public void alocarAlunoNaTurma(Aluno aluno) {
-        for (Aluno a : Banco.alunosMatriculadosDiario) {
-            //Verfica se já tem um aluno cadastrado com o mesmo CPF
-            //caso a verificação seja VERDADEIRA, ele informa que já possui um cadastro com aquele CPF no banco 
-            if(aluno.getCpf().equals(a.getCpf())){
-                JOptionPane.showMessageDialog(null, "ALUNO JÁ CADASTRADO NO DIÁRIO","MENSAGEM", JOptionPane.WARNING_MESSAGE);
-            //caso a verificação seja FALSA, ele cadastra no sistema 
-            }else{
-                boolean status = bankDiario.adicionarAlunoNoDiario(aluno);
-                //compara o retorno de adicionarAlunoNoDiario
-                if(status){
-                    JOptionPane.showMessageDialog(null, "ALUNO CADASTRADO NO DIÁRIO COM SUCESSO","MENSAGEM", JOptionPane.INFORMATION_MESSAGE);
-                }else{
-                    JOptionPane.showMessageDialog(null, "ERRO Nº 1 - AO ALOCAR ALUNO","MENSAGEM", JOptionPane.ERROR_MESSAGE);
-                }
-                
-            }
-            
-        }
-        
-        
-    }
-
-    public void removerAlunoDaTurma(Aluno aluno) {
-         for (Aluno a : Banco.alunosMatriculadosDiario) {
-            //Verfica se já tem um aluno cadastrado com o mesmo CPF
-            //caso a verificação seja VERDADEIRA, ele informa que já possui um cadastro com aquele CPF no banco 
-            if(aluno.getCpf().equals(a.getCpf())){
-                boolean status = bankDiario.removerAlunoDoDiario(aluno);
-                //compara o retorno de adicionarAlunoNoDiario
-                if(status){
-                    JOptionPane.showMessageDialog(null, "ALUNO REMOVIDO DO DIÁRIO COM SUCESSO!!","MENSAGEM", JOptionPane.INFORMATION_MESSAGE);
-                }else{
-                    JOptionPane.showMessageDialog(null, "ERRO Nº 1 - AO REMOVOER ALUNO","MENSAGEM", JOptionPane.ERROR_MESSAGE);
-                }
-            //caso a verificação seja FALSA, ele cadastra no sistema 
-            }else{
-                JOptionPane.showMessageDialog(null, "ALUNO NÃO ESTAR MATRICULADO NO DIÁRIO","MENSAGEM", JOptionPane.WARNING_MESSAGE);
-            }
-            
-        }
-    }
-    
     //falta implementar
     public void lancarNota(Aluno aluno, ArrayList<Double> notas){
         boolean status = Banco.lancarNotasNoDiario(aluno, notas);
@@ -145,5 +97,11 @@ public class Diario {
             JOptionPane.showMessageDialog(null, "ERRO AO LANÇAR NOTAS","MENSAGEM", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    @Override
+    public String toString() {
+        return nome; 
+    }
+    
 
 }

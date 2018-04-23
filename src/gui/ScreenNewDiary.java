@@ -7,6 +7,8 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
+import beans.Diario;
+import beans.Professor;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -17,17 +19,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ScreenNewDiary extends JGradientPanel {
      private DefaultTableModel model;
-    public ScreenNewDiary() {
+     private ArrayList<Aluno> alunos;
+     private Professor professor;
+    public ScreenNewDiary(Professor professor) {
         super(Color.BLUE,Color.BLACK);
         initComponents();
-        
+        this.professor = professor;
+        alunos = new ArrayList<Aluno>();
+        if(!Banco.listaDeDiarios.isEmpty()){
+            jButton3.setVisible(false);
+            jTextField2.setVisible(false);
+            jLabel1.setVisible(false);
+        }
         model = (DefaultTableModel)jTable1.getModel();
-        for(Aluno a : Banco.listaDeAlunos)
-            model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
-       
-        model = (DefaultTableModel)TabelaDeDiario.getModel();
-        for(Aluno a : Banco.alunosMatriculadosDiario)
-            model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
+       for(Aluno a: Banco.listaDeAlunos)
+           model.addRow(new Object[]{a.getMatricula(),a,a.getNascimento(),a.getTelefone()});
+         
     }
 
     /**
@@ -56,6 +63,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 700));
         setLayout(new java.awt.CardLayout());
@@ -65,7 +73,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jPanel2.setName(""); // NOI18N
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
-        jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
+        jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0};
         jPanel2.setLayout(jPanel2Layout);
 
         TabelaDeDiario.setModel(new javax.swing.table.DefaultTableModel(
@@ -80,7 +88,7 @@ public class ScreenNewDiary extends JGradientPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -96,11 +104,16 @@ public class ScreenNewDiary extends JGradientPanel {
                 "Matrícula", "Nome", "Idade", "Telefone"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -112,7 +125,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jLabel6.setText("Alunos");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         jPanel2.add(jLabel6, gridBagConstraints);
@@ -121,13 +134,13 @@ public class ScreenNewDiary extends JGradientPanel {
         jLabel7.setText("Alunos Matriculados");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
         jPanel2.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField1, gridBagConstraints);
@@ -135,7 +148,7 @@ public class ScreenNewDiary extends JGradientPanel {
         jLabel3.setText("Buscar Aluno:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 0);
         jPanel2.add(jLabel3, gridBagConstraints);
@@ -148,7 +161,7 @@ public class ScreenNewDiary extends JGradientPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 30);
         jPanel2.add(jButton3, gridBagConstraints);
@@ -161,7 +174,7 @@ public class ScreenNewDiary extends JGradientPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.ipadx = 3;
         gridBagConstraints.insets = new java.awt.Insets(50, 0, 0, 0);
         jPanel2.add(jButton4, gridBagConstraints);
@@ -174,7 +187,7 @@ public class ScreenNewDiary extends JGradientPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 50, 0);
         jPanel2.add(jButton5, gridBagConstraints);
 
@@ -182,26 +195,35 @@ public class ScreenNewDiary extends JGradientPanel {
         jLabel1.setText("Nome do Diario:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
         jPanel2.add(jLabel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 250;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
         jPanel2.add(jTextField2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 5;
         jPanel2.add(jLabel2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
         jPanel2.add(jLabel4, gridBagConstraints);
+
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel5.setText("Crie seu Diário");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
 
         add(jPanel2, "card2");
     }// </editor-fold>//GEN-END:initComponents
@@ -211,22 +233,20 @@ public class ScreenNewDiary extends JGradientPanel {
         jButton3.setVisible(false);
         jTextField2.setVisible(false);
         jLabel1.setVisible(false);
-        
+        jLabel7.setVisible(false);
+        Diario diario = new Diario(jTextField2.getText(), alunos);
+        professor.setTurma(diario);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String aluno = (String) jTable1.getValueAt(jTable1.getSelectedRow(),0);
+        Aluno aluno = (Aluno) jTable1.getValueAt(jTable1.getSelectedRow(),1);
         model = (DefaultTableModel)jTable1.getModel();
         model.removeRow(jTable1.getSelectedRow());
         model = (DefaultTableModel)TabelaDeDiario.getModel();
-        ArrayList<Aluno> l = Banco.listaDeAlunos;
-        for(Aluno a:l){
-            if(aluno.equals(a.getMatricula())){
-                Banco.removerAluno(a);
-                Banco.adicionarAlunoNoDiario(a);
-                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
-            }
-        }
+        alunos.add(aluno);
+        model.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
+//                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
+           
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -234,6 +254,10 @@ public class ScreenNewDiary extends JGradientPanel {
         model.removeRow(TabelaDeDiario.getSelectedRow());
  
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+       
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -245,6 +269,7 @@ public class ScreenNewDiary extends JGradientPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;

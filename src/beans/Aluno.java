@@ -21,8 +21,8 @@ public class Aluno extends Pessoa{
     
     
     //construtor
-    public Aluno(String nomePai, String nomeMae, String matricula, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
-        super(matricula, nome, cpf, endereco, telefone, nascimento, perfil);
+    public Aluno(String nomePai, String nomeMae, String matricula,String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+        super(matricula,senha, nome, cpf, endereco, telefone, nascimento, perfil);
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
     }
@@ -45,6 +45,5 @@ public class Aluno extends Pessoa{
     public void verBoletim(String matricula){
         
     }
-
     
 }

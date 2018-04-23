@@ -5,9 +5,8 @@
  */
 package gui;
 
-import beans.Aluno;
-import beans.Banco;
-import beans.Diario;
+import beans.Pessoa;
+import beans.Professor;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -25,15 +24,17 @@ public class ScreenDiary extends JGradientPanel {
     /**
      * Creates new form ScreenDiary
      */
-    public ScreenDiary() {
+    public ScreenDiary(Pessoa pessoa) {
         super(Color.WHITE, Color.BLUE);
         initComponents();
-        
-     
+        if(pessoa instanceof Professor){
+            Professor p = (Professor) pessoa;
+            if(!p.getTurma().equals(null)){
+                jLabel1.setText(p.getTurma().toString());
+            }
+        }
         model = (DefaultTableModel)jTable1.getModel();
         model.setNumRows(0);
-        for(Aluno a : Banco.alunosMatriculadosDiario)
-            model.addRow(new Object[]{a.getMatricula(),a.getNome()});
         cont = 1;
     }
     

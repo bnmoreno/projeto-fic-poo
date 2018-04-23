@@ -5,18 +5,16 @@
  */
 package gui;
 
+import beans.Aluno;
 import beans.Banco;
+import beans.Pessoa;
+import beans.Professor;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.plaf.BorderUIResource;
 
 /**
  *
@@ -30,6 +28,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private CardLayout cd01 = new CardLayout();
     private ArrayList<JPanel> cartoes = new ArrayList<JPanel>();
     private JPanel ultimoPainel;
+    private Pessoa pessoa;
     private Banco banco;
     public PrincipalJanela() {
         initComponents();
@@ -233,13 +232,17 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
-        if(login.getText().equals("Denilson") && (senha.getText().equals("1234"))){
-            mudarDeTela(new ScreenDiary(), "ScreenDiary");
-            jMenuBar1.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Login ou senha incorreta");
-            //
+        for(Pessoa pessoa:Banco.usuarios){
+            if(login.getText().equals(pessoa.getMatricula()) && (senha.getText().equals(pessoa.getSenha()))){
+                mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
+                this.pessoa = pessoa;
+                jMenuBar1.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Login ou senha incorreta");
+                //
+            }
         }
+        
 
     }//GEN-LAST:event_acessarActionPerformed
 
@@ -250,11 +253,11 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        mudarDeTela(new ScreenNewDiary(), "ScreenNewDiary");
+        mudarDeTela(new ScreenNewDiary((Professor)pessoa), "ScreenNewDiary");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        mudarDeTela(new ScreenDiary(), "ScreenDiary");
+        mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
