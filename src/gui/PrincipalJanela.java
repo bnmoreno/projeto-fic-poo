@@ -32,11 +32,17 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private Banco banco;
     public PrincipalJanela() {
         initComponents();
+       
+        
         //layout do inicio
         banco = new Banco();
         banco.prencherParaTeste();
         this.setExtendedState(MAXIMIZED_BOTH);   
         jMenuBar1.setVisible(false);//
+        
+        for(Pessoa pessoa:Banco.usuarios){
+            System.out.println(pessoa.getMatricula() + pessoa.getSenha());
+        }
     }
     
     public void mudarDeTela(JPanel tela, String nomeDaTela) {
@@ -73,6 +79,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel3 = new JGradientPanel(Color.WHITE,Color.BLUE);
         jPanel2 = new JGradientPanel(Color.WHITE,Color.BLUE);
         jLabel5 = new javax.swing.JLabel();
@@ -87,6 +94,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -122,7 +131,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jPanel2.add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        jLabel7.setText("Usuario:");
+        jLabel7.setText("Matricula:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -214,6 +223,18 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Cadatros");
+
+        jMenuItem4.setText("Cadastrar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
+
         jMenu3.setText("Sair");
 
         jMenuItem3.setText("Sair do Sistema");
@@ -279,21 +300,30 @@ public class PrincipalJanela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        
+        mudarDeTela(new Cadastro(), "Cadastro");
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acessar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton cancelar;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField login;
