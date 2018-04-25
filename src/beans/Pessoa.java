@@ -16,7 +16,7 @@ public abstract class Pessoa {
     public static final char ALUNO = 'A';
     public static final char PROFESSOR = 'P';
     public static final char ADMINISTRADOR = 'D';
-    
+
     private String matricula;
     private String nome;
     private String cpf;
@@ -24,23 +24,20 @@ public abstract class Pessoa {
     private String telefone;
     private Date nascimento;
     private String senha;
-    
-    
+
     private char perfil;
-    
+
     @Override
     public String toString() {
-        return  nome;
+        return nome;
     }
 
     //public abstract void alterarDados();
-
     public Pessoa() {
-    
+
     }
 
-    
-    public Pessoa(String matricula,String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+    public Pessoa(String matricula, String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
         this.matricula = matricula;
         this.senha = senha;
         this.nome = nome;
@@ -51,6 +48,8 @@ public abstract class Pessoa {
         this.perfil = perfil;
     }
 
+    
+
     public String getSenha() {
         return senha;
     }
@@ -58,9 +57,7 @@ public abstract class Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
-    
+
     public String getMatricula() {
         return matricula;
     }
@@ -76,7 +73,7 @@ public abstract class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public String getCpf() {
         return cpf;
     }
