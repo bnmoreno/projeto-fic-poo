@@ -16,6 +16,7 @@ public class Aluno extends Pessoa {
 
     private String nomePai;
     private String nomeMae;
+    //Referencia a trma que o aluno pertence...
     private Diario minhaTurma;
 
     //construtor
