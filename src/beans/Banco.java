@@ -23,6 +23,48 @@ public class Banco {
     public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
     public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
+
+    public static ArrayList<Diario> getListaDeDiarios() {
+        return listaDeDiarios;
+    }
+
+    public static void setListaDeDiarios(ArrayList<Diario> listaDeDiarios) {
+        Banco.listaDeDiarios = listaDeDiarios;
+    }
+
+    public static ArrayList<Pessoa> getUsuarios() {
+        return usuarios;
+    }
+
+    public static void setUsuarios(ArrayList<Pessoa> usuarios) {
+        Banco.usuarios = usuarios;
+    }
+
+    public static ArrayList<Object> getTodasAsNotasDosAluno() {
+        return todasAsNotasDosAluno;
+    }
+
+    public static void setTodasAsNotasDosAluno(ArrayList<Object> todasAsNotasDosAluno) {
+        Banco.todasAsNotasDosAluno = todasAsNotasDosAluno;
+    }
+
+    public static ArrayList<Professor> getListaDeProfessores() {
+        return listaDeProfessores;
+    }
+
+    public static void setListaDeProfessores(ArrayList<Professor> listaDeProfessores) {
+        Banco.listaDeProfessores = listaDeProfessores;
+    }
+
+    public static ArrayList<Secretaria> getListaDeSecretarias() {
+        return listaDeSecretarias;
+    }
+
+    public static void setListaDeSecretarias(ArrayList<Secretaria> listaDeSecretarias) {
+        Banco.listaDeSecretarias = listaDeSecretarias;
+    }
+    
+    
     
     public static boolean cadastrarAluno(Aluno aluno){
         return listaDeAlunos.add(aluno);
