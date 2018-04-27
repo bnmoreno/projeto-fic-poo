@@ -11,7 +11,7 @@ import beans.Professor;
 import beans.Secretaria;
 import java.awt.Color;
 import java.util.Calendar;
-
+import java.util.Date;
 
 /**
  *
@@ -33,54 +33,47 @@ public class Cadastro extends javax.swing.JPanel {
         jLabel_NomePai.setVisible(false);
         
     }
-    
+
     //Area de funções especificas...
     public String geradorDeMatricula() {
         String mat = "";
         Calendar cal = Calendar.getInstance();
         mat += cal.get(Calendar.YEAR);
-        //mat de aluno 2018130001...
-        //mat de professor 2018120001.
-        //mat de secretario 2018110001.
+        //mat de secretario 2018110001...
+        //mat de aluno 2018120001...
+        //mat de professor 2018130001...
         if (jRadioButton1.isSelected()) {
-            mat += "12";
-            if (Banco.getListaDeProfessores().isEmpty()) {
-                return mat += "0001";
+            if (Banco.getListaDeSecretarias().isEmpty()) {
+                return mat += "110001";
             } else {
-                int indexOfLast = Banco.getListaDeProfessores().size() - 1;
-                Professor p = Banco.listaDeProfessores.get(indexOfLast);
-                int res = Integer.parseInt(p.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
+                long res = Long.parseLong(Banco.listaDeSecretarias.get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
         if (jRadioButton2.isSelected()) {
-            mat += "13";
             if (Banco.getListaDeAlunos().isEmpty()) {
-                return mat += "0001";
+                return mat += "120001";
             } else {
-                int indexOfLast = Banco.getListaDeAlunos().size() - 1;
-                Aluno a = Banco.listaDeAlunos.get(indexOfLast);
-                int res = Integer.parseInt(a.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeAlunos().size()-1;
+                long res = Long.parseLong(Banco.getListaDeAlunos().get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
         if (jRadioButton3.isSelected()) {
-            mat += "11";
-            if (Banco.getListaDeSecretarias().isEmpty()) {
-                return mat += "0001";
+            if (Banco.getListaDeProfessores().isEmpty()) {
+                return mat += "130001";
             } else {
-                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
-                Secretaria s = Banco.getListaDeSecretarias().get(indexOfLast);
-                int res = Integer.parseInt(s.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeProfessores().size()-1;
+                Long res = Long.parseLong(Banco.getListaDeProfessores().get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
 
         return mat;
     }
-    
+
     //Fim da area de funções especificas
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

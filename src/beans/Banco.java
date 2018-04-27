@@ -111,11 +111,11 @@ public class Banco {
     
     public void prencherParaTeste(){
         usuarios.add(new Professor(new Diario("Diario Teste"), "1234","1234", "Denilson", "", "", "", new Date(), 'P'));
-        cadastrarAluno(new Aluno("João", "Maria", "201","1234", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "202","1234", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "203","1234", "Fulano", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "204","1234", "Sicrano", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "205","1234", "Beotrano", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "2018120001","1234", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "2018120002","1234", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "2018120003","1234", "Fulano", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "2018120004","1234", "Sicrano", "111", "endereco", "telefone", new Date(), 'A'));
+        cadastrarAluno(new Aluno("João", "Maria", "2018120005","1234", "Beotrano", "111", "endereco", "telefone", new Date(), 'A'));
    }
 //    public void alterarDadosAluno(String matricula){
 //        boolean teste;
