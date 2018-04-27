@@ -63,7 +63,6 @@ public class ScreenNewDiary extends JGradientPanel {
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -208,11 +207,6 @@ public class ScreenNewDiary extends JGradientPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
         jPanel2.add(jTextField2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        jPanel2.add(jLabel2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 30, 0);
@@ -231,11 +225,10 @@ public class ScreenNewDiary extends JGradientPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jLabel2.setText(jTextField2.getText());
+        jLabel7.setText(jTextField2.getText());
         jButton3.setVisible(false);
         jTextField2.setVisible(false);
         jLabel1.setVisible(false);
-        jLabel7.setVisible(false);
         Diario diario = new Diario(jTextField2.getText(), alunos);
         professor.setTurma(diario);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -275,7 +268,6 @@ public class ScreenNewDiary extends JGradientPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
