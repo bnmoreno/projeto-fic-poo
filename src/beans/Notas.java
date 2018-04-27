@@ -12,16 +12,21 @@ import java.util.ArrayList;
  * @author matheus
  */
 public class Notas {
-    String nome;
-    String cpf;
-    String matricula;
+    Aluno aluno;
     ArrayList<Double> notas;
 
-    public Notas(String nome, String cpf, String matricula, ArrayList<Double> notas) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.matricula = matricula;
+    public Notas(Aluno aluno, ArrayList<Double> notas) {
+        this.aluno = aluno;
         this.notas = notas;
     }
+
+    public ArrayList<Double> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(ArrayList<Double> notas) {
+        this.notas = notas;
+    }
+    
     
 }
