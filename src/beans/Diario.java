@@ -19,7 +19,11 @@ public class Diario {
     private ArrayList<Aluno> listaDeAlunos;
     private int quantidadeEtapas;
     private float notafinal, mediaAprovado, mediaReprovado;
-
+    ArrayList<Integer> PesoPorEtapa = new ArrayList<>();
+    
+    //private double notasDeAluno[] = new double[quantidadeEtapas];
+    
+    
     
     //criando diario apenas como o nome
     public Diario(String nome){
@@ -87,16 +91,16 @@ public class Diario {
     public void setMediaReprovado(float mediaReprovado) {
         this.mediaReprovado = mediaReprovado;
     }
-    
+
     //falta implementar
-    public void lancarNota(Aluno aluno, ArrayList<Double> notas){
-        boolean status = Banco.lancarNotasNoDiario(aluno, notas);
-        if (status) {
-            JOptionPane.showMessageDialog(null, "NOTAS LANÇADA COM SUCESSO","MENSAGEM", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null, "ERRO AO LANÇAR NOTAS","MENSAGEM", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+//    public void lancarNota(Aluno aluno, ArrayList<Double> notas){
+//        boolean status = Banco.lancarNotasNoDiario(aluno, notas);
+//        if (status) {
+//            JOptionPane.showMessageDialog(null, "NOTAS LANÇADA COM SUCESSO","MENSAGEM", JOptionPane.INFORMATION_MESSAGE);
+//        }else{
+//            JOptionPane.showMessageDialog(null, "ERRO AO LANÇAR NOTAS","MENSAGEM", JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
 
     @Override
     public String toString() {

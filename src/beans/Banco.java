@@ -20,7 +20,6 @@ public class Banco {
     public static ArrayList<Aluno> listaDeAlunos = new ArrayList<Aluno>();
     public static ArrayList<Diario> listaDeDiarios = new ArrayList<Diario>();
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
-    public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
     public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
 
@@ -38,14 +37,6 @@ public class Banco {
 
     public static void setUsuarios(ArrayList<Pessoa> usuarios) {
         Banco.usuarios = usuarios;
-    }
-
-    public static ArrayList<Object> getTodasAsNotasDosAluno() {
-        return todasAsNotasDosAluno;
-    }
-
-    public static void setTodasAsNotasDosAluno(ArrayList<Object> todasAsNotasDosAluno) {
-        Banco.todasAsNotasDosAluno = todasAsNotasDosAluno;
     }
 
     public static ArrayList<Professor> getListaDeProfessores() {
@@ -77,15 +68,13 @@ public class Banco {
  
     //Lancador de notas
     //static apenas para teste
-    public static boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
-        Notas lancarNota = new Notas(a.getNome(),a.getCpf(),a.getMatricula(), notas);
-        return todasAsNotasDosAluno.add(lancarNota);
-    }
+    
     
     public static ArrayList<Aluno> getListaDeAlunos() {
         return listaDeAlunos;
     }
-
+   
+    
     //Area de Funções especificas...
     
     //Metodo que gera a matricula automáticamente a matricula do ALUNO

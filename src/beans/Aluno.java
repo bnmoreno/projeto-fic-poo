@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,7 +18,8 @@ public class Aluno extends Pessoa {
     private String nomeMae;
     //Referencia a trma que o aluno pertence...
     private Diario minhaTurma;
-
+    ArrayList<Notas> notasDoAluno = new ArrayList<>();
+    
     //construtor
     public Aluno(String nomePai, String nomeMae, String matricula, String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
         super(matricula, senha, nome, cpf, endereco, telefone, nascimento, perfil);
@@ -25,9 +27,15 @@ public class Aluno extends Pessoa {
         this.nomeMae = nomeMae;
     }
     
-    public void verBoletim() {
-        
-    }
+//    public Notas verBoletim(Aluno a) {
+//       Notas notaDoAluno=null;
+//       for (Notas n: Banco.todasAsNotasDosAluno) {    
+//            if(a.getMatricula().equals(n.getMatricula())){
+//                notaDoAluno = n;
+//            }
+//        }
+//       return notaDoAluno;
+//    }
 
     public String getNomePai() {
         return nomePai;
@@ -53,4 +61,12 @@ public class Aluno extends Pessoa {
         this.minhaTurma = minhaTurma;
     }
 
+    public ArrayList<Notas> getNotasDoAluno() {
+        return notasDoAluno;
+    }
+
+    public void setNotasDoAluno(ArrayList<Notas> notasDoAluno) {
+        this.notasDoAluno = notasDoAluno;
+    }
+    
 }

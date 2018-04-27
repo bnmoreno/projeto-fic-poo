@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,7 +21,12 @@ public class Professor extends Pessoa{
         super(matricula,senha, nome, cpf, endereco, telefone, nascimento, perfil);
         this.turma = turma;
     }
-
+    
+    public boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
+        Notas lancarNota = new Notas(a, notas);
+        return a.getNotasDoAluno().add(lancarNota);
+    }
+    
     public Diario getTurma() {
         return turma;
     }
@@ -29,4 +35,6 @@ public class Professor extends Pessoa{
         this.turma = turma;
     }
    
+    
+    
 }
