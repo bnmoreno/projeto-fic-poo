@@ -42,17 +42,6 @@ public class Cadastro extends javax.swing.JPanel {
         //mat de professor 2018120001.
         //mat de secretario 2018110001.
         if (jRadioButton1.isSelected()) {
-            mat += "13";
-            if (Banco.getListaDeAlunos().isEmpty()) {
-                return mat += "0001";
-            } else {
-                int indexOfLast = Banco.getListaDeAlunos().size() - 1;
-                Aluno a = Banco.listaDeAlunos.get(indexOfLast);
-                int res = Integer.parseInt(a.getMatricula()) + 1;
-                mat = Integer.toString(res);
-            }
-        }
-        if (jRadioButton2.isSelected()) {
             mat += "12";
             if (Banco.getListaDeProfessores().isEmpty()) {
                 return mat += "0001";
@@ -60,6 +49,17 @@ public class Cadastro extends javax.swing.JPanel {
                 int indexOfLast = Banco.getListaDeProfessores().size() - 1;
                 Professor p = Banco.listaDeProfessores.get(indexOfLast);
                 int res = Integer.parseInt(p.getMatricula()) + 1;
+                mat = Integer.toString(res);
+            }
+        }
+        if (jRadioButton2.isSelected()) {
+            mat += "13";
+            if (Banco.getListaDeAlunos().isEmpty()) {
+                return mat += "0001";
+            } else {
+                int indexOfLast = Banco.getListaDeAlunos().size() - 1;
+                Aluno a = Banco.listaDeAlunos.get(indexOfLast);
+                int res = Integer.parseInt(a.getMatricula()) + 1;
                 mat = Integer.toString(res);
             }
         }
