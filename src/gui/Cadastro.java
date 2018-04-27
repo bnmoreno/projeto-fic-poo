@@ -8,6 +8,7 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import java.util.Calendar;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -294,7 +295,28 @@ public class Cadastro extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-
+    //Metodos especificos...
+    public String geradorDeMatricula() {
+        String mat="";
+        Calendar cal = Calendar.getInstance();
+        mat += cal.get(Calendar.YEAR);
+        //mat de aluno 2018130001...
+        //mat de professor 2018120001.
+        //mat de secretario 2018110001.
+        if(jRadioButton1.isSelected())mat+="11";
+        if(jRadioButton2.isSelected())mat+="12";
+        if(jRadioButton3.isSelected())mat+="13";
+        if(Banco.getListaDeAlunos().isEmpty()){
+            return mat+="0001";
+        }else{
+            int indexOfLastStudent = Banco.getListaDeAlunos().size()-1;
+            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
+            int res = Integer.parseInt(a.getMatricula())+1;
+            mat = Integer.toString(res);
+        }
+        
+        return mat;
+    }
 
 
 

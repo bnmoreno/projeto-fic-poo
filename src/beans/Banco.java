@@ -5,6 +5,7 @@
  */
 package beans;
 
+import gui.Cadastro;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class Banco {
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
     public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
-    public static ArrayList<Secretaria> listaDeSecretaria = new ArrayList<Secretaria>();
+    public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
     
     public static boolean cadastrarAluno(Aluno aluno){
         return listaDeAlunos.add(aluno);
@@ -49,21 +50,7 @@ public class Banco {
     //no formato temporario de ano-atual+sequencia-do-aluno
     //Exemplo 20180001 para o primeiro aluno
     
-    public static String geradorDeMatriculaDeAluno() {
-        String mat="";
-        Calendar cal = Calendar.getInstance();
-        mat += cal.get(Calendar.YEAR);
-        if(Banco.getListaDeAlunos().isEmpty()){
-            return mat+"0001";
-        }else{
-            int indexOfLastStudent = Banco.getListaDeAlunos().size()-1;
-            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
-            int res = Integer.parseInt(a.getMatricula())+1;
-            mat = Integer.toString(res);
-        }
-        
-        return mat;
-    }
+    
     
     public static Object alterarDados(Pessoa pessoa){
         Pessoa pessoasaida = null;
