@@ -5,6 +5,7 @@
  */
 package gui;
 
+import beans.Pessoa;
 import java.awt.Color;
 
 /**
@@ -14,7 +15,7 @@ import java.awt.Color;
 public class ScreenReportCard extends JGradientPanel {
 
   
-    public ScreenReportCard() {
+    public ScreenReportCard(Pessoa pessoa) {
         super(Color.WHITE,Color.BLUE);
         initComponents();
     }

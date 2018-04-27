@@ -96,10 +96,10 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -234,6 +234,18 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setText("Ver diario");
+
+        jMenuItem5.setText("Ver diario");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu3.setText("Sair");
 
         jMenuItem3.setText("Sair do Sistema");
@@ -246,18 +258,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("jMenu4");
-
-        jMenuItem5.setText("jMenuItem5");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu4);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -266,9 +266,18 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
         for(Pessoa pessoa:Banco.usuarios){
             if(login.getText().equals(pessoa.getMatricula()) && (senha.getText().equals(pessoa.getSenha()))){
-                mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
-                this.pessoa = pessoa;
-                jMenuBar1.setVisible(true);
+                if(pessoa instanceof Professor){
+                    mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
+                    this.pessoa = pessoa;
+                    jMenuBar1.setVisible(true);
+                    jMenu4.setVisible(false);
+                }else if(pessoa instanceof Aluno){
+                    Aluno aluno = (Aluno) pessoa;
+                    mudarDeTela(new ScreenReportCard(aluno), "ScreenReportCard");
+                    jMenuBar1.setVisible(true);
+                    jMenu1.setVisible(false);
+                    jMenu2.setVisible(false);
+                }
             }else{
                 jLabel1.setText("Login ou senha incorreta");
                 //
@@ -312,7 +321,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        mudarDeTela(new ScreenReportCard(), "ScreenReportCard");
+        mudarDeTela(new ScreenReportCard(pessoa), "ScreenReportCard");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     

@@ -28,17 +28,16 @@ public class ScreenDiary extends JGradientPanel {
     public ScreenDiary(Pessoa pessoa) {
         super(Color.WHITE, Color.BLUE);
         initComponents();
-        if(pessoa instanceof Professor){
-            Professor p = (Professor) pessoa;
-            if(!p.getTurma().equals(null)){
-                jLabel1.setText(p.getTurma().toString());
-            }
-            model = (DefaultTableModel)jTable1.getModel();
-            model.setNumRows(0);
-            for(Aluno a:p.getTurma().getAlunos()){
-                model.addRow(new Object[]{a, a.getMatricula(), a.getNascimento(), a.getTelefone()});
-            }
+        Professor p = (Professor) pessoa;
+        if(!p.getTurma().equals(null)){
+            jLabel1.setText(p.getTurma().toString());
         }
+        model = (DefaultTableModel)jTable1.getModel();
+        model.setNumRows(0);
+        for(Aluno a:p.getTurma().getAlunos()){
+            model.addRow(new Object[]{a, a.getMatricula(), a.getNascimento(), a.getTelefone()});
+        }
+        
         cont = 1;
     }
     
