@@ -27,11 +27,11 @@ public class Aluno extends Pessoa {
         this.nomeMae = nomeMae;
     }
     
-//    public Notas verBoletim(Aluno a) {
-//       Notas notaDoAluno=null;
-//       for (Notas n: Banco.todasAsNotasDosAluno) {    
-//            if(a.getMatricula().equals(n.getMatricula())){
-//                notaDoAluno = n;
+//    public Aluno verBoletim(Aluno a) {
+//       Aluno notaDoAluno=null;
+//       for (Aluno aluno: Banco.listaDeAlunos) {    
+//            if(a.getMatricula().equals(aluno.getMatricula())){
+//                notaDoAluno = aluno;
 //            }
 //        }
 //       return notaDoAluno;
