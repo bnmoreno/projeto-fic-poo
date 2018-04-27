@@ -24,6 +24,7 @@ public class Diario {
     //criando diario apenas como o nome
     public Diario(String nome){
         this.nome = nome;
+        listaDeAlunos = new ArrayList<>();
     }
 
     public Diario(String nome, ArrayList<Aluno> listaDeAlunos) {

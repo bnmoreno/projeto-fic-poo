@@ -5,6 +5,7 @@
  */
 package gui;
 
+import beans.Aluno;
 import beans.Pessoa;
 import beans.Professor;
 import java.awt.Color;
@@ -32,9 +33,12 @@ public class ScreenDiary extends JGradientPanel {
             if(!p.getTurma().equals(null)){
                 jLabel1.setText(p.getTurma().toString());
             }
+            model = (DefaultTableModel)jTable1.getModel();
+            model.setNumRows(0);
+            for(Aluno a:p.getTurma().getAlunos()){
+                model.addRow(new Object[]{a, a.getMatricula(), a.getNascimento(), a.getTelefone()});
+            }
         }
-        model = (DefaultTableModel)jTable1.getModel();
-        model.setNumRows(0);
         cont = 1;
     }
     
