@@ -28,10 +28,5 @@ public class Professor extends Pessoa{
     public void setTurma(Diario turma) {
         this.turma = turma;
     }
-    
-    public void alterarDados(String matricula) {
-        
-    }
-    
-  
+   
 }

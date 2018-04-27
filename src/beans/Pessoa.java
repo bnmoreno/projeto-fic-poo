@@ -48,7 +48,30 @@ public abstract class Pessoa {
         this.perfil = perfil;
     }
 
-    
+    public Object alterarDados(Pessoa pessoa){
+        Pessoa pessoasaida = null;
+        
+        if(pessoa instanceof Aluno){
+            for (Aluno aluno : Banco.listaDeAlunos) {
+                if (pessoa.getMatricula().equals(aluno.getMatricula())) {
+                    pessoasaida = (Aluno) aluno;
+                }
+            }
+        }else if(pessoa instanceof Professor){
+            for (Professor professor : Banco.listaDeProfessores) {
+                if (pessoa.getMatricula().equals(professor.getMatricula())) {
+                    pessoasaida = (Professor)professor;
+                }
+            }
+        }else if(pessoa instanceof Secretaria){
+            for (Secretaria secretaria : Banco.listaDeSecretaria) {
+                if (pessoa.getMatricula().equals(secretaria.getMatricula())) {
+                    pessoasaida = (Secretaria) secretaria;
+                }
+            }
+        }   
+        return pessoasaida;
+    }
 
     public String getSenha() {
         return senha;

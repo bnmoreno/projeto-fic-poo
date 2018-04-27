@@ -51,6 +51,7 @@ public class Banco {
     
     public static String geradorDeMatriculaDeAluno() {
         String mat="";
+        
         Calendar cal = Calendar.getInstance();
         mat += cal.get(Calendar.YEAR);
         if(Banco.getListaDeAlunos().isEmpty()){
@@ -63,32 +64,6 @@ public class Banco {
         }
         
         return mat;
-    }
-    
-    public static Object alterarDados(Pessoa pessoa){
-        Pessoa pessoasaida = null;
-        String matricula = pessoa.getMatricula();
-        
-        if(pessoa instanceof Aluno){
-            for (Aluno aluno : Banco.listaDeAlunos) {
-                if (matricula.equals(aluno.getMatricula())) {
-                    pessoasaida = aluno;
-                }
-            }
-        }else if(pessoa instanceof Professor){
-            for (Professor professor : Banco.listaDeProfessores) {
-                if (matricula.equals(professor.getMatricula())) {
-                    pessoasaida = professor;
-                }
-            }
-        }else if(pessoa instanceof Secretaria){
-            for (Professor professor : Banco.listaDeProfessores) {
-                if (matricula.equals(professor.getMatricula())) {
-                    pessoasaida = professor;
-                }
-            }
-        }   
-        return pessoasaida;
     }
     
     public void prencherParaTeste(){

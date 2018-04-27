@@ -11,4 +11,5 @@ package beans;
  */
 public class Secretaria extends Pessoa{
     
+    
 }
