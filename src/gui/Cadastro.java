@@ -7,8 +7,11 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
+import beans.Professor;
+import beans.Secretaria;
 import java.awt.Color;
 import java.util.Calendar;
+
 
 /**
  *
@@ -29,7 +32,54 @@ public class Cadastro extends javax.swing.JPanel {
         jLabel_NomeMae.setVisible(false);
         jLabel_NomePai.setVisible(false);
     }
+    
+    //Area de funções especificas...
+    public String geradorDeMatricula() {
+        String mat = "";
+        Calendar cal = Calendar.getInstance();
+        mat += cal.get(Calendar.YEAR);
+        //mat de aluno 2018130001...
+        //mat de professor 2018120001.
+        //mat de secretario 2018110001.
+        if (jRadioButton1.isSelected()) {
+            mat += "13";
+            if (Banco.getListaDeAlunos().isEmpty()) {
+                return mat += "0001";
+            } else {
+                int indexOfLast = Banco.getListaDeAlunos().size() - 1;
+                Aluno a = Banco.listaDeAlunos.get(indexOfLast);
+                int res = Integer.parseInt(a.getMatricula()) + 1;
+                mat = Integer.toString(res);
+            }
+        }
+        if (jRadioButton2.isSelected()) {
+            mat += "12";
+            if (Banco.getListaDeProfessores().isEmpty()) {
+                return mat += "0001";
+            } else {
+                int indexOfLast = Banco.getListaDeProfessores().size() - 1;
+                Professor p = Banco.listaDeProfessores.get(indexOfLast);
+                int res = Integer.parseInt(p.getMatricula()) + 1;
+                mat = Integer.toString(res);
+            }
+        }
+        if (jRadioButton3.isSelected()) {
+            mat += "11";
+            if (Banco.getListaDeSecretarias().isEmpty()) {
+                return mat += "0001";
+            } else {
+                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
+                Secretaria s = Banco.getListaDeSecretarias().get(indexOfLast);
+                int res = Integer.parseInt(s.getMatricula()) + 1;
+                mat = Integer.toString(res);
+            }
+        }
 
+        return mat;
+    }
+    
+    //Fim da area de funções especificas
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,8 +122,8 @@ public class Cadastro extends javax.swing.JPanel {
         setLayout(new java.awt.CardLayout());
 
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0};
-        jPanel2Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
+        jPanel2Layout.columnWidths = new int[]{0, 10, 0, 10, 0};
+        jPanel2Layout.rowHeights = new int[]{0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanel2.setLayout(jPanel2Layout);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Tipo de usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -276,41 +326,37 @@ public class Cadastro extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        if(jRadioButton1.isSelected()){
+        if (jRadioButton1.isSelected()) {
             jTextField_NomeMae.setVisible(false);
             jTextField_NomePai.setVisible(false);
             jLabel_NomeMae.setVisible(false);
-            jLabel_NomePai.setVisible(false);        
+            jLabel_NomePai.setVisible(false);
         }
 
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        if(jRadioButton3.isSelected()){
+        if (jRadioButton3.isSelected()) {
             jTextField_NomeMae.setVisible(false);
             jTextField_NomePai.setVisible(false);
             jLabel_NomeMae.setVisible(false);
-            jLabel_NomePai.setVisible(false);        
+            jLabel_NomePai.setVisible(false);
         }
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        if(jRadioButton2.isSelected()){
+        if (jRadioButton2.isSelected()) {
             jTextField_NomeMae.setVisible(true);
             jTextField_NomePai.setVisible(true);
             jLabel_NomeMae.setVisible(true);
-            jLabel_NomePai.setVisible(true);        
+            jLabel_NomePai.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

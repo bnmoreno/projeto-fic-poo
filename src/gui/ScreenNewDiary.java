@@ -241,10 +241,19 @@ public class ScreenNewDiary extends JGradientPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Aluno aluno = (Aluno) jTable1.getValueAt(jTable1.getSelectedRow(),1);
         model = (DefaultTableModel)jTable1.getModel();
-        model.removeRow(jTable1.getSelectedRow());
+        int idx[] = jTable1.getSelectedRows();
+        model.removeRow(idx[0]);
         model = (DefaultTableModel)TabelaDeDiario.getModel();
-        alunos.add(aluno);
         model.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
+        model = (DefaultTableModel)jTable1.getModel();
+        alunos.add(aluno);
+        for(int j=1; j<idx.length; j++){
+            aluno = (Aluno) jTable1.getValueAt(idx[j]-j,1);
+            model = (DefaultTableModel)TabelaDeDiario.getModel();
+            model.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
+            model = (DefaultTableModel)jTable1.getModel();
+            model.removeRow(idx[j]-j);
+        }
 //                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
            
         

@@ -64,7 +64,7 @@ public abstract class Pessoa {
                 }
             }
         }else if(pessoa instanceof Secretaria){
-            for (Secretaria secretaria : Banco.listaDeSecretaria) {
+            for (Secretaria secretaria : Banco.listaDeSecretarias) {
                 if (pessoa.getMatricula().equals(secretaria.getMatricula())) {
                     pessoasaida = (Secretaria) secretaria;
                 }
