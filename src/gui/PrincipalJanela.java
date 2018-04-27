@@ -87,9 +87,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         acessar = new javax.swing.JButton();
-        cancelar = new javax.swing.JButton();
         login = new javax.swing.JTextField();
         senha = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -108,7 +108,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
-        jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
+        jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0};
         jPanel2.setLayout(jPanel2Layout);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/use.png"))); // NOI18N
@@ -155,27 +155,14 @@ public class PrincipalJanela extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(acessar, gridBagConstraints);
-
-        cancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Imagem3.png"))); // NOI18N
-        cancelar.setText("Cancelar");
-        cancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(cancelar, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        jPanel2.add(acessar, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 191;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -194,10 +181,20 @@ public class PrincipalJanela extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 191;
         gridBagConstraints.ipady = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         jPanel2.add(senha, gridBagConstraints);
+
+        jLabel1.setBackground(new java.awt.Color(254, 254, 254));
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        jPanel2.add(jLabel1, gridBagConstraints);
 
         jPanel3.add(jPanel2, "card2");
 
@@ -259,19 +256,13 @@ public class PrincipalJanela extends javax.swing.JFrame {
                 this.pessoa = pessoa;
                 jMenuBar1.setVisible(true);
             }else{
-                JOptionPane.showMessageDialog(null, "Login ou senha incorreta");
+                jLabel1.setText("Login ou senha incorreta");
                 //
             }
         }
         
 
     }//GEN-LAST:event_acessarActionPerformed
-
-    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-
-            System.exit(0);
-
-    }//GEN-LAST:event_cancelarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         mudarDeTela(new ScreenNewDiary((Professor)pessoa), "ScreenNewDiary");
@@ -311,7 +302,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acessar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton cancelar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
