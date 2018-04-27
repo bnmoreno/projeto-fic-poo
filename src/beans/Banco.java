@@ -20,6 +20,8 @@ public class Banco {
     public static ArrayList<Diario> listaDeDiarios = new ArrayList<Diario>();
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
     public static ArrayList<Object> todasAsNotasDosAluno = new ArrayList<Object>();
+    public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
+    public static ArrayList<Secretaria> listaDeSecretaria = new ArrayList<Secretaria>();
     
     public static boolean cadastrarAluno(Aluno aluno){
         return listaDeAlunos.add(aluno);
@@ -69,14 +71,22 @@ public class Banco {
         
         if(pessoa instanceof Aluno){
             for (Aluno aluno : Banco.listaDeAlunos) {
-            if (matricula.equals(aluno.getMatricula())) {
-                pessoasaida = aluno;
+                if (matricula.equals(aluno.getMatricula())) {
+                    pessoasaida = aluno;
+                }
             }
-        }
         }else if(pessoa instanceof Professor){
-            
+            for (Professor professor : Banco.listaDeProfessores) {
+                if (matricula.equals(professor.getMatricula())) {
+                    pessoasaida = professor;
+                }
+            }
         }else if(pessoa instanceof Secretaria){
-            
+            for (Professor professor : Banco.listaDeProfessores) {
+                if (matricula.equals(professor.getMatricula())) {
+                    pessoasaida = professor;
+                }
+            }
         }   
         return pessoasaida;
     }
