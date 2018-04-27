@@ -11,7 +11,7 @@ import beans.Professor;
 import beans.Secretaria;
 import java.awt.Color;
 import java.util.Calendar;
-
+import java.util.Date;
 
 /**
  *
@@ -31,55 +31,53 @@ public class Cadastro extends javax.swing.JPanel {
         jTextField_NomePai.setVisible(false);
         jLabel_NomeMae.setVisible(false);
         jLabel_NomePai.setVisible(false);
+        
+        jPasswordField1.setEditable(false);
+        jPasswordField1.setEnabled(false);
+        jTextField2.setEditable(false);
+        jTextField2.setEnabled(false);
     }
-    
+
     //Area de funções especificas...
     public String geradorDeMatricula() {
         String mat = "";
         Calendar cal = Calendar.getInstance();
         mat += cal.get(Calendar.YEAR);
-        //mat de aluno 2018130001...
-        //mat de professor 2018120001.
-        //mat de secretario 2018110001.
+        //mat de secretario 2018110001...
+        //mat de aluno 2018120001...
+        //mat de professor 2018130001...
         if (jRadioButton1.isSelected()) {
-            mat += "12";
-            if (Banco.getListaDeProfessores().isEmpty()) {
-                return mat += "0001";
+            if (Banco.getListaDeSecretarias().isEmpty()) {
+                return mat += "110001";
             } else {
-                int indexOfLast = Banco.getListaDeProfessores().size() - 1;
-                Professor p = Banco.listaDeProfessores.get(indexOfLast);
-                int res = Integer.parseInt(p.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
+                long res = Long.parseLong(Banco.listaDeSecretarias.get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
         if (jRadioButton2.isSelected()) {
-            mat += "13";
             if (Banco.getListaDeAlunos().isEmpty()) {
-                return mat += "0001";
+                return mat += "120001";
             } else {
-                int indexOfLast = Banco.getListaDeAlunos().size() - 1;
-                Aluno a = Banco.listaDeAlunos.get(indexOfLast);
-                int res = Integer.parseInt(a.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeAlunos().size()-1;
+                long res = Long.parseLong(Banco.getListaDeAlunos().get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
         if (jRadioButton3.isSelected()) {
-            mat += "11";
-            if (Banco.getListaDeSecretarias().isEmpty()) {
-                return mat += "0001";
+            if (Banco.getListaDeProfessores().isEmpty()) {
+                return mat += "130001";
             } else {
-                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
-                Secretaria s = Banco.getListaDeSecretarias().get(indexOfLast);
-                int res = Integer.parseInt(s.getMatricula()) + 1;
-                mat = Integer.toString(res);
+                int indexOfLast = Banco.getListaDeProfessores().size()-1;
+                Long res = Long.parseLong(Banco.getListaDeProfessores().get(indexOfLast).getMatricula()) + (long) 1;
+                mat = String.valueOf(res);
             }
         }
 
         return mat;
     }
-    
+
     //Fim da area de funções especificas
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,12 +95,9 @@ public class Cadastro extends javax.swing.JPanel {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         cad = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -115,15 +110,18 @@ public class Cadastro extends javax.swing.JPanel {
         jTextField_NomePai = new javax.swing.JTextField();
         jTextField_NomeMae = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jFormattedTextField3 = new javax.swing.JFormattedTextField();
 
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         setLayout(new java.awt.CardLayout());
 
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[]{0, 10, 0, 10, 0};
-        jPanel2Layout.rowHeights = new int[]{0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
+        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0};
+        jPanel2Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanel2.setLayout(jPanel2Layout);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Tipo de usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -185,42 +183,29 @@ public class Cadastro extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 5;
         jPanel2.add(cad, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 294;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(jTextField1, gridBagConstraints);
+
+        jTextField2.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 294;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 294;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 294;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField4, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.ipadx = 294;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(jTextField5, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.ipadx = 294;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(jTextField6, gridBagConstraints);
 
         jLabel2.setText("Matrícula");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -287,12 +272,14 @@ public class Cadastro extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 294;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField_NomePai, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 294;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jTextField_NomeMae, gridBagConstraints);
@@ -303,12 +290,6 @@ public class Cadastro extends javax.swing.JPanel {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jLabel7, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.ipadx = 294;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(jTextField7, gridBagConstraints);
 
         jButton1.setText("Confirmar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -322,6 +303,38 @@ public class Cadastro extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel2.add(jButton1, gridBagConstraints);
 
+        try {
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(jFormattedTextField1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(jFormattedTextField2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(jPasswordField1, gridBagConstraints);
+
+        try {
+            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(jFormattedTextField3, gridBagConstraints);
+
         add(jPanel2, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
@@ -332,7 +345,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(false);
             jLabel_NomePai.setVisible(false);
         }
-
+        jTextField2.setText(geradorDeMatricula());
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -342,6 +355,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(false);
             jLabel_NomePai.setVisible(false);
         }
+        jTextField2.setText(geradorDeMatricula());
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -351,6 +365,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(true);
             jLabel_NomePai.setVisible(true);
         }
+        jTextField2.setText(geradorDeMatricula());
 
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -363,6 +378,9 @@ public class Cadastro extends javax.swing.JPanel {
     private javax.swing.JLabel cad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -374,16 +392,13 @@ public class Cadastro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel_NomePai;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField_NomeMae;
     private javax.swing.JTextField jTextField_NomePai;
     // End of variables declaration//GEN-END:variables

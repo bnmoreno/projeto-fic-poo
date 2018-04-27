@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ScreenNewDiary extends JGradientPanel {
      private DefaultTableModel model;
+     private DefaultTableModel model2;
      private ArrayList<Aluno> alunos;
      private Professor professor;
     public ScreenNewDiary(Professor professor) {
@@ -32,6 +33,7 @@ public class ScreenNewDiary extends JGradientPanel {
             jLabel1.setVisible(false);
         }
         model = (DefaultTableModel)jTable1.getModel();
+        //model2 = (DefaultTableModel)TabelaDeDiario.getModel();
        for(Aluno a: Banco.listaDeAlunos)
            model.addRow(new Object[]{a.getMatricula(),a,a.getNascimento(),a.getTelefone()});
          
@@ -241,17 +243,15 @@ public class ScreenNewDiary extends JGradientPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Aluno aluno = (Aluno) jTable1.getValueAt(jTable1.getSelectedRow(),1);
         model = (DefaultTableModel)jTable1.getModel();
+        model2 = (DefaultTableModel)TabelaDeDiario.getModel();
         int idx[] = jTable1.getSelectedRows();
         model.removeRow(idx[0]);
-        model = (DefaultTableModel)TabelaDeDiario.getModel();
-        model.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
-        model = (DefaultTableModel)jTable1.getModel();
+        model2.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
         alunos.add(aluno);
         for(int j=1; j<idx.length; j++){
             aluno = (Aluno) jTable1.getValueAt(idx[j]-j,1);
-            model = (DefaultTableModel)TabelaDeDiario.getModel();
-            model.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
-            model = (DefaultTableModel)jTable1.getModel();
+            alunos.add(aluno);
+            model2.addRow(new Object[]{aluno, aluno.getMatricula(), aluno.getNascimento(), aluno.getTelefone()});
             model.removeRow(idx[j]-j);
         }
 //                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
@@ -260,8 +260,8 @@ public class ScreenNewDiary extends JGradientPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        model.removeRow(TabelaDeDiario.getSelectedRow());
- 
+
+           model2.removeRow(TabelaDeDiario.getSelectedRow());
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
