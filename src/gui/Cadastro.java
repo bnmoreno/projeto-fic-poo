@@ -308,26 +308,8 @@ public class Cadastro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    //Area de Funções especificas...
-    
-    //Metodo que gera a matricula automáticamente a matricula do ALUNO
-    //no formato temporario de ano-atual+sequencia-do-aluno
-    //Exemplo 20180001 para o primeiro aluno
-    public String geradorDeMatriculaDeAluno() {
-        String mat="";
-        Calendar cal = Calendar.getInstance();
-        mat += cal.get(Calendar.YEAR);
-        if(Banco.getListaDeAlunos().isEmpty()){
-            return mat+"0001";
-        }else{
-            int indexOfLastStudent = Banco.getListaDeAlunos().size()-1;
-            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
-            int res = Integer.parseInt(a.getMatricula())+1;
-            mat = Integer.toString(res);
-        }
-        
-        return mat;
-    }
+
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
