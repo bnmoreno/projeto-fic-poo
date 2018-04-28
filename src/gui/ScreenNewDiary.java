@@ -23,31 +23,41 @@ import javax.swing.table.DefaultTableModel;
 public class ScreenNewDiary extends JGradientPanel {
      private DefaultTableModel model;
      private DefaultTableModel model2;
-     private ArrayList<Aluno> alunos;
      private Professor professor;
-     JMenuItem menu;
+     private JMenuItem menu;
+     private ArrayList<Aluno> alunos;
     public ScreenNewDiary(Professor professor,JMenuItem menu) {
+        //Acrescentar degrader no painel
         super(Color.BLUE,Color.BLACK);
         initComponents();
+        //Inicialização de variaveis
         this.menu = menu;
         this.professor = professor;
-        alunos = new ArrayList<Aluno>();
-        if(!professor.getTurma().getAlunos().isEmpty()){
-            jButton3.setVisible(false);
-            jTextField2.setVisible(false);
-            jLabel1.setVisible(false);
-            jLabel7.setText(professor.getTurma().getNome());
-        }
         model = (DefaultTableModel)jTable1.getModel();
         model2 = (DefaultTableModel)TabelaDeDiario.getModel();
-        for(Pessoa aluno: Banco.getListaDeAlunos()){
+        alunos = new ArrayList<>();
+        //Chamada dos métodos de inicialização de tela
+        manipularElementos();
+        preencherTabelas();
+        
+    }
+    private void preencherTabelas(){
+        for(Aluno aluno: Banco.getListaDeAlunos()){
             model.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
         } 
         for(Aluno aluno:professor.getTurma().getAlunos()){
            model2.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
         }
     }
-
+    
+    private void manipularElementos(){
+        if(!professor.getTurma().getAlunos().isEmpty()){
+            jButton3.setVisible(false);
+            jTextField2.setVisible(false);
+            jLabel1.setVisible(false);
+            jLabel7.setText(professor.getTurma().getNome());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
