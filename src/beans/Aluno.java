@@ -18,7 +18,7 @@ public class Aluno extends Pessoa {
     private String nomeMae;
     //Referencia a trma que o aluno pertence...
     private Diario minhaTurma;
-    ArrayList<Notas> notasDoAluno = new ArrayList<>();
+    ArrayList<Double> notasDoAluno = new ArrayList<>();
     
     //construtor
     public Aluno(String nomePai, String nomeMae, String matricula, String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
@@ -61,11 +61,11 @@ public class Aluno extends Pessoa {
         this.minhaTurma = minhaTurma;
     }
 
-    public ArrayList<Notas> getNotasDoAluno() {
+    public ArrayList<Double> getNotasDoAluno() {
         return notasDoAluno;
     }
 
-    public void setNotasDoAluno(ArrayList<Notas> notasDoAluno) {
+    public void setNotasDoAluno(ArrayList<Double> notasDoAluno) {
         this.notasDoAluno = notasDoAluno;
     }
     

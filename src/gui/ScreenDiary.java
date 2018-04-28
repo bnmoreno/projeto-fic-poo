@@ -6,9 +6,12 @@
 package gui;
 
 import beans.Aluno;
+import beans.Notas;
 import beans.Pessoa;
 import beans.Professor;
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -21,21 +24,22 @@ import javax.swing.table.TableColumnModel;
 public class ScreenDiary extends JGradientPanel {
     private byte cont;
     private DefaultTableModel model;
-    
+    private ArrayList<Double> notas;
+    Professor p;
     /**
      * Creates new form ScreenDiary
      */
     public ScreenDiary(Pessoa pessoa) {
         super(Color.WHITE, Color.BLUE);
         initComponents();
-        Professor p = (Professor) pessoa;
+        p = (Professor) pessoa;
         if(!p.getTurma().equals(null)){
             jLabel1.setText(p.getTurma().toString());
         }
         model = (DefaultTableModel)jTable1.getModel();
         model.setNumRows(0);
         for(Aluno a:p.getTurma().getAlunos()){
-            model.addRow(new Object[]{a, a.getMatricula(), a.getNascimento(), a.getTelefone()});
+            model.addRow(new Object[]{a.getMatricula(), a});
         }
         
         cont = 1;
@@ -125,11 +129,21 @@ public class ScreenDiary extends JGradientPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        int linha = 0;
+        double nota = 0;
+        for(Aluno a:p.getTurma().getAlunos()){
+            for(int i =2; i<cont+2;i++){
+                nota = (double) Double.parseDouble((String) jTable1.getValueAt(linha, i));
+                a.getNotasDoAluno().add(nota);
+            }
+            linha++;
+        }
+        JOptionPane.showMessageDialog(null, "Notas lançadas com sucesso");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         model.addColumn("Nota"+(++cont));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

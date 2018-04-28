@@ -39,10 +39,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
         banco.prencherParaTeste();
         this.setExtendedState(MAXIMIZED_BOTH);   
         jMenuBar1.setVisible(false);//
-        
-        for(Pessoa pessoa:Banco.usuarios){
-            System.out.println(pessoa.getMatricula() + pessoa.getSenha());
-        }
     }
     
     public void mudarDeTela(JPanel tela, String nomeDaTela) {
@@ -99,6 +95,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -248,6 +245,14 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenu3.setText("Sair");
 
+        jMenuItem6.setText("Encerrar Sessão");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
         jMenuItem3.setText("Sair do Sistema");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,19 +271,22 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
         for(Pessoa pessoa:Banco.usuarios){
             if(login.getText().equals(pessoa.getMatricula()) && (senha.getText().equals(pessoa.getSenha()))){
+               jMenuBar1.setVisible(true);
+               jMenu1.setVisible(true);
+               jMenu2.setVisible(true);
+               jMenu4.setVisible(true);
                 if(pessoa instanceof Professor){
                     mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
-                    this.pessoa = pessoa;
-                    jMenuBar1.setVisible(true);
                     jMenu4.setVisible(false);
+                    this.pessoa = pessoa;
                 }else if(pessoa instanceof Aluno){
                     Aluno aluno = (Aluno) pessoa;
                     mudarDeTela(new ScreenReportCard(aluno), "ScreenReportCard");
-                    jMenuBar1.setVisible(true);
                     jMenu1.setVisible(false);
                     jMenu2.setVisible(false);
                 }
             }else{
+                jLabel1.setVisible(true);
                 jLabel1.setText("Login ou senha incorreta");
                 //
             }
@@ -324,6 +332,14 @@ public class PrincipalJanela extends javax.swing.JFrame {
         mudarDeTela(new ScreenReportCard(pessoa), "ScreenReportCard");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        jMenuBar1.setVisible(false);
+        jLabel1.setVisible(false);
+        login.setText("");
+        senha.setText("");
+        mudarDeTela(jPanel2, "jPanel2");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -344,6 +360,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField login;

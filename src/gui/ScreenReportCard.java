@@ -5,8 +5,11 @@
  */
 package gui;
 
+import beans.Aluno;
 import beans.Pessoa;
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,10 +17,24 @@ import java.awt.Color;
  */
 public class ScreenReportCard extends JGradientPanel {
 
-  
+    DefaultTableModel model;
     public ScreenReportCard(Pessoa pessoa) {
         super(Color.WHITE,Color.BLUE);
         initComponents();
+        model = (DefaultTableModel) jTable1.getModel();
+        Aluno aluno = (Aluno)pessoa;
+        jLabel2.setText(aluno.toString());
+        int cont = 0;
+        double media=0;
+        model.addRow(new Object[]{});
+        for(Double d: aluno.getNotasDoAluno()){
+            model.addColumn("Nota"+(++cont));
+            model.setValueAt(d, 0, cont-1);
+            media += d;
+        }
+        model.addColumn("Media");
+        model.setValueAt(media/cont, 0, cont);
+            
     }
 
     /**
@@ -42,7 +59,7 @@ public class ScreenReportCard extends JGradientPanel {
 
             },
             new String [] {
-                "Nota1", "Media"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);

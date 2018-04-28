@@ -5,11 +5,9 @@
  */
 package beans;
 
-import gui.Cadastro;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -22,10 +22,10 @@ public class Professor extends Pessoa{
         this.turma = turma;
     }
     
-    public boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
-        Notas lancarNota = new Notas(a, notas);
-        return a.getNotasDoAluno().add(lancarNota);
-    }
+//    public boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
+//        Notas lancarNota = new Notas(a, notas);
+//        return a.getNotasDoAluno().add(lancarNota);
+//    }
     
     public Diario getTurma() {
         return turma;
