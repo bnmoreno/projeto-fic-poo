@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,7 +38,7 @@ public class ScreenNewDiary extends JGradientPanel {
         model2 = (DefaultTableModel)TabelaDeDiario.getModel();
         alunos = new ArrayList<>();
         //Chamada dos métodos de inicialização de tela
-        manipularElementos();
+        esconderElementos();
         preencherTabelas();
         
     }
@@ -50,12 +51,34 @@ public class ScreenNewDiary extends JGradientPanel {
         }
     }
     
-    private void manipularElementos(){
+    private void esconderElementos(){
         if(!professor.getTurma().getAlunos().isEmpty()){
             jButton3.setVisible(false);
             jTextField2.setVisible(false);
             jLabel1.setVisible(false);
             jLabel7.setText(professor.getTurma().getNome());
+        }
+    }
+    
+    private void trocarElementosDasTabelas(JTable tabel1,JTable tabel2,boolean teste){
+        Aluno aluno = (Aluno) tabel1.getValueAt(tabel1.getSelectedRow(),1);
+        model = (DefaultTableModel)tabel1.getModel();
+        model2 = (DefaultTableModel)tabel2.getModel();
+        int idx[] = tabel1.getSelectedRows();
+        model.removeRow(idx[0]);
+        model2.addRow(new Object[]{aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
+        if(teste)
+            alunos.add(aluno);
+        else
+            alunos.remove(aluno);
+        for(int j=1; j<idx.length; j++){
+            aluno = (Aluno) tabel1.getValueAt(idx[j]-j,1);
+            if(teste)
+                alunos.add(aluno);
+            else
+                alunos.remove(aluno);
+            model2.addRow(new Object[]{ aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
+            model.removeRow(idx[j]-j);
         }
     }
     /**
@@ -244,50 +267,21 @@ public class ScreenNewDiary extends JGradientPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jLabel7.setText(jTextField2.getText());
-        jButton3.setVisible(false);
-        jTextField2.setVisible(false);
-        jLabel1.setVisible(false);
         Diario diario = new Diario(jTextField2.getText(), alunos);
         professor.setTurma(diario);
         for(Aluno a:alunos){
             Banco.getListaDeAlunos().remove(a);
         }
-        
+        esconderElementos();
         menu.setText("Gerenciar Diário");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Aluno aluno = (Aluno) jTable1.getValueAt(jTable1.getSelectedRow(),1);
-        model = (DefaultTableModel)jTable1.getModel();
-        model2 = (DefaultTableModel)TabelaDeDiario.getModel();
-        int idx[] = jTable1.getSelectedRows();
-        model.removeRow(idx[0]);
-        model2.addRow(new Object[]{aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
-        alunos.add(aluno);
-        for(int j=1; j<idx.length; j++){
-            aluno = (Aluno) jTable1.getValueAt(idx[j]-j,1);
-            alunos.add(aluno);
-            model2.addRow(new Object[]{ aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
-            model.removeRow(idx[j]-j);
-        }
-//                model.addRow(new Object[]{a.getMatricula(),a.getNome(),a.getNascimento(),a.getTelefone()});
-           
-        
+        trocarElementosDasTabelas(jTable1, TabelaDeDiario,true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Aluno aluno = (Aluno) TabelaDeDiario.getValueAt(TabelaDeDiario.getSelectedRow(),1);
-        int idx[] = TabelaDeDiario.getSelectedRows();
-        model2.removeRow(idx[0]);
-        model.addRow(new Object[]{ aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
-        alunos.remove(aluno);
-        for(int j=1; j<idx.length; j++){
-            aluno = (Aluno) TabelaDeDiario.getValueAt(idx[j]-j,1);
-            alunos.remove(aluno);
-            model.addRow(new Object[]{ aluno.getMatricula(),aluno, aluno.getNascimento(), aluno.getTelefone()});
-            model2.removeRow(idx[j]-j);
-        }
+         trocarElementosDasTabelas(TabelaDeDiario, jTable1,false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
