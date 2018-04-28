@@ -56,6 +56,7 @@ public class Banco {
     
     
     public static boolean cadastrarAluno(Aluno aluno){
+        listaDeAlunos.add(aluno);
         return usuarios.add(aluno);
     }
     public static boolean removerAluno(Aluno aluno){

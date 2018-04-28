@@ -296,7 +296,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_acessarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        mudarDeTela(new ScreenNewDiary((Professor)pessoa), "ScreenNewDiary");
+        mudarDeTela(new ScreenNewDiary((Professor)pessoa,jMenuItem1), "ScreenNewDiary");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

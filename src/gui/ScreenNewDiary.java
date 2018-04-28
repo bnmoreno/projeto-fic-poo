@@ -12,6 +12,8 @@ import beans.Pessoa;
 import beans.Professor;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,25 +25,27 @@ public class ScreenNewDiary extends JGradientPanel {
      private DefaultTableModel model2;
      private ArrayList<Aluno> alunos;
      private Professor professor;
-    public ScreenNewDiary(Professor professor) {
+     JMenuItem menu;
+    public ScreenNewDiary(Professor professor,JMenuItem menu) {
         super(Color.BLUE,Color.BLACK);
         initComponents();
+        this.menu = menu;
         this.professor = professor;
         alunos = new ArrayList<Aluno>();
-        if(!Banco.listaDeDiarios.isEmpty()){
+        if(!professor.getTurma().getAlunos().isEmpty()){
             jButton3.setVisible(false);
             jTextField2.setVisible(false);
             jLabel1.setVisible(false);
+            jLabel7.setText(professor.getTurma().getNome());
         }
         model = (DefaultTableModel)jTable1.getModel();
-        //model2 = (DefaultTableModel)TabelaDeDiario.getModel();
-       for(Pessoa a: Banco.usuarios){
-           Aluno aluno = null;
-           if(a instanceof Aluno){
-               aluno = (Aluno) a;
-                model.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
-           }
+        model2 = (DefaultTableModel)TabelaDeDiario.getModel();
+        for(Pessoa aluno: Banco.getListaDeAlunos()){
+            model.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
         } 
+        for(Aluno aluno:professor.getTurma().getAlunos()){
+           model2.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
+        }
     }
 
     /**
@@ -236,6 +240,11 @@ public class ScreenNewDiary extends JGradientPanel {
         jLabel1.setVisible(false);
         Diario diario = new Diario(jTextField2.getText(), alunos);
         professor.setTurma(diario);
+        for(Aluno a:alunos){
+            Banco.getListaDeAlunos().remove(a);
+        }
+        
+        menu.setText("Gerenciar Diário");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
