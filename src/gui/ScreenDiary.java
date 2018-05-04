@@ -6,7 +6,6 @@
 package gui;
 
 import beans.Aluno;
-import beans.Notas;
 import beans.Pessoa;
 import beans.Professor;
 import java.awt.Color;

@@ -45,7 +45,6 @@ public class Aluno extends Pessoa {
     public boolean deletarAluno(Aluno aluno){
         return listaDeAlunos.remove(aluno);
     }
-    
     public String getNomePai() {
         return nomePai;
     }

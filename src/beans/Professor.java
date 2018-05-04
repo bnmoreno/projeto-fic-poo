@@ -35,9 +35,8 @@ public class Professor extends Pessoa{
         return Banco.listaDeProfessores.remove(professor);
     }
     
-    public boolean lancarNota(Aluno a, ArrayList<Double> notas){
-        
-        return false;
+    public void lancarNota(Aluno a, ArrayList<Double> notas){ 
+        a.setNotasDoAluno(notas);
     }
     
     public Diario getTurma() {
