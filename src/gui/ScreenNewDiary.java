@@ -43,7 +43,7 @@ public class ScreenNewDiary extends JGradientPanel {
         
     }
     private void preencherTabelas(){
-        for(Aluno aluno: Banco.getListaDeAlunos()){
+        for(Aluno aluno: Banco.listaDeAlunos){
             model.addRow(new Object[]{aluno.getMatricula(),aluno,aluno.getNascimento(),aluno.getTelefone()});
         } 
         for(Aluno aluno:professor.getTurma().getAlunos()){
@@ -270,7 +270,7 @@ public class ScreenNewDiary extends JGradientPanel {
         Diario diario = new Diario(jTextField2.getText(), alunos);
         professor.setTurma(diario);
         for(Aluno a:alunos){
-            Banco.getListaDeAlunos().remove(a);
+            Banco.listaDeAlunos.remove(a);
         }
         esconderElementos();
         menu.setText("Gerenciar Diário");

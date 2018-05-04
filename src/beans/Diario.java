@@ -16,7 +16,7 @@ public class Diario {
     Banco bankDiario = new Banco();
     
     private String nome;
-    private ArrayList<Aluno> listaDeAlunos;
+    private ArrayList<Aluno> listaDeAlunosDiario;
     private int quantidadeEtapas;
     private float notafinal, mediaAprovado, mediaReprovado;
     ArrayList<Integer> PesoPorEtapa = new ArrayList<>();
@@ -28,29 +28,38 @@ public class Diario {
     //criando diario apenas como o nome
     public Diario(String nome){
         this.nome = nome;
-        listaDeAlunos = new ArrayList<>();
+        listaDeAlunosDiario = new ArrayList<>();
     }
 
     public Diario(String nome, ArrayList<Aluno> listaDeAlunos) {
         this.nome = nome;
-        this.listaDeAlunos = listaDeAlunos;
+        this.listaDeAlunosDiario = listaDeAlunos;
     }
     
 
     public Diario(String nome, ArrayList<Aluno> alunos, int quantidadeEtapas, float notafinal, float mediaAprovado, float mediaReprovado) {
         this.nome = nome;
-        this.listaDeAlunos = alunos;
+        this.listaDeAlunosDiario = alunos;
         this.quantidadeEtapas = quantidadeEtapas;
         this.notafinal = notafinal;
         this.mediaAprovado = mediaAprovado;
         this.mediaReprovado = mediaReprovado;
     }
+    
+    public boolean cadastrarAlunoDiario(Aluno aluno){
+        return listaDeAlunosDiario.add(aluno);
+    }
+    public boolean deletarAlunoDiario(Aluno aluno){
+        return listaDeAlunosDiario.remove(aluno);
+    }
+    
+    
     public ArrayList<Aluno> getAlunos() {
-        return listaDeAlunos;
+        return listaDeAlunosDiario;
     }
 
     public void setAlunos(ArrayList<Aluno> alunos) {
-        this.listaDeAlunos = alunos;
+        this.listaDeAlunosDiario = alunos;
     }
 
     public String getNome() {

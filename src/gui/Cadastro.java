@@ -47,29 +47,29 @@ public class Cadastro extends javax.swing.JPanel {
         //mat de aluno 2018120001...
         //mat de professor 2018130001...
         if (jRadioButton1.isSelected()) {
-            if (Banco.getListaDeSecretarias().isEmpty()) {
+            if (Banco.listaDeSecretarias.isEmpty()) {
                 return mat += "110001";
             } else {
-                int indexOfLast = Banco.getListaDeSecretarias().size() - 1;
+                int indexOfLast = Banco.listaDeSecretarias.size() - 1;
                 long res = Long.parseLong(Banco.listaDeSecretarias.get(indexOfLast).getMatricula()) + (long) 1;
                 mat = String.valueOf(res);
             }
         }
         if (jRadioButton2.isSelected()) {
-            if (Banco.getListaDeAlunos().isEmpty()) {
+            if (Banco.listaDeAlunos.isEmpty()) {
                 return mat += "120001";
             } else {
-                int indexOfLast = Banco.getListaDeAlunos().size()-1;
-                long res = Long.parseLong(Banco.getListaDeAlunos().get(indexOfLast).getMatricula()) + (long) 1;
+                int indexOfLast = Banco.listaDeAlunos.size()-1;
+                long res = Long.parseLong(Banco.listaDeAlunos.get(indexOfLast).getMatricula()) + (long) 1;
                 mat = String.valueOf(res);
             }
         }
         if (jRadioButton3.isSelected()) {
-            if (Banco.getListaDeProfessores().isEmpty()) {
+            if (Banco.listaDeProfessores.isEmpty()) {
                 return mat += "130001";
             } else {
-                int indexOfLast = Banco.getListaDeProfessores().size()-1;
-                Long res = Long.parseLong(Banco.getListaDeProfessores().get(indexOfLast).getMatricula()) + (long) 1;
+                int indexOfLast = Banco.listaDeProfessores.size()-1;
+                Long res = Long.parseLong(Banco.listaDeProfessores.get(indexOfLast).getMatricula()) + (long) 1;
                 mat = String.valueOf(res);
             }
         }
@@ -370,7 +370,7 @@ public class Cadastro extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

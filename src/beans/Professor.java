@@ -27,6 +27,19 @@ public class Professor extends Pessoa{
 //        return a.getNotasDoAluno().add(lancarNota);
 //    }
     
+    public boolean cadastrarProfessor(Professor professor){
+        Banco.listaDeProfessores.add(professor);
+        return Banco.usuarios.add(professor);
+    }
+    public boolean deletarProfessor(Professor professor){
+        return Banco.listaDeProfessores.remove(professor);
+    }
+    
+    public boolean lancarNota(Aluno a, ArrayList<Double> notas){
+        
+        return false;
+    }
+    
     public Diario getTurma() {
         return turma;
     }

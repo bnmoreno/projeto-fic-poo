@@ -20,59 +20,8 @@ public class Banco {
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
     public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
-
-    public static ArrayList<Diario> getListaDeDiarios() {
-        return listaDeDiarios;
-    }
-
-    public static void setListaDeDiarios(ArrayList<Diario> listaDeDiarios) {
-        Banco.listaDeDiarios = listaDeDiarios;
-    }
-
-    public static ArrayList<Pessoa> getUsuarios() {
-        return usuarios;
-    }
-
-    public static void setUsuarios(ArrayList<Pessoa> usuarios) {
-        Banco.usuarios = usuarios;
-    }
-
-    public static ArrayList<Professor> getListaDeProfessores() {
-        return listaDeProfessores;
-    }
-
-    public static void setListaDeProfessores(ArrayList<Professor> listaDeProfessores) {
-        Banco.listaDeProfessores = listaDeProfessores;
-    }
-
-    public static ArrayList<Secretaria> getListaDeSecretarias() {
-        return listaDeSecretarias;
-    }
-
-    public static void setListaDeSecretarias(ArrayList<Secretaria> listaDeSecretarias) {
-        Banco.listaDeSecretarias = listaDeSecretarias;
-    }
     
-    
-    
-    public static boolean cadastrarAluno(Aluno aluno){
-        listaDeAlunos.add(aluno);
-        return usuarios.add(aluno);
-    }
-    public static boolean removerAluno(Aluno aluno){
-        return listaDeAlunos.remove(aluno);
-    }
 
-    //metodos para colocar aluno na turma
- 
-    //Lancador de notas
-    //static apenas para teste
-    
-    
-    public static ArrayList<Aluno> getListaDeAlunos() {
-        return listaDeAlunos;
-    }
-   
     
     //Area de Funções especificas...
     
@@ -80,31 +29,31 @@ public class Banco {
     //no formato temporario de ano-atual+sequencia-do-aluno
     //Exemplo 20180001 para o primeiro aluno
     
-    public static String geradorDeMatriculaDeAluno() {
-        String mat="";
-        
-        Calendar cal = Calendar.getInstance();
-        mat += cal.get(Calendar.YEAR);
-        if(Banco.getListaDeAlunos().isEmpty()){
-            return mat+"0001";
-        }else{
-            int indexOfLastStudent = Banco.getListaDeAlunos().size()-1;
-            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
-            int res = Integer.parseInt(a.getMatricula())+1;
-            mat = Integer.toString(res);
-        }
-        
-        return mat;
-    }
+//    public static String geradorDeMatriculaDeAluno() {
+//        String mat="";
+//        
+//        Calendar cal = Calendar.getInstance();
+//        mat += cal.get(Calendar.YEAR);
+//        if(Banco.listaDeAlunos.isEmpty()){
+//            return mat+"0001";
+//        }else{
+//            int indexOfLastStudent = Banco.listaDeAlunos.size()-1;
+//            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
+//            int res = Integer.parseInt(a.getMatricula())+1;
+//            mat = Integer.toString(res);
+//        }
+//        
+//        return mat;
+//    }
     
-    public void prencherParaTeste(){
-        usuarios.add(new Professor(new Diario("Diario Teste"), "1234","1234", "Denilson", "", "", "", new Date(), 'P'));
-        cadastrarAluno(new Aluno("João", "Maria", "2018120001","1234", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "2018120002","1234", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "2018120003","1234", "Fulano", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "2018120004","1234", "Sicrano", "111", "endereco", "telefone", new Date(), 'A'));
-        cadastrarAluno(new Aluno("João", "Maria", "2018120005","1234", "Beotrano", "111", "endereco", "telefone", new Date(), 'A'));
-   }
+//    public void prencherParaTeste(){
+//        usuarios.add(new Professor(new Diario("Diario Teste"), "1234","1234", "Denilson", "", "", "", new Date(), 'P'));
+//        cadastrarAluno(new Aluno("João", "Maria", "2018120001","1234", "Niguem", "111", "endereco", "telefone", new Date(), 'A'));
+//        cadastrarAluno(new Aluno("João", "Maria", "2018120002","1234", "Alguem", "111", "endereco", "telefone", new Date(), 'A'));
+//        cadastrarAluno(new Aluno("João", "Maria", "2018120003","1234", "Fulano", "111", "endereco", "telefone", new Date(), 'A'));
+//        cadastrarAluno(new Aluno("João", "Maria", "2018120004","1234", "Sicrano", "111", "endereco", "telefone", new Date(), 'A'));
+//        cadastrarAluno(new Aluno("João", "Maria", "2018120005","1234", "Beotrano", "111", "endereco", "telefone", new Date(), 'A'));
+//   }
 //    public void alterarDadosAluno(String matricula){
 //        boolean teste;
 //        for(Aluno a: listaDeAlunos){

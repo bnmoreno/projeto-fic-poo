@@ -36,7 +36,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         
         //layout do inicio
         banco = new Banco();
-        banco.prencherParaTeste();
+//        banco.prencherParaTeste();
         this.setExtendedState(MAXIMIZED_BOTH);   
         jMenuBar1.setVisible(false);//
     }
