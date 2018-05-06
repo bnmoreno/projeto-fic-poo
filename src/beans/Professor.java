@@ -22,11 +22,6 @@ public class Professor extends Pessoa{
         this.turma = turma;
     }
     
-//    public boolean lancarNotasNoDiario(Aluno a, ArrayList<Double> notas){
-//        Notas lancarNota = new Notas(a, notas);
-//        return a.getNotasDoAluno().add(lancarNota);
-//    }
-    
     public boolean cadastrarProfessor(Professor professor){
         Banco.listaDeProfessores.add(professor);
         return Banco.usuarios.add(professor);
@@ -37,6 +32,10 @@ public class Professor extends Pessoa{
     
     public void lancarNota(Aluno a, ArrayList<Double> notas){ 
         a.setNotasDoAluno(notas);
+    }
+    
+    public void criarDiario(ArrayList<Aluno> alunos, String nomeDiario){
+        turma = new Diario(nomeDiario, alunos);
     }
     
     public Diario getTurma() {
