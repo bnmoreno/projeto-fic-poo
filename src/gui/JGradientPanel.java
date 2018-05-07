@@ -16,6 +16,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import javax.swing.JPanel;
+
+
 public class JGradientPanel extends JPanel {
     private Color finalColor;
     private Color initialColor;
