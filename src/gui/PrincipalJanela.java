@@ -5,16 +5,18 @@
  */
 package gui;
 
-import beans.Aluno;
-import beans.Banco;
-import beans.Pessoa;
-import beans.Professor;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.Timer;
+import javax.swing.border.Border;
+
 
 /**
  *
@@ -25,46 +27,19 @@ public class PrincipalJanela extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalJanela
      */
-    private CardLayout cd01 = new CardLayout();
-    private ArrayList<JPanel> cartoes = new ArrayList<JPanel>();
-    private JPanel ultimoPainel;
-    private Pessoa pessoa;
-    private Banco banco;
     public PrincipalJanela() {
         initComponents();
-       
+        jDesktopPane1.setBorder((Border)new ImagemPrincipal());
+        this.setExtendedState(MAXIMIZED_BOTH);
+    }
+    private void centralizaForm(JInternalFrame frame) {
         
-        //layout do inicio
-        banco = new Banco();
-//        banco.prencherParaTeste();
-        this.setExtendedState(MAXIMIZED_BOTH);   
-        jMenuBar1.setVisible(false);//
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+      
     }
-    
-    public void mudarDeTela(JPanel tela, String nomeDaTela) {
-        if (!cartoes.isEmpty()) {
-            boolean flag = false;
-            for (JPanel t : cartoes) {
-                if (t.getClass().isInstance(tela)) {
-                    flag = true;
-                }
-            }
-            if (!flag) {
-
-                cartoes.add(tela);
-                jPanel3.add(tela, nomeDaTela);
-            }
-        } else {
-
-            cartoes.add(tela);
-            jPanel3.add(tela, nomeDaTela);
-        }
-        ultimoPainel = cartoes.get(0);
-        cartoes.removeAll(cartoes);
-        CardLayout layoutDeCartao = (CardLayout) jPanel3.getLayout();
-        layoutDeCartao.show(jPanel3, nomeDaTela);
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,19 +48,10 @@ public class PrincipalJanela extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel3 = new JGradientPanel(Color.WHITE,Color.BLUE);
-        jPanel2 = new JGradientPanel(Color.WHITE,Color.BLUE);
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        acessar = new javax.swing.JButton();
-        login = new javax.swing.JTextField();
-        senha = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jlhora2 = new javax.swing.JLabel();
+        jldata = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -100,106 +66,45 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.CardLayout());
-
-        jPanel3.setMaximumSize(new java.awt.Dimension(680, 700));
-        jPanel3.setPreferredSize(new java.awt.Dimension(800, 700));
-        jPanel3.setLayout(new java.awt.CardLayout());
-
-        java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
-        jPanel2Layout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
-        jPanel2Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0};
-        jPanel2.setLayout(jPanel2Layout);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/use.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 7;
-        gridBagConstraints.ipady = -14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(jLabel5, gridBagConstraints);
-
-        jLabel6.setFont(new java.awt.Font("Arial", 2, 36)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Faça seu Login");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel2.add(jLabel6, gridBagConstraints);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        jLabel7.setText("Matricula:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel7, gridBagConstraints);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        jLabel8.setText("Senha:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(jLabel8, gridBagConstraints);
-
-        acessar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        acessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Imagem2.png"))); // NOI18N
-        acessar.setText("Acessar");
-        acessar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acessarActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel2.add(acessar, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 191;
-        gridBagConstraints.ipady = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel2.add(login, gridBagConstraints);
 
-        senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaActionPerformed(evt);
-            }
-        });
-        senha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                senhaKeyPressed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 191;
-        gridBagConstraints.ipady = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        jPanel2.add(senha, gridBagConstraints);
+        jDesktopPane1.setBackground(new java.awt.Color(0, 204, 204));
 
-        jLabel1.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        jPanel2.add(jLabel1, gridBagConstraints);
+        jlhora2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jlhora2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jPanel3.add(jPanel2, "card2");
+        jldata.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jldata.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        getContentPane().add(jPanel3, "card2");
+        jDesktopPane1.setLayer(jlhora2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jldata, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(650, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlhora2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jldata, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(410, Short.MAX_VALUE)
+                .addComponent(jlhora2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jldata, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/notebook-icon.png"))); // NOI18N
         jMenu1.setText("Diario");
 
         jMenuItem1.setText("Novo Diario");
@@ -219,9 +124,12 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
+        jMenu1.getAccessibleContext().setAccessibleDescription("");
 
-        jMenu2.setText("Cadatros");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/user16.png"))); // NOI18N
+        jMenu2.setText("Cadastro");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/add_user16.png"))); // NOI18N
         jMenuItem4.setText("Cadastrar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +140,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/City-Students-icon.png"))); // NOI18N
         jMenu4.setText("Aluno");
 
         jMenuItem5.setText("Ver Boletim");
@@ -252,8 +161,10 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu3.setText("Sair");
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Very-Basic-Settings-Wrench-Filled-icon.png"))); // NOI18N
+        jMenu3.setText("Opções");
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Arrows-Undo-icon.png"))); // NOI18N
         jMenuItem6.setText("Encerrar Sessão");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +173,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem6);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/power-icon.png"))); // NOI18N
         jMenuItem3.setText("Sair do Sistema");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,95 +186,71 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
-        for(Pessoa pessoa:Banco.usuarios){
-            if(login.getText().equals(pessoa.getMatricula()) && (senha.getText().equals(pessoa.getSenha()))){
-               jMenuBar1.setVisible(true);
-               jMenu1.setVisible(true);
-               jMenu2.setVisible(true);
-               jMenu4.setVisible(true);
-                if(pessoa instanceof Professor){
-                    mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
-                    jMenu4.setVisible(false);
-                    this.pessoa = pessoa;
-                }else if(pessoa instanceof Aluno){
-                    Aluno aluno = (Aluno) pessoa;
-                    mudarDeTela(new ScreenReportCard(aluno), "ScreenReportCard");
-                    jMenu1.setVisible(false);
-                    jMenu2.setVisible(false);
-                }
-            }else{
-                jLabel1.setVisible(true);
-                jLabel1.setText("Login ou senha incorreta");
-                //
-            }
-        }
-        
-
-    }//GEN-LAST:event_acessarActionPerformed
-
+    
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        mudarDeTela(new ScreenNewDiary((Professor)pessoa,jMenuItem1), "ScreenNewDiary");
+  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        mudarDeTela(new ScreenDiary(pessoa), "ScreenDiary");
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaActionPerformed
-
-    private void senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_senhaKeyPressed
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
-            acessar.doClick();
-            
-        } 
-    }//GEN-LAST:event_senhaKeyPressed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Integer opcao = JOptionPane.showConfirmDialog(null, "Deseja Sair do Sistena","Saindo",JOptionPane.OK_CANCEL_OPTION);
-        
-        if (opcao!=2 & opcao!=1){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        
-        mudarDeTela(new Cadastro(), "Cadastro");
-        
+        Tela_Cadastros obg = new Tela_Cadastros();
+        jDesktopPane1.add(obg);
+        obg.setVisible(true);
+        obg.setPosicao();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        mudarDeTela(new ScreenReportCard(pessoa), "ScreenReportCard");
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        jMenuBar1.setVisible(false);
-        jLabel1.setVisible(false);
-        login.setText("");
-        senha.setText("");
-        mudarDeTela(jPanel2, "jPanel2");
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Integer opcao = JOptionPane.showConfirmDialog(null, "Deseja Sair do Sistena","Saindo",JOptionPane.OK_CANCEL_OPTION);
+
+        if (opcao!=2 & opcao!=1){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //Data
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        jldata.setText(formato.format(dataSistema));
+        //System.out.println(jldata.getText());
+        //hora
+        Timer timer = new Timer(1000, new hora());
+        timer.start();
+    }//GEN-LAST:event_formWindowOpened
+ 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acessar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -375,9 +263,16 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField login;
-    private javax.swing.JPasswordField senha;
+    private javax.swing.JLabel jldata;
+    private javax.swing.JLabel jlhora2;
     // End of variables declaration//GEN-END:variables
+class hora implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+        Calendar now = Calendar.getInstance();
+        jlhora2.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        jlhora2.setText(String.format("%1$tH:%1$tM:%1$tS", now)); 
+        //System.out.println(jlhora2.getText());
+    }
+}
+
 }

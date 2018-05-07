@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projeto_01_login;
+package gui;
 
+import beans.Aluno;
+import beans.Banco;
+import beans.Pessoa;
+import beans.Professor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -19,7 +23,7 @@ public class Login_Scream extends javax.swing.JFrame {
      */
     public Login_Scream() {
         initComponents();
-        
+        Banco.prencherParaTeste();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
@@ -93,6 +97,9 @@ public class Login_Scream extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel6MousePressed(evt);
             }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
         });
         jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -100,9 +107,9 @@ public class Login_Scream extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto_01_login/icons8-administrator-male-32.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icone_Administrador.png"))); // NOI18N
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto_01_login/icons8-password-32.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons_password.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -169,7 +176,7 @@ public class Login_Scream extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projeto_01_login/livros.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/livros.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Rockwell Condensed", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,13 +255,24 @@ public class Login_Scream extends javax.swing.JFrame {
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         // Evento ao click no botão - Fazer Login
-        if (usuario_txt.getText().equals("user") && (senha_txt.getText().equals("1234"))) {
-            //JOptionPane.showConfirmDialog(null, "Acesso Permitido!");
-            new TelaPrincipal().setVisible(true);
+//        if (usuario_txt.getText().equals("user") && (senha_txt.getText().equals("1234"))) {
+//            //JOptionPane.showConfirmDialog(null, "Acesso Permitido!");
+//            new TelaPrincipal().setVisible(true);
+//            this.dispose();
+//        } else {
+//            //JOptionPane.showConfirmDialog(null, "Acesso Negado!");
+//
+//        }
+        
+        for(Pessoa pessoa:Banco.usuarios){
+            if(usuario_txt.getText().equals(pessoa.getMatricula()) && (senha_txt.getText().equals(pessoa.getSenha()))){
+               new PrincipalJanela().setVisible(true);
             this.dispose();
-        } else {
-            //JOptionPane.showConfirmDialog(null, "Acesso Negado!");
-
+            }else{
+                //jLabel1.setVisible(true);
+                //jLabel1.setText("Login ou senha incorreta");
+                //
+            }
         }
         
     }//GEN-LAST:event_jLabel6MousePressed
@@ -272,7 +290,7 @@ public class Login_Scream extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (usuario_txt.getText().equals("user") && (senha_txt.getText().equals("1234"))) {
             //JOptionPane.showConfirmDialog(null, "Acesso Permitido!");
-            new TelaPrincipal().setVisible(true);
+            new PrincipalJanela().setVisible(true);
             this.dispose();
         } else {
             //JOptionPane.showConfirmDialog(null, "Acesso Negado!");
@@ -280,40 +298,46 @@ public class Login_Scream extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_senha_txtKeyPressed
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel6MouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login_Scream().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Login_Scream.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Login_Scream().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

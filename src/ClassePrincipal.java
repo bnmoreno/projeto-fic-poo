@@ -1,5 +1,6 @@
 
-import gui.PrincipalJanela;
+import gui.Login_Scream;
+import gui.PrincipalJanela1;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +16,8 @@ public class ClassePrincipal {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalJanela().setVisible(true);
+                //new PrincipalJanela().setVisible(true);
+                new Login_Scream().setVisible(true);
             }
         });
 
