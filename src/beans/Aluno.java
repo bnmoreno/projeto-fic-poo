@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package beans;
 
 import static beans.Banco.listaDeAlunos;
@@ -17,7 +13,7 @@ public class Aluno extends Pessoa {
 
     private String nomePai;
     private String nomeMae;
-    //Referencia a trma que o aluno pertence...
+    //Referencia a turma que o aluno pertence...
     private Diario minhaTurma;
     ArrayList<Double> notasDoAluno = new ArrayList<>();
     
