@@ -8,6 +8,7 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import beans.Pessoa;
+import beans.Secretaria;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -424,10 +425,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        
-        Banco.usuarios.add(new Aluno(
-                null,
-                null,
+        Secretaria s = new Secretaria(
                 txtMatricula.getText(), 
                 jTextField4.getText(),
                 txtNome.getText(),
@@ -435,8 +433,9 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                 txtEndereco.getText(),
                 txtTelefone.getText(), 
                 null, 
-                'A'
-        ));
+                'S'
+        );
+        s.cadastrarSecretaria(s);
         preencherTabela();
         
         txtMatricula.setText("");
