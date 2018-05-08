@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -231,7 +232,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-
+        Login_Scream lo = new Login_Scream();
+        lo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

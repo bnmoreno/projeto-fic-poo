@@ -79,18 +79,18 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         txtCPF = new javax.swing.JFormattedTextField();
         txtTelefone = new javax.swing.JFormattedTextField();
         txtNascimento = new javax.swing.JFormattedTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTProdutos = new javax.swing.JTable();
 
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(16, 212, 47)));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,7 +104,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,6 +113,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
 
         txtMatricula.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtMatricula.setBorder(null);
+        txtMatricula.setEnabled(false);
 
         txtNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtNome.setBorder(null);
@@ -192,9 +193,6 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("SENHA");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField4.setBorder(null);
-
         txtCPF.setBorder(null);
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -219,6 +217,8 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         }
         txtNascimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jPasswordField1.setBorder(null);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -240,7 +240,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jSeparator4)
-                            .addComponent(txtCPF)))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
@@ -274,8 +274,8 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                                     .addComponent(txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                    .addComponent(jPasswordField1))))
                         .addGap(0, 95, Short.MAX_VALUE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -317,8 +317,8 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -431,7 +431,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         Secretaria s = new Secretaria(
                 txtMatricula.getText(), 
-                jTextField4.getText(),
+                jPasswordField1.getText(),
                 txtNome.getText(),
                 txtCPF.getText(),
                 txtEndereco.getText(),
@@ -463,9 +463,9 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Selecione um produto para excluir.");
         }
 
-        txtMatricula.setText("");
-        txtNome.setText("");
-        txtCPF.setText("");
+//        txtMatricula.setText("");
+//        txtNome.setText("");
+//        txtCPF.setText("");
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void jLabel7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel7KeyPressed
@@ -530,6 +530,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
@@ -540,7 +541,6 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTable jTProdutos;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtMatricula;
