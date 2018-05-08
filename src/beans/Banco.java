@@ -16,7 +16,48 @@ public class Banco {
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
     public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
-    
+    private static String ultimoAluno;
+    private static String ultimoProfessor;
+    private static String ultimoSecretario;
+     public static String geradorDeMatricula(char flag) {
+        String mat = "";
+        Calendar cal = Calendar.getInstance();
+        mat += cal.get(Calendar.YEAR);
+        //mat de secretario 2018110001...
+        //mat de aluno 2018120001...
+        //mat de professor 2018130001...
+        if (flag == 'S') {
+            if (ultimoSecretario==null) {
+                ultimoSecretario = mat += "110001";
+                return mat ;
+            } else {
+                long res = Long.parseLong(ultimoSecretario) + (long) 1;
+                mat = String.valueOf(res);
+                ultimoSecretario = mat;
+            }
+        }
+        if (flag == 'A') {
+            if (ultimoAluno==null) {
+                ultimoAluno = mat += "120001";
+                return mat; 
+            } else {
+                long res = Long.parseLong(ultimoAluno) + (long) 1;
+                mat = String.valueOf(res);
+                ultimoAluno = mat;
+            }
+        }
+        if (flag == 'P') {
+            if (ultimoProfessor==null) {
+                ultimoProfessor = mat += "130001";
+                return mat; 
+            } else {
+                Long res = Long.parseLong(ultimoProfessor) + (long) 1;
+                mat = String.valueOf(res);
+                ultimoProfessor = mat;
+            }
+        }
+        return mat;
+    }
 
     
     //Area de Funções especificas...

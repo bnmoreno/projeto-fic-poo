@@ -25,12 +25,12 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
      * Creates new form Tela_Cadastros
      */
     private DefaultTableModel dtmProdutos; 
-    
     public Tela_Cadastros() {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
         dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
+        txtMatricula.setText(Banco.geradorDeMatricula('S'));
         preencherTabela();
         
 //        Tela_Cadastros.setDefaultLocale(null);
@@ -42,7 +42,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private void preencherTabela(){
         dtmProdutos.setNumRows(0);
         for(Pessoa p: Banco.usuarios){
-            Object[] dados = {p.getMatricula(),p,p.getCpf()};
+            Object[] dados = {p.getMatricula(),p,p.getCpf(),p.getEndereco(),p.getTelefone(),p.getNascimento()};
 
             dtmProdutos.addRow(dados);
         }
@@ -437,10 +437,11 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         );
         s.cadastrarSecretaria(s);
         preencherTabela();
-        
         txtMatricula.setText("");
+        txtMatricula.setText(Banco.geradorDeMatricula('S'));
         txtNome.setText("");
         txtCPF.setText("");
+        
 
     }//GEN-LAST:event_jLabel6MousePressed
 
