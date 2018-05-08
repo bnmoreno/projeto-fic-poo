@@ -39,43 +39,43 @@ public class Cadastro extends javax.swing.JPanel {
     }
 
     //Area de funções especificas...
-    public String geradorDeMatricula() {
-        String mat = "";
-        Calendar cal = Calendar.getInstance();
-        mat += cal.get(Calendar.YEAR);
-        //mat de secretario 2018110001...
-        //mat de aluno 2018120001...
-        //mat de professor 2018130001...
-        if (jRadioButton1.isSelected()) {
-            if (Banco.listaDeSecretarias.isEmpty()) {
-                return mat += "110001";
-            } else {
-                int indexOfLast = Banco.listaDeSecretarias.size() - 1;
-                long res = Long.parseLong(Banco.listaDeSecretarias.get(indexOfLast).getMatricula()) + (long) 1;
-                mat = String.valueOf(res);
-            }
-        }
-        if (jRadioButton2.isSelected()) {
-            if (Banco.listaDeAlunos.isEmpty()) {
-                return mat += "120001";
-            } else {
-                int indexOfLast = Banco.listaDeAlunos.size()-1;
-                long res = Long.parseLong(Banco.listaDeAlunos.get(indexOfLast).getMatricula()) + (long) 1;
-                mat = String.valueOf(res);
-            }
-        }
-        if (jRadioButton3.isSelected()) {
-            if (Banco.listaDeProfessores.isEmpty()) {
-                return mat += "130001";
-            } else {
-                int indexOfLast = Banco.listaDeProfessores.size()-1;
-                Long res = Long.parseLong(Banco.listaDeProfessores.get(indexOfLast).getMatricula()) + (long) 1;
-                mat = String.valueOf(res);
-            }
-        }
-
-        return mat;
-    }
+//    public String geradorDeMatricula() {
+//        String mat = "";
+//        Calendar cal = Calendar.getInstance();
+//        mat += cal.get(Calendar.YEAR);
+//        //mat de secretario 2018110001...
+//        //mat de aluno 2018120001...
+//        //mat de professor 2018130001...
+//        if (jRadioButton1.isSelected()) {
+//            if (Banco.listaDeSecretarias.isEmpty()) {
+//                return mat += "110001";
+//            } else {
+//                int indexOfLast = Banco.listaDeSecretarias.size() - 1;
+//                long res = Long.parseLong(Banco.listaDeSecretarias.get(indexOfLast).getMatricula()) + (long) 1;
+//                mat = String.valueOf(res);
+//            }
+//        }
+//        if (jRadioButton2.isSelected()) {
+//            if (Banco.listaDeAlunos.isEmpty()) {
+//                return mat += "120001";
+//            } else {
+//                int indexOfLast = Banco.listaDeAlunos.size()-1;
+//                long res = Long.parseLong(Banco.listaDeAlunos.get(indexOfLast).getMatricula()) + (long) 1;
+//                mat = String.valueOf(res);
+//            }
+//        }
+//        if (jRadioButton3.isSelected()) {
+//            if (Banco.listaDeProfessores.isEmpty()) {
+//                return mat += "130001";
+//            } else {
+//                int indexOfLast = Banco.listaDeProfessores.size()-1;
+//                Long res = Long.parseLong(Banco.listaDeProfessores.get(indexOfLast).getMatricula()) + (long) 1;
+//                mat = String.valueOf(res);
+//            }
+//        }
+//
+//        return mat;
+//    }
 
     //Fim da area de funções especificas
     /**
@@ -345,7 +345,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(false);
             jLabel_NomePai.setVisible(false);
         }
-        jTextField2.setText(geradorDeMatricula());
+       // jTextField2.setText(geradorDeMatricula());
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
@@ -355,7 +355,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(false);
             jLabel_NomePai.setVisible(false);
         }
-        jTextField2.setText(geradorDeMatricula());
+     //   jTextField2.setText(geradorDeMatricula());
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -365,7 +365,7 @@ public class Cadastro extends javax.swing.JPanel {
             jLabel_NomeMae.setVisible(true);
             jLabel_NomePai.setVisible(true);
         }
-        jTextField2.setText(geradorDeMatricula());
+     //   jTextField2.setText(geradorDeMatricula());
 
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 

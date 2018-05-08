@@ -23,11 +23,10 @@ public class Professor extends Pessoa{
     }
     
     public boolean cadastrarProfessor(Professor professor){
-        Banco.listaDeProfessores.add(professor);
         return Banco.usuarios.add(professor);
     }
     public boolean deletarProfessor(Professor professor){
-        return Banco.listaDeProfessores.remove(professor);
+        return Banco.usuarios.remove(professor);
     }
     
     public void lancarNota(Aluno a, ArrayList<Double> notas){ 
