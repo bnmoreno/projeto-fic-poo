@@ -21,10 +21,9 @@ public class Secretaria extends Pessoa{
     }
 
     public boolean cadastrarSecretaria(Secretaria secretaria){
-        Banco.listaDeSecretarias.add(secretaria);
         return Banco.usuarios.add(secretaria);
     }
     public boolean deletarSecretaria(Secretaria secretaria){
-        return Banco.listaDeSecretarias.remove(secretaria);
+        return Banco.usuarios.remove(secretaria);
     }
 }

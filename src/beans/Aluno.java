@@ -1,7 +1,6 @@
 
 package beans;
 
-import static beans.Banco.listaDeAlunos;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,11 +34,10 @@ public class Aluno extends Pessoa {
 //    }
 
     public boolean cadastrarAluno(Aluno aluno){
-        Banco.listaDeAlunos.add(aluno);
         return Banco.usuarios.add(aluno);
     }
     public boolean deletarAluno(Aluno aluno){
-        return listaDeAlunos.remove(aluno);
+        return Banco.usuarios.remove(aluno);
     }
     public String getNomePai() {
         return nomePai;

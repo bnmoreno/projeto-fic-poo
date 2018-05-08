@@ -11,15 +11,13 @@ import java.util.Date;
  */
 public class Banco {
  
-    public static ArrayList<Aluno> listaDeAlunos = new ArrayList<Aluno>();
     public static ArrayList<Diario> listaDeDiarios = new ArrayList<Diario>();
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
-    public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
-    public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
     public static String ultimoAluno;
     public static String ultimoProfessor;
     public static String ultimoSecretario;
-     public static String geradorDeMatricula(char flag) {
+    
+    public static String geradorDeMatricula(char flag) {
         String mat = "";
         Calendar cal = Calendar.getInstance();
         mat += cal.get(Calendar.YEAR);

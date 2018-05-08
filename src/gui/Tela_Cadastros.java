@@ -11,6 +11,11 @@ import static beans.Banco.ultimoSecretario;
 import beans.Pessoa;
 import beans.Secretaria;
 import java.awt.Dimension;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -26,8 +31,10 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
      * Creates new form Tela_Cadastros
      */
     private DefaultTableModel dtmProdutos; 
+    private SimpleDateFormat formato;
     public Tela_Cadastros() {
         initComponents();
+        formato = new SimpleDateFormat("dd/MM/yyyy");
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
         dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
@@ -47,7 +54,14 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private void preencherTabela(){
         dtmProdutos.setNumRows(0);
         for(Pessoa p: Banco.usuarios){
-            Object[] dados = {p.getMatricula(),p,p.getCpf(),p.getEndereco(),p.getTelefone(),p.getNascimento()};
+            Object[] dados = {
+                p.getMatricula(),
+                p,
+                p.getCpf(),
+                p.getEndereco(),
+                p.getTelefone(),
+                formato.format(p.getNascimento())
+            };
 
             dtmProdutos.addRow(dados);
         }
@@ -429,6 +443,14 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+        
+        Date nascimento = null;
+        try {
+            nascimento =  formato.parse(txtNascimento.getText());
+        } catch (ParseException ex) {
+            Logger.getLogger(Tela_Cadastros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         Secretaria s = new Secretaria(
                 txtMatricula.getText(), 
                 jPasswordField1.getText(),
@@ -436,7 +458,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                 txtCPF.getText(),
                 txtEndereco.getText(),
                 txtTelefone.getText(), 
-                null, 
+                (Date) nascimento, 
                 'S'
         );
         s.cadastrarSecretaria(s);
@@ -456,11 +478,14 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         // Evento ao click no botão - Excluir
         if(jTProdutos.getSelectedRow() != -1){
-            DefaultTableModel dtmProdutos = (DefaultTableModel) jTProdutos.getModel(); //caste de cnversão para defaultTableModel
-
-            dtmProdutos.removeRow(jTProdutos.getSelectedRow());
+            Integer opcao = JOptionPane.showConfirmDialog(null, "Você realmente deseja excluir secretaria","Excluir",JOptionPane.OK_CANCEL_OPTION);
+            Secretaria s = (Secretaria)jTProdutos.getValueAt(jTProdutos.getSelectedRow(), 1);
+            if (opcao!=2 & opcao!=1){
+                s.deletarSecretaria(s);
+                preencherTabela();
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Selecione um produto para excluir.");
+            JOptionPane.showMessageDialog(null, "Selecione um usuario para excluir.");
         }
 
 //        txtMatricula.setText("");
