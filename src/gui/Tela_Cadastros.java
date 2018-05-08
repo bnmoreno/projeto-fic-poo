@@ -37,10 +37,17 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private SimpleDateFormat formato;
     public Tela_Cadastros() {
         initComponents();
+        //Digita so Numeros
+        txtCPF.setDocument(new Sonumeros());
+        txtTelefone.setDocument(new Sonumeros());
+        txtNascimento.setDocument(new Sonumeros());
+        
+        //Data
         formato = new SimpleDateFormat("dd/MM/yyyy");
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
         dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
+        //Gerando matricula
         if (ultimoSecretario==null){
             txtMatricula.setText(Banco.geradorDeMatricula('S'));
         }else{
