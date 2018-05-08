@@ -467,7 +467,10 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         txtMatricula.setText(Banco.geradorDeMatricula('S'));
         txtNome.setText("");
         txtCPF.setText("");
-        
+        txtEndereco.setText("");
+        txtTelefone.setText("");
+        jPasswordField1.setText("");
+        txtNascimento.setText("");
 
     }//GEN-LAST:event_jLabel6MousePressed
 
