@@ -16,9 +16,9 @@ public class Banco {
     public static ArrayList<Pessoa> usuarios = new ArrayList<Pessoa>();
     public static ArrayList<Professor> listaDeProfessores = new ArrayList<Professor>();
     public static ArrayList<Secretaria> listaDeSecretarias = new ArrayList<Secretaria>();
-    private static String ultimoAluno;
-    private static String ultimoProfessor;
-    private static String ultimoSecretario;
+    public static String ultimoAluno;
+    public static String ultimoProfessor;
+    public static String ultimoSecretario;
      public static String geradorDeMatricula(char flag) {
         String mat = "";
         Calendar cal = Calendar.getInstance();

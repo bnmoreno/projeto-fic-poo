@@ -7,6 +7,7 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
+import static beans.Banco.ultimoSecretario;
 import beans.Pessoa;
 import beans.Secretaria;
 import java.awt.Dimension;
@@ -30,7 +31,11 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
         dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
-        txtMatricula.setText(Banco.geradorDeMatricula('S'));
+        if (ultimoSecretario==null){
+            txtMatricula.setText(Banco.geradorDeMatricula('S'));
+        }else{
+            txtMatricula.setText(ultimoSecretario);
+        }
         preencherTabela();
         
 //        Tela_Cadastros.setDefaultLocale(null);
@@ -85,8 +90,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTProdutos = new javax.swing.JTable();
 
-        setClosable(true);
-        setMaximizable(true);
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -100,7 +104,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 489, Short.MAX_VALUE)
+            .addGap(0, 494, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -220,7 +224,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -272,8 +276,8 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField4)
                                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 93, Short.MAX_VALUE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGap(0, 95, Short.MAX_VALUE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

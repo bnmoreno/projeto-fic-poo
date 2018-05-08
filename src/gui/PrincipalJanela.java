@@ -20,6 +20,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
 /**
@@ -215,6 +216,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         Tela_Cadastros obg = new Tela_Cadastros();
+        ((BasicInternalFrameUI)obg.getUI()).setNorthPane(null);
         jDesktopPane1.add(obg);
         obg.setVisible(true);
         obg.setPosicao();
