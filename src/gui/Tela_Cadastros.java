@@ -37,10 +37,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     private SimpleDateFormat formato;
     public Tela_Cadastros() {
         initComponents();
-        //Digita so Numeros
-        txtCPF.setDocument(new Sonumeros());
-        txtTelefone.setDocument(new Sonumeros());
-        txtNascimento.setDocument(new Sonumeros());
+        
         
         //Data
         formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -115,7 +112,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTProdutos = new javax.swing.JTable();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(16, 212, 47)));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(16, 212, 47), 3));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -306,7 +303,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jSeparator4)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
@@ -333,7 +330,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11))
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel4)
                             .addComponent(jLabel9)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -344,7 +341,7 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                                     .addComponent(jPasswordField1))))
-                        .addGap(0, 93, Short.MAX_VALUE)))
+                        .addGap(0, 92, Short.MAX_VALUE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -516,16 +513,29 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
                 (Date) nascimento, 
                 'S'
         );
-        s.cadastrarSecretaria(s);
-        preencherTabela();
-        txtMatricula.setText("");
-        txtMatricula.setText(Banco.geradorDeMatricula('S'));
-        txtNome.setText("");
-        txtCPF.setText("");
-        txtEndereco.setText("");
-        txtTelefone.setText("");
-        jPasswordField1.setText("");
-        txtNascimento.setText("");
+        boolean existe = false;
+        for (Pessoa p : Banco.usuarios) {
+            if(p.getMatricula().equals(txtMatricula.getText())){
+                existe = true;
+            }
+        }
+          if(existe){
+                JOptionPane.showMessageDialog(null, "Matricula já Existente");
+            }else{
+            s.cadastrarSecretaria(s);
+            preencherTabela();
+            txtMatricula.setText("");
+            txtMatricula.setText(Banco.geradorDeMatricula('S'));
+            txtNome.setText("");
+            txtCPF.setText("");
+            txtEndereco.setText("");
+            txtTelefone.setText("");
+            jPasswordField1.setText("");
+            txtNascimento.setText("");
+        }
+    
+        
+        
 
     }//GEN-LAST:event_jLabel6MousePressed
 

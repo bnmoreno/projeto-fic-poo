@@ -58,28 +58,6 @@ public class Banco {
     }
 
     
-    //Area de Funções especificas...
-    
-    //Metodo que gera a matricula automáticamente a matricula do ALUNO
-    //no formato temporario de ano-atual+sequencia-do-aluno
-    //Exemplo 20180001 para o primeiro aluno
-    
-//    public static String geradorDeMatriculaDeAluno() {
-//        String mat="";
-//        
-//        Calendar cal = Calendar.getInstance();
-//        mat += cal.get(Calendar.YEAR);
-//        if(Banco.listaDeAlunos.isEmpty()){
-//            return mat+"0001";
-//        }else{
-//            int indexOfLastStudent = Banco.listaDeAlunos.size()-1;
-//            Aluno a = Banco.listaDeAlunos.get(indexOfLastStudent);
-//            int res = Integer.parseInt(a.getMatricula())+1;
-//            mat = Integer.toString(res);
-//        }
-//        
-//        return mat;
-//    }
     
     public static void prencherParaTeste(){
         usuarios.add(new Professor(new Diario("Diario Teste"), "1234","1234", "Admin", "", "", "", new Date(), 'P'));
