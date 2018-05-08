@@ -5,12 +5,12 @@
  */
 package gui;
 
-import beans.Aluno;
 import beans.Banco;
 import beans.Pessoa;
-import beans.Professor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -98,6 +98,7 @@ public class Login_Scream extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Entrar");
+        jLabel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jLabel6.setOpaque(true);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -105,6 +106,12 @@ public class Login_Scream extends javax.swing.JFrame {
             }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
             }
         });
         jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -282,6 +289,14 @@ public class Login_Scream extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        jLabel6.setBorder(new EtchedBorder());
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+        jLabel6.setBorder(new TitledBorder(""));
+    }//GEN-LAST:event_jLabel6MouseExited
 
     /**
      * @param args the command line arguments
