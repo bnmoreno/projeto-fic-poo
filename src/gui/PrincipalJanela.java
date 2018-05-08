@@ -30,6 +30,10 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class PrincipalJanela extends javax.swing.JFrame {
     private Pessoa pessoa;
+    Tela_Cadastros obg;
+    Tela_Cadastros_Aluno tca;
+    Tela_Cadastros_Professor tcp;
+    
     public PrincipalJanela(Pessoa pessoa) {
         initComponents();
         jDesktopPane1.setBorder((Border)new ImagemPrincipal());
@@ -51,7 +55,18 @@ public class PrincipalJanela extends javax.swing.JFrame {
                 (desktopSize.height - jInternalFrameSize.height) / 2);
       
     }
-
+    public void fechar(){
+        if( obg!= null){
+            obg.dispose();
+        }
+        if(tca!=null){
+            tca.dispose();
+        }
+        if(tcp!=null){
+            tcp.dispose();
+        }
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,6 +81,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -132,6 +149,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/notebook-icon.png"))); // NOI18N
         jMenu1.setText("Diario");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ImagenNovoDiario.png"))); // NOI18N
         jMenuItem1.setText("Novo Diario");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,7 +158,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Ver Diario");
+        jMenuItem2.setText("Lançar Nota");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -155,13 +173,29 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu2.setText("Cadastro");
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_user16.png"))); // NOI18N
-        jMenuItem4.setText("Cadastrar");
+        jMenuItem4.setText("Secretaria");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItem4);
+
+        jMenuItem8.setText("Professor");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem8);
+
+        jMenuItem9.setText("Aluno");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem9);
 
         jMenuBar1.add(jMenu2);
 
@@ -234,7 +268,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Tela_Cadastros obg = new Tela_Cadastros();
+        fechar();
+        obg = new Tela_Cadastros();
         ((BasicInternalFrameUI)obg.getUI()).setNorthPane(null);
         jDesktopPane1.add(obg);
         obg.setVisible(true);
@@ -275,6 +310,25 @@ public class PrincipalJanela extends javax.swing.JFrame {
         Timer timer = new Timer(1000, new hora());
         timer.start();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        fechar();
+        tcp = new Tela_Cadastros_Professor();
+        ((BasicInternalFrameUI)tcp.getUI()).setNorthPane(null);
+        jDesktopPane1.add(tcp);
+        tcp.setVisible(true);
+        centralizaForm(tcp);
+        
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        fechar();
+        tca = new Tela_Cadastros_Aluno();
+        ((BasicInternalFrameUI)tca.getUI()).setNorthPane(null);
+        jDesktopPane1.add(tca);
+        tca.setVisible(true);
+        centralizaForm(tca);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
  
     
 
@@ -292,6 +346,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jldata;
     private javax.swing.JLabel jlhora2;

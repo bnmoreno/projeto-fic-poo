@@ -21,6 +21,10 @@ public class Professor extends Pessoa{
         super(matricula,senha, nome, cpf, endereco, telefone, nascimento, perfil);
         this.turma = turma;
     }
+
+    public Professor(String matricula, String senha, String nome, String cpf, String endereco, String telefone, Date nascimento, char perfil) {
+        super(matricula, senha, nome, cpf, endereco, telefone, nascimento, perfil);
+    }
     
     public boolean cadastrarProfessor(Professor professor){
         return Banco.usuarios.add(professor);
