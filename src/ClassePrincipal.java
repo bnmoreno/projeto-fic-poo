@@ -1,6 +1,7 @@
 
 import gui.Login_Scream;
 import gui.PrincipalJanela1;
+import javax.swing.UIManager;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +20,9 @@ public class ClassePrincipal {
                 //new PrincipalJanela().setVisible(true);
                 new Login_Scream().setVisible(true);
                 try {
+                   // UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
                     javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
+                    //UIManager.setLookAndFeel ("javax.swing.plaf.metal.MetalLookAndFeel");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

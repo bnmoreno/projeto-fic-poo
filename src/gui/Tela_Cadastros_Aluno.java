@@ -121,6 +121,9 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(16, 212, 47), 3));
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
