@@ -9,7 +9,6 @@ import beans.Aluno;
 import beans.Banco;
 import static beans.Banco.ultimoSecretario;
 import beans.Pessoa;
-import beans.Professor;
 import beans.Secretaria;
 import java.awt.Dimension;
 import java.text.ParseException;
@@ -22,21 +21,21 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import javax.xml.crypto.Data;
+
 
 /**
  *
  * @author Denilson
  */
-public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
+public class Tela_Cadastros_Secretaria extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Tela_Cadastros
+     * Creates new form Tela_Cadastros_Secretaria
      */
     private DefaultTableModel dtmProdutos;
     
     private SimpleDateFormat formato;
-    public Tela_Cadastros_Professor() {
+    public Tela_Cadastros_Secretaria() {
         initComponents();
         
         
@@ -46,14 +45,14 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         jTProdutos.setRowSorter(new TableRowSorter(modelo));
         dtmProdutos = (DefaultTableModel) jTProdutos.getModel();
         //Gerando matricula
-        if (Banco.ultimoProfessor==null){
-            txtMatricula.setText(Banco.geradorDeMatricula('P'));
+        if (ultimoSecretario==null){
+            txtMatricula.setText(Banco.geradorDeMatricula('S'));
         }else{
-            txtMatricula.setText(Banco.ultimoProfessor);
+            txtMatricula.setText(ultimoSecretario);
         }
         preencherTabela();
         
-//        Tela_Cadastros.setDefaultLocale(null);
+//        Tela_Cadastros_Secretaria.setDefaultLocale(null);
     }
     public void setPosicao(){
         Dimension d = getDesktopPane().getSize();
@@ -61,19 +60,18 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
     }
     private void preencherTabela(){
         dtmProdutos.setNumRows(0);
-        for(Pessoa pessoa: Banco.usuarios){
-            if(pessoa instanceof Professor){
-                Professor professor = (Professor) pessoa;
-
+        for(Pessoa pesoa: Banco.usuarios){
+            if(pesoa instanceof Secretaria){
+                Secretaria secretaria = (Secretaria) pesoa;
                 dtmProdutos.addRow(new Object[]{
-                    professor.getMatricula(),
-                    professor,
-                    professor.getCpf(),
-                    professor.getEndereco(),
-                    professor.getTelefone(),
-                    formato.format(professor.getNascimento())
+                    secretaria.getMatricula(),
+                    secretaria,
+                    secretaria.getCpf(),
+                    secretaria.getEndereco(),
+                    secretaria.getTelefone(),
+                    formato.format(secretaria.getNascimento())
                 });
-            }
+            } 
         }
     }
 
@@ -162,14 +160,14 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         jLabel6.setText("CADASTRAR");
         jLabel6.setOpaque(true);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel6MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel6MouseExited(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel6MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
             }
         });
         jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -208,14 +206,14 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         jLabel8.setText("ATUALIZAR");
         jLabel8.setOpaque(true);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel8MouseExited(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel8MousePressed(evt);
             }
         });
         jLabel8.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -293,7 +291,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -309,7 +307,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jSeparator4)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
@@ -342,13 +340,13 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,9 +395,9 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,10 +504,10 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         try {
             nascimento =  formato.parse(txtNascimento.getText());
         } catch (ParseException ex) {
-            Logger.getLogger(Tela_Cadastros_Professor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Tela_Cadastros_Secretaria.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Professor prof = new Professor(
+        Secretaria s = new Secretaria(
                 txtMatricula.getText(), 
                 jPasswordField1.getText(),
                 txtNome.getText(),
@@ -517,7 +515,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
                 txtEndereco.getText(),
                 txtTelefone.getText(), 
                 (Date) nascimento, 
-                'P'
+                'S'
         );
         boolean existe = false;
         for (Pessoa p : Banco.usuarios) {
@@ -528,10 +526,10 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
           if(existe){
                 JOptionPane.showMessageDialog(null, "Matricula já Existente");
             }else{
-            prof.cadastrarProfessor(prof);
+            s.cadastrarSecretaria(s);
             preencherTabela();
             txtMatricula.setText("");
-            txtMatricula.setText(Banco.geradorDeMatricula('P'));
+            txtMatricula.setText(Banco.geradorDeMatricula('S'));
             txtNome.setText("");
             txtCPF.setText("");
             txtEndereco.setText("");
@@ -573,28 +571,14 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
         // Evento ao click no botão - Atualizar
-       Date nascimento = null;
-        try {
-            nascimento =  formato.parse(txtNascimento.getText());
-        } catch (ParseException ex) {
-            Logger.getLogger(Tela_Cadastros.class.getName()).log(Level.SEVERE, null, ex);
+        if(jTProdutos.getSelectedRow() != -1){
+
+            jTProdutos.setValueAt(txtMatricula.getText(), jTProdutos.getSelectedRow(), 0);
+            jTProdutos.setValueAt(txtNome.getText(), jTProdutos.getSelectedRow(), 1);
+            jTProdutos.setValueAt(txtCPF.getText(), jTProdutos.getSelectedRow(), 2);
         }
-        String p="";
-        for(Pessoa pessoa: Banco.usuarios){
-            if(pessoa.getMatricula().equals(txtMatricula.getText())){
-                pessoa.setCpf(txtCPF.getText());
-                pessoa.setEndereco(txtEndereco.getText());
-                pessoa.setNascimento(nascimento);
-                pessoa.setNome(txtNome.getText());
-                pessoa.setSenha(jPasswordField1.getText());
-                pessoa.setTelefone(txtTelefone.getText());
-                p=pessoa.getNome();
-                break;
-            }
-        }
-        preencherTabela();
-        JOptionPane.showMessageDialog(null, "Dados do usuário "+p+" atualizados com sucesso");
-        txtMatricula.setText(Banco.geradorDeMatricula('P'));
+
+        txtMatricula.setText("");
         txtNome.setText("");
         txtCPF.setText("");
         txtEndereco.setText("");
@@ -670,7 +654,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel11MousePressed
 
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        jLabel11.setBorder(new TitledBorder(""));
+        jLabel1.setBorder(new TitledBorder(""));
     }//GEN-LAST:event_jLabel11MouseExited
 
     private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered

@@ -20,7 +20,7 @@ public class ClassePrincipal {
                 //new PrincipalJanela().setVisible(true);
                 new Login_Scream().setVisible(true);
                 try {
-                   // UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 //                    javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
                     //UIManager.setLookAndFeel ("javax.swing.plaf.metal.MetalLookAndFeel");
                 } catch (Exception ex) {
