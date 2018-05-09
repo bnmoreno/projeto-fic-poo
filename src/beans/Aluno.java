@@ -70,6 +70,7 @@ public class Aluno extends Pessoa {
     public void setNotasDoAluno(ArrayList<Double> notasDoAluno) {
         this.notasDoAluno = notasDoAluno;
     }
-    
+
+ 
     
 }

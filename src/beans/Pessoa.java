@@ -123,6 +123,14 @@ public abstract class Pessoa {
     public void setPerfil(char perfil) {
         this.perfil = perfil;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Pessoa pessoa = (Pessoa) obj;
+        if(pessoa.getMatricula() == matricula)
+            return true;
+        return false; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

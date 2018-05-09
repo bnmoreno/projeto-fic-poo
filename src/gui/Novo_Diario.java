@@ -6,21 +6,37 @@
 package gui;
 
 import beans.*;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private ArrayList<Aluno> alunos;
+    DefaultTableModel model;
     private Professor professor;
     public Novo_Diario(Professor professor) {
         initComponents();
+        jComboBox1.setSelectedItem(null);
+        alunos = new ArrayList<>();
+        model = (DefaultTableModel) jTable1.getModel();
         this.professor = professor;
         jLabel1.setText(jLabel1.getText()+" "+professor);
         jComboBox1.removeAllItems();
         for(Pessoa p : Banco.usuarios){
             if(p instanceof Aluno)
                 jComboBox1.addItem(p);
+        }
+    }
+    private void novoDiario(){
+        if(!alunos.isEmpty()){
+            professor.criarDiario(alunos, jTextField1.getText());
+            JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
+        }else{
+            JOptionPane.showMessageDialog(null, "Adicione um aluno");
         }
     }
 
@@ -68,11 +84,10 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("BUSCAR ALUNO");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.setBorder(null);
-        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseClicked(evt);
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
             }
         });
 
@@ -98,17 +113,17 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         jLabel6.setText("Criar Diario");
         jLabel6.setOpaque(true);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel6MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel6MouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel6MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
             }
         });
         jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -179,42 +194,48 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+            
+        
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         // Evento ao click no botão - Fazer Login
 //        logar();
-
+        novoDiario();
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        professor.criarDiario(alunos, jTextField1.getText());
         //clic
+        novoDiario();
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-//        jLabel6.setBorder(new TitledBorder(""));
+        jLabel6.setBorder(new TitledBorder(""));
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-//        jLabel6.setBorder(new EtchedBorder());
+        jLabel6.setBorder(new EtchedBorder());
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel6KeyPressed
-        // Evento fazer login com - Enter
+        novoDiario();
+// Evento fazer login com - Enter
     }//GEN-LAST:event_jLabel6KeyPressed
 
-    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
-        
-        // Faz a ação.
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Aluno a = (Aluno) jComboBox1.getSelectedItem();
-        model.addRow(new Object[]{a.getMatricula(),a,a.getEndereco(),a.getTelefone()});
-        alunos.add(a);
-        
-
-    }//GEN-LAST:event_jComboBox1MouseClicked
-
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            Aluno aluno = (Aluno) jComboBox1.getSelectedItem();
+            //JOptionPane.showMessageDialog(null, aluno);
+            alunos.add(aluno);
+            
+        }  
+        listarAlunos();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+private void listarAlunos(){
+        model.setNumRows(0);
+        for(Aluno a:alunos)
+            model.addRow(new Object[]{a});
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
