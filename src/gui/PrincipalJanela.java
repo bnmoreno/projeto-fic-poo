@@ -26,7 +26,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class PrincipalJanela extends javax.swing.JFrame {
     private Pessoa pessoa;
-    Tela_Cadastros obg;
+    Tela_Cadastros_Secretaria obg;
     Tela_Cadastros_Aluno tca;
     Tela_Cadastros_Professor tcp;
     Novo_Diario nd;
@@ -281,7 +281,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         fechar();
-        obg = new Tela_Cadastros();
+        obg = new Tela_Cadastros_Secretaria();
         //((BasicInternalFrameUI)obg.getUI()).setNorthPane(null);
         jDesktopPane1.add(obg);
         obg.setVisible(true);
