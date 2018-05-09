@@ -18,6 +18,12 @@ public class ClassePrincipal {
             public void run() {
                 //new PrincipalJanela().setVisible(true);
                 new Login_Scream().setVisible(true);
+                try {
+                    javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
             }
         });
 
