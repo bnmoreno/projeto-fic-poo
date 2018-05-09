@@ -5,17 +5,23 @@
  */
 package gui;
 
-/**
- *
- * @author Denilson
- */
+import beans.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 public class Novo_Diario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Novo_Diario
-     */
-    public Novo_Diario() {
+    private ArrayList<Aluno> alunos;
+    private Professor professor;
+    public Novo_Diario(Professor professor) {
         initComponents();
+        this.professor = professor;
+        jLabel1.setText(jLabel1.getText()+" "+professor);
+        jComboBox1.removeAllItems();
+        for(Pessoa p : Banco.usuarios){
+            if(p instanceof Aluno)
+                jComboBox1.addItem(p);
+        }
     }
 
     /**
@@ -64,13 +70,15 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.setBorder(null);
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -180,7 +188,8 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-
+        professor.criarDiario(alunos, jTextField1.getText());
+        //clic
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
@@ -194,6 +203,17 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     private void jLabel6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel6KeyPressed
         // Evento fazer login com - Enter
     }//GEN-LAST:event_jLabel6KeyPressed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        
+        // Faz a ação.
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Aluno a = (Aluno) jComboBox1.getSelectedItem();
+        model.addRow(new Object[]{a.getMatricula(),a,a.getEndereco(),a.getTelefone()});
+        alunos.add(a);
+        
+
+    }//GEN-LAST:event_jComboBox1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -61,17 +61,19 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
     }
     private void preencherTabela(){
         dtmProdutos.setNumRows(0);
-        for(Pessoa p: Banco.usuarios){
-            Object[] dados = {
-                p.getMatricula(),
-                p,
-                p.getCpf(),
-                p.getEndereco(),
-                p.getTelefone(),
-                formato.format(p.getNascimento())
-            };
+        for(Pessoa pessoa: Banco.usuarios){
+            if(pessoa instanceof Professor){
+                Professor professor = (Professor) pessoa;
 
-            dtmProdutos.addRow(dados);
+                dtmProdutos.addRow(new Object[]{
+                    professor.getMatricula(),
+                    professor,
+                    professor.getCpf(),
+                    professor.getEndereco(),
+                    professor.getTelefone(),
+                    formato.format(professor.getNascimento())
+                });
+            }
         }
     }
 

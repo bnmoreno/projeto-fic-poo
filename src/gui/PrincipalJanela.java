@@ -5,10 +5,7 @@
  */
 package gui;
 
-import beans.Aluno;
-import beans.Pessoa;
-import beans.Professor;
-import beans.Secretaria;
+import beans.*;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.ActionEvent;
@@ -18,7 +15,6 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -33,18 +29,23 @@ public class PrincipalJanela extends javax.swing.JFrame {
     Tela_Cadastros obg;
     Tela_Cadastros_Aluno tca;
     Tela_Cadastros_Professor tcp;
+    Novo_Diario nd;
     
     public PrincipalJanela(Pessoa pessoa) {
         initComponents();
         jDesktopPane1.setBorder((Border)new ImagemPrincipal());
         this.setExtendedState(MAXIMIZED_BOTH);
+        this.pessoa = pessoa;
         if(pessoa instanceof Professor){
             jMenu4.setVisible(false);
-            this.pessoa = pessoa;
+            jMenu2.setVisible(false);
         }else if(pessoa instanceof Aluno){
-            Aluno aluno = (Aluno) pessoa;
             jMenu1.setVisible(false);
             jMenu2.setVisible(false);
+        }else{
+            jMenu1.setVisible(false);
+            jMenu4.setVisible(false);
+            
         }
     }
     private void centralizaForm(JInternalFrame frame) {
@@ -64,6 +65,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
         }
         if(tcp!=null){
             tcp.dispose();
+        }
+        if(nd!=null){
+            nd.dispose();
         }
         
     }
@@ -260,7 +264,12 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-  
+        fechar();
+        nd = new Novo_Diario((Professor)pessoa);
+        ((BasicInternalFrameUI)nd.getUI()).setNorthPane(null);
+        jDesktopPane1.add(nd);
+        nd.setVisible(true);
+        centralizaForm(nd);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

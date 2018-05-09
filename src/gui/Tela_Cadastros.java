@@ -60,17 +60,18 @@ public class Tela_Cadastros extends javax.swing.JInternalFrame {
     }
     private void preencherTabela(){
         dtmProdutos.setNumRows(0);
-        for(Pessoa p: Banco.usuarios){
-            Object[] dados = {
-                p.getMatricula(),
-                p,
-                p.getCpf(),
-                p.getEndereco(),
-                p.getTelefone(),
-                formato.format(p.getNascimento())
-            };
-
-            dtmProdutos.addRow(dados);
+        for(Pessoa pesoa: Banco.usuarios){
+            if(pesoa instanceof Secretaria){
+                Secretaria secretaria = (Secretaria) pesoa;
+                dtmProdutos.addRow(new Object[]{
+                    secretaria.getMatricula(),
+                    secretaria,
+                    secretaria.getCpf(),
+                    secretaria.getEndereco(),
+                    secretaria.getTelefone(),
+                    formato.format(secretaria.getNascimento())
+                });
+            } 
         }
     }
 
