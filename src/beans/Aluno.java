@@ -34,6 +34,7 @@ public class Aluno extends Pessoa {
 //    }
 
     public boolean cadastrarAluno(Aluno aluno){
+        if(aluno.equals(this)){}
         return Banco.usuarios.add(aluno);
     }
     public boolean deletarAluno(Aluno aluno){

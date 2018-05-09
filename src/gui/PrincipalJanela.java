@@ -17,7 +17,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 
 /**
@@ -269,7 +268,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         fechar();
         nd = new Novo_Diario((Professor)pessoa);
-        //((BasicInternalFrameUI)nd.getUI()).setNorthPane(null);
         jDesktopPane1.add(nd);
         nd.setVisible(true);
         centralizaForm(nd);
@@ -282,11 +280,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         fechar();
         obg = new Tela_Cadastros();
-        //((BasicInternalFrameUI)obg.getUI()).setNorthPane(null);
         jDesktopPane1.add(obg);
         obg.setVisible(true);
         centralizaForm(obg);
-        //obg.setPosicao();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -326,7 +322,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         fechar();
         tcp = new Tela_Cadastros_Professor();
-        //((BasicInternalFrameUI)tcp.getUI()).setNorthPane(null);
         jDesktopPane1.add(tcp);
         tcp.setVisible(true);
         centralizaForm(tcp);
@@ -336,7 +331,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         fechar();
         tca = new Tela_Cadastros_Aluno();
-        //((BasicInternalFrameUI)tca.getUI()).setNorthPane(null);
         jDesktopPane1.add(tca);
         tca.setVisible(true);
         centralizaForm(tca);
@@ -365,11 +359,10 @@ public class PrincipalJanela extends javax.swing.JFrame {
     private javax.swing.JLabel jlhora2;
     // End of variables declaration//GEN-END:variables
 class hora implements ActionListener{
+    //Ipreção da hora
     public void actionPerformed(ActionEvent e){
         Calendar now = Calendar.getInstance();
         jlhora2.setText(String.format("%1$tH:%1$tM:%1$tS", now));
-        jlhora2.setText(String.format("%1$tH:%1$tM:%1$tS", now)); 
-        //System.out.println(jlhora2.getText());
     }
 }
 

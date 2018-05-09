@@ -20,7 +20,6 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     private Professor professor;
     public Novo_Diario(Professor professor) {
         initComponents();
-        jComboBox1.setSelectedItem(null);
         alunos = new ArrayList<>();
         model = (DefaultTableModel) jTable1.getModel();
         this.professor = professor;
@@ -223,18 +222,20 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel6KeyPressed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        if (evt.getStateChange() == ItemEvent.SELECTED) {
+
             Aluno aluno = (Aluno) jComboBox1.getSelectedItem();
-            //JOptionPane.showMessageDialog(null, aluno);
             alunos.add(aluno);
             
-        }  
-        listarAlunos();
+            for(Aluno a:alunos){
+            System.out.println(a);
+            }
+        
+            listarAlunos();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 private void listarAlunos(){
         model.setNumRows(0);
         for(Aluno a:alunos)
-            model.addRow(new Object[]{a});
+            model.addRow(new Object[]{a.getMatricula(),a});
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
