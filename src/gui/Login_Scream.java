@@ -9,6 +9,7 @@ import beans.Banco;
 import beans.Pessoa;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
@@ -279,7 +280,9 @@ public class Login_Scream extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6KeyPressed
 
     private void senha_txtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_senha_txtKeyPressed
-        logar();
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            logar();
+        }
     }//GEN-LAST:event_senha_txtKeyPressed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
