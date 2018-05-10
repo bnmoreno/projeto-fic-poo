@@ -18,6 +18,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     private ArrayList<Aluno> alunos;
     DefaultTableModel model;
     private Professor professor;
+    boolean teste = false;
     public Novo_Diario(Professor professor) {
         initComponents();
         alunos = new ArrayList<>();
@@ -63,7 +64,11 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
 
-        setEnabled(false);
+        setBorder(null);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 0));
 
@@ -158,7 +163,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +183,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
@@ -229,9 +234,12 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel6KeyPressed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-            if(evt.getStateChange() == ItemEvent.SELECTED) {
-                Aluno aluno = (Aluno) evt.getItem();
-                alunos.add(aluno);
+            if(evt.getStateChange() == 1) {
+                if(teste){
+                    Aluno aluno = (Aluno) evt.getItem();
+                    alunos.add(aluno);
+                }
+                teste =true;
             }
             listarAlunos();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
