@@ -1,6 +1,5 @@
 
 import gui.Login_Scream;
-import gui.PrincipalJanela1;
 import javax.swing.UIManager;
 
 /*
@@ -17,12 +16,9 @@ public class ClassePrincipal {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new PrincipalJanela().setVisible(true);
                 new Login_Scream().setVisible(true);
                 try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-//                    javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
-                    //UIManager.setLookAndFeel ("javax.swing.plaf.metal.MetalLookAndFeel");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
