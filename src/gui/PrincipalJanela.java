@@ -279,7 +279,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         fechar();
-        Tela_Cadastros obg = new Tela_Cadastros();
+        Tela_Cadastros_Secretaria obg = new Tela_Cadastros_Secretaria();
         jDesktopPane1.add(obg);
         obg.setVisible(true);
         centralizaForm(obg);

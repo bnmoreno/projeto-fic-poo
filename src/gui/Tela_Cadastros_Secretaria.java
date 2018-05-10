@@ -571,12 +571,28 @@ public class Tela_Cadastros_Secretaria extends javax.swing.JInternalFrame {
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
         // Evento ao click no botão - Atualizar
-        if(jTProdutos.getSelectedRow() != -1){
-
-            jTProdutos.setValueAt(txtMatricula.getText(), jTProdutos.getSelectedRow(), 0);
-            jTProdutos.setValueAt(txtNome.getText(), jTProdutos.getSelectedRow(), 1);
-            jTProdutos.setValueAt(txtCPF.getText(), jTProdutos.getSelectedRow(), 2);
+        Date nascimento = null;
+        try {
+            nascimento =  formato.parse(txtNascimento.getText());
+        } catch (ParseException ex) {
+            //Logger.getLogger(Tela_Cadastros.class.getName()).log(Level.SEVERE, null, ex);
         }
+        String p="";
+        for(Pessoa pessoa: Banco.usuarios){
+            if(pessoa.getMatricula().equals(txtMatricula.getText())){
+                pessoa.setCpf(txtCPF.getText());
+                pessoa.setEndereco(txtEndereco.getText());
+                pessoa.setNascimento(nascimento);
+                pessoa.setNome(txtNome.getText());
+                pessoa.setSenha(jPasswordField1.getText());
+                pessoa.setTelefone(txtTelefone.getText());
+                p=pessoa.getNome();
+                break;
+            }
+        }
+        preencherTabela();
+        JOptionPane.showMessageDialog(null, "Dados do usuário "+p+" atualizados com sucesso");
+        txtMatricula.setText(Banco.geradorDeMatricula('S'));
 
         txtMatricula.setText("");
         txtNome.setText("");

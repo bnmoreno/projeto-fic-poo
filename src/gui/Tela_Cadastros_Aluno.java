@@ -623,7 +623,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
         try {
             nascimento =  formato.parse(txtNascimento.getText());
         } catch (ParseException ex) {
-            Logger.getLogger(Tela_Cadastros.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(Tela_Cadastros.class.getName()).log(Level.SEVERE, null, ex);
         }
         Aluno a = null;
         for(Pessoa pessoa: Banco.usuarios){
