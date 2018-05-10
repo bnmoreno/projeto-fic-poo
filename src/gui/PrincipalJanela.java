@@ -28,6 +28,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     Tela_Cadastros_Secretaria obg;
     Tela_Cadastros_Aluno tca;
     Tela_Cadastros_Professor tcp;
+    Tela_Lancar_Nota tln;
     Novo_Diario nd;
     
     public PrincipalJanela(Pessoa pessoa) {
@@ -67,6 +68,9 @@ public class PrincipalJanela extends javax.swing.JFrame {
         }
         if(nd!=null){
             nd.dispose();
+        }
+        if(tln!=null){
+            tln.dispose();
         }
         
     }
@@ -274,12 +278,16 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
+        fechar();
+        tln = new Tela_Lancar_Nota();
+        jDesktopPane1.add(tln);
+        tln.setVisible(true);
+        centralizaForm(tln);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         fechar();
-        Tela_Cadastros_Secretaria obg = new Tela_Cadastros_Secretaria();
+        obg = new Tela_Cadastros_Secretaria();
         jDesktopPane1.add(obg);
         obg.setVisible(true);
         centralizaForm(obg);

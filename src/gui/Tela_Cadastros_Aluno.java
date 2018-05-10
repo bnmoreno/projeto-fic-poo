@@ -689,7 +689,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        jLabel6.setBorder(new TitledBorder(""));
+        jLabel6.setBorder(null);
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
@@ -697,7 +697,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
-        jLabel7.setBorder(new TitledBorder(""));
+        jLabel7.setBorder(null);
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
@@ -706,7 +706,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel8MouseEntered
 
     private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
-        jLabel8.setBorder(new TitledBorder(""));
+        jLabel8.setBorder(null);
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel8MouseExited
 
@@ -722,7 +722,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel11MousePressed
 
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-        jLabel11.setBorder(new TitledBorder(""));
+        jLabel11.setBorder(null);
     }//GEN-LAST:event_jLabel11MouseExited
 
     private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
