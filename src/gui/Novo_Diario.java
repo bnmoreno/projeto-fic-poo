@@ -35,7 +35,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     private void novoDiario(){
         if(!alunos.isEmpty()){
             professor.criarDiario(alunos, jTextField1.getText());
-            alunos.removeAll(alunos);
+            alunos = new ArrayList<>();
             listarAlunos();
             JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
         }else{
