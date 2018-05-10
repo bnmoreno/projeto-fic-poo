@@ -24,15 +24,18 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         model = (DefaultTableModel) jTable1.getModel();
         this.professor = professor;
         jLabel1.setText(jLabel1.getText()+" "+professor);
-        jComboBox1.removeAllItems();
+        //jComboBox1.removeAllItems();
         for(Pessoa p : Banco.usuarios){
             if(p instanceof Aluno)
                 jComboBox1.addItem(p);
         }
     }
+    
     private void novoDiario(){
         if(!alunos.isEmpty()){
             professor.criarDiario(alunos, jTextField1.getText());
+            alunos.removeAll(alunos);
+            listarAlunos();
             JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
         }else{
             JOptionPane.showMessageDialog(null, "Adicione um aluno");
@@ -83,10 +86,15 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("BUSCAR ALUNO");
 
-        jComboBox1.setBorder(null);
+        jComboBox1.setSelectedIndex(-1);
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
+            }
+        });
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -166,7 +174,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
@@ -197,8 +205,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        // Evento ao click no botão - Fazer Login
-//        logar();
+
         novoDiario();
     }//GEN-LAST:event_jLabel6MousePressed
 
@@ -223,11 +230,15 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
             if(evt.getStateChange() == ItemEvent.SELECTED) {
-                Aluno aluno = (Aluno) jComboBox1.getSelectedItem();
+                Aluno aluno = (Aluno) evt.getItem();
                 alunos.add(aluno);
             }
             listarAlunos();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 private void listarAlunos(){
         model.setNumRows(0);
         for(Aluno a:alunos)

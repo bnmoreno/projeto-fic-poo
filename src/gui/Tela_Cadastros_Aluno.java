@@ -712,7 +712,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
 
     private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
         txtMatricula.setText("");
-        txtMatricula.setText(Banco.geradorDeMatricula('A'));
+        txtMatricula.setText(Banco.ultimoAluno);
         txtNome.setText("");
         txtCPF.setText("");
         txtEndereco.setText("");
