@@ -222,14 +222,10 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel6KeyPressed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-
-            Aluno aluno = (Aluno) jComboBox1.getSelectedItem();
-            alunos.add(aluno);
-            
-            for(Aluno a:alunos){
-            System.out.println(a);
+            if(evt.getStateChange() == ItemEvent.SELECTED) {
+                Aluno aluno = (Aluno) jComboBox1.getSelectedItem();
+                alunos.add(aluno);
             }
-        
             listarAlunos();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 private void listarAlunos(){
