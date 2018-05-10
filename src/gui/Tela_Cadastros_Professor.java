@@ -660,7 +660,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
 
     private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
         txtMatricula.setText("");
-        txtMatricula.setText(Banco.geradorDeMatricula('S'));
+        txtMatricula.setText(Banco.geradorDeMatricula('P'));
         txtNome.setText("");
         txtCPF.setText("");
         txtEndereco.setText("");
