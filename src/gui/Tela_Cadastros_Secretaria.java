@@ -117,6 +117,7 @@ public class Tela_Cadastros_Secretaria extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Cadastro Secretaria");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -206,14 +207,14 @@ public class Tela_Cadastros_Secretaria extends javax.swing.JInternalFrame {
         jLabel8.setText("ATUALIZAR");
         jLabel8.setOpaque(true);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel8MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel8MousePressed(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel8MouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
             }
         });
         jLabel8.addKeyListener(new java.awt.event.KeyAdapter() {

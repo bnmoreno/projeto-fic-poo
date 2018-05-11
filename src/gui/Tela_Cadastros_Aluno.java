@@ -124,6 +124,7 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Cadastro Aluno");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -392,14 +393,14 @@ public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
         jLabel6.setText("CADASTRAR");
         jLabel6.setOpaque(true);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel6MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel6MouseExited(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel6MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
             }
         });
         jLabel6.addKeyListener(new java.awt.event.KeyAdapter() {

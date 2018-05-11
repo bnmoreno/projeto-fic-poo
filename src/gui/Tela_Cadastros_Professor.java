@@ -119,6 +119,7 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Cadastro Professor");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -272,14 +273,14 @@ public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
         jLabel11.setText("NOVO CADASTRO");
         jLabel11.setOpaque(true);
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel11MousePressed(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel11MouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel11MousePressed(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
             }
         });
         jLabel11.addKeyListener(new java.awt.event.KeyAdapter() {
