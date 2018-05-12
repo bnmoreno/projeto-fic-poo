@@ -8,6 +8,7 @@ package gui;
 import beans.*;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -35,7 +36,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     public PrincipalJanela(Pessoa pessoa) {
         initComponents();
         jDesktopPane1.setBorder((Border)new ImagemPrincipal());
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
         this.pessoa = pessoa;
         if(pessoa instanceof Professor){
             jMenu4.setVisible(false);
@@ -48,6 +49,15 @@ public class PrincipalJanela extends javax.swing.JFrame {
             jMenu4.setVisible(false);
             
         }
+        setResizable(false);
+        setLocationRelativeTo(null);
+        pegarResolucao();  
+    }
+    private void pegarResolucao() {
+        Toolkit t = Toolkit.getDefaultToolkit();
+        Dimension dimensao = t.getScreenSize();
+        this.setSize((dimensao.width + 5), (dimensao.height - 38));
+
     }
     private void centralizaForm(JInternalFrame frame) {
         
@@ -72,7 +82,8 @@ public class PrincipalJanela extends javax.swing.JFrame {
         }
         if(tln!=null){
             tln.dispose();
-        }if(teb!=null){
+        }
+        if(teb!=null){
             teb.dispose();
         }
         
@@ -272,22 +283,6 @@ public class PrincipalJanela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        fechar();
-        nd = new Novo_Diario((Professor)pessoa);
-        jDesktopPane1.add(nd);
-        nd.setVisible(true);
-        centralizaForm(nd);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        fechar();
-        tln = new Tela_Lancar_Nota();
-        jDesktopPane1.add(tln);
-        tln.setVisible(true);
-        centralizaForm(tln);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         fechar();
         obg = new Tela_Cadastros_Secretaria();
@@ -315,7 +310,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Integer opcao = JOptionPane.showConfirmDialog(null, "Deseja Sair do Sistena","Saindo",JOptionPane.OK_CANCEL_OPTION);
+        Integer opcao = JOptionPane.showConfirmDialog(null, "Deseja sair do Sistema?","Saindo",JOptionPane.OK_CANCEL_OPTION);
 
         if (opcao!=2 & opcao!=1){
             System.exit(0);
@@ -350,6 +345,22 @@ public class PrincipalJanela extends javax.swing.JFrame {
         tca.setVisible(true);
         centralizaForm(tca);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        fechar();
+        tln = new Tela_Lancar_Nota();
+        jDesktopPane1.add(tln);
+        tln.setVisible(true);
+        centralizaForm(tln);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        fechar();
+        nd = new Novo_Diario((Professor)pessoa);
+        jDesktopPane1.add(nd);
+        nd.setVisible(true);
+        centralizaForm(nd);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
  
     
 
