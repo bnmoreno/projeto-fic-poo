@@ -6,7 +6,6 @@
 package gui;
 
 import beans.*;
-import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -16,8 +15,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class Novo_Diario extends javax.swing.JInternalFrame {
 
-    private ArrayList<Aluno> alunos;
-    private ArrayList<Aluno> buscarClientes = new ArrayList<Aluno>();
+    private ArrayList<Aluno> alunosBanco,alunos;
+    private ArrayList<Aluno> buscarAluno ;
     DefaultTableModel tableModel;
     DefaultListModel<Aluno> listModel;
     private Professor professor;
@@ -25,6 +24,8 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     public Novo_Diario(Professor professor) {
         listModel = new DefaultListModel<>();
         initComponents();
+        buscarAluno = new ArrayList<Aluno>();
+        alunosBanco = new ArrayList<>();
         alunos = new ArrayList<>();
         tableModel = (DefaultTableModel) jTable1.getModel();
         this.professor = professor;
@@ -32,9 +33,9 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         
         for(Pessoa p : Banco.usuarios){
             if(p instanceof Aluno)
-                alunos.add((Aluno) p);
+                alunosBanco.add((Aluno) p);
         }
-        atualizaLista(alunos);
+        atualizaLista(alunosBanco);
     }
     
     public void atualizaLista(ArrayList<Aluno> lista){
@@ -46,8 +47,8 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }
     
     private void novoDiario(){
-        if(!alunos.isEmpty()){
-            professor.criarDiario(alunos, jTextField1.getText());
+        if(!alunosBanco.isEmpty()){
+            professor.criarDiario(alunosBanco, jTextField1.getText());
             JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
         }else{
             JOptionPane.showMessageDialog(null, "Adicione um aluno");
@@ -375,28 +376,28 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = jTextField2.getText();
-        for (Aluno aluno : alunos) {
+        for (Aluno aluno : alunosBanco) {
             if(aluno.getNome().equalsIgnoreCase(nome)){
-                buscarClientes.add(aluno);
+                buscarAluno.add(aluno);
             }
         }
-        atualizaLista(buscarClientes);
+        atualizaLista(buscarAluno);
         jTextField2.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
       String nome = jTextField2.getText();  
-      buscarClientes.clear();                   //limpa o array de busca
+      buscarAluno.clear();                   //limpa o array de busca
       if(nome.length() >= 0){                       //verifica se a string nome é maior que 0 para começar fazer as buscas
-        for (Aluno cliente : alunos) {
+        for (Aluno cliente : alunosBanco) {
             if(cliente.getNome().startsWith(nome)){         //se o nome for igual ao inicio do outro joga para o array e mostra na tela
-                buscarClientes.add(cliente);
-                atualizaLista(buscarClientes);
+                buscarAluno.add(cliente);
+                atualizaLista(buscarAluno);
             }
         }
       } else if(nome.length() < 1) {               //se a string nome == 0 então ele lista todos cadastrados
-          atualizaLista(alunos);
-          buscarClientes.clear();
+          atualizaLista(alunosBanco);
+          buscarAluno.clear();
       }
     }//GEN-LAST:event_jTextField2KeyReleased
             
