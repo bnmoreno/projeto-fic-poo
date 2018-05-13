@@ -5,9 +5,12 @@
  */
 package another;
 
+import beans.Aluno;
+import gui.FrameEditaAluno;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -55,8 +58,7 @@ public class ButtonEditor extends DefaultCellEditor {
     if (isPushed) {
       // 
       // 
-      JOptionPane.showMessageDialog(button, label + ": Ouch!");
-      // System.out.println(label + ": Ouch!");
+      new FrameEditaAluno(new Aluno(label, label, label, label, label, label, label, label, new Date(), 'A')).setVisible(true);
     }
     isPushed = false;
     return new String(label);

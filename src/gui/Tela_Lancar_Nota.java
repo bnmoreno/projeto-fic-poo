@@ -21,9 +21,8 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
     private DefaultTableModel tableModel;
     public Tela_Lancar_Nota(Professor professor) {
         initComponents();
-        //"Button" is the column name
-        jTable1.getColumn("ATRIBUIT NOTA").setCellRenderer(new ButtonRenderer());
-        jTable1.getColumn("ATRIBUIT NOTA").setCellEditor(
+        jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
+        jTable1.getColumn("ATRIBUIR NOTA").setCellEditor(
         new ButtonEditor(new JCheckBox()));
         jLabel2.setText(professor.getTurma().toString());
         tableModel = (DefaultTableModel) jTable1.getModel();
@@ -89,7 +88,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "MATRICULA", "NOME", "MEDIA", "ATRIBUIT NOTA"
+                "MATRICULA", "NOME", "MEDIA", "ATRIBUIR NOTA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
