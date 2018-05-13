@@ -139,7 +139,6 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
             }
         });
 
-        jList1.setModel(listModel);
         jScrollPane2.setViewportView(jList1);
 
         jLabel7.setBackground(new java.awt.Color(0, 153, 0));
