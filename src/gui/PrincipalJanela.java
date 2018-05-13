@@ -5,6 +5,7 @@
  */
 package gui;
 
+import another.ImagemPrincipal;
 import beans.*;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -348,7 +349,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         fechar();
-        tln = new Tela_Lancar_Nota();
+        tln = new Tela_Lancar_Nota((Professor) pessoa);
         jDesktopPane1.add(tln);
         tln.setVisible(true);
         centralizaForm(tln);

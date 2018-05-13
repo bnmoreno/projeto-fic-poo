@@ -1,5 +1,5 @@
 
-package gui;
+package another;
 
 import java.awt.Component;
 import java.awt.Graphics;

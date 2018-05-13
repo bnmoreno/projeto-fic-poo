@@ -33,7 +33,7 @@ public class Professor extends Pessoa{
         return Banco.usuarios.remove(professor);
     }
     
-    public void lancarNota(Aluno a, ArrayList<Double> notas){ 
+    public void lancarNota(Aluno a, ArrayList<Nota> notas){ 
         a.setNotasDoAluno(notas);
     }
     

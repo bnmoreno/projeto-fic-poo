@@ -5,17 +5,32 @@
  */
 package gui;
 
+import another.ButtonEditor;
+import another.ButtonRenderer;
+import beans.Aluno;
+import beans.Professor;
+import javax.swing.JCheckBox;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 20171134040027
  */
 public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Tela_Lancar_Nota
-     */
-    public Tela_Lancar_Nota() {
+    private DefaultTableModel tableModel;
+    public Tela_Lancar_Nota(Professor professor) {
         initComponents();
+        //"Button" is the column name
+        jTable1.getColumn("ATRIBUIT NOTA").setCellRenderer(new ButtonRenderer());
+        jTable1.getColumn("ATRIBUIT NOTA").setCellEditor(
+        new ButtonEditor(new JCheckBox()));
+        jLabel2.setText(professor.getTurma().toString());
+        tableModel = (DefaultTableModel) jTable1.getModel();
+        tableModel.setNumRows(0);
+        for(Aluno a: professor.getTurma().getAlunos()){
+            tableModel.addRow(new Object[]{a.getMatricula(),a,"0","Atribuir"});
+        }
     }
 
     /**
@@ -68,19 +83,33 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         jTable1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "MATRICULA", "NOME", "MEDIA"
+                "MATRICULA", "NOME", "MEDIA", "ATRIBUIT NOTA"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setRowHeight(23);
         jTable1.setSelectionBackground(new java.awt.Color(0, 153, 0));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel2.setFont(new java.awt.Font("Rockwell Condensed", 0, 22)); // NOI18N
         jLabel2.setText("Nome Diario");
