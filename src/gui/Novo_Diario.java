@@ -323,9 +323,13 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        Aluno aluno = listModel.getElementAt(jList1.getSelectedIndex());
+    Aluno aluno = listModel.getElementAt(jList1.getSelectedIndex());
+    if(alunos.contains(aluno)){
+        JOptionPane.showMessageDialog(null, "Aluno já está na lista!!!");
+    }else{
         alunos.add(aluno);
         listarAlunos();
+    }
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel6KeyPressed
