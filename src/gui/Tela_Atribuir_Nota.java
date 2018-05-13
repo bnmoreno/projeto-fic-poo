@@ -6,11 +6,15 @@
 package gui;
 import beans.Aluno;
 import beans.Banco;
+import beans.Nota;
 import beans.Pessoa;
+import beans.Professor;
 import beans.Secretaria;
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,8 +28,15 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     private DefaultTableModel dtmProdutos;
     private Aluno alu;
     private SimpleDateFormat formato;
-    public Tela_Atribuir_Nota(Aluno aluno) {
+    private JInternalFrame frame;
+    private JDesktopPane desktop;
+    private Professor professor;
+    public Tela_Atribuir_Nota(Aluno aluno, JInternalFrame frame,JDesktopPane desktop,Professor professor) {
         initComponents();
+        this.frame = frame;
+        this.desktop = desktop;
+        this.alu = aluno;
+        this.professor = professor;
         jLabel14.setText(aluno.toString());
 
     }
@@ -156,7 +167,7 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
                 jLabel9KeyPressed(evt);
             }
         });
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 60, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 100, -1));
 
         jLabel10.setBackground(new java.awt.Color(0, 153, 0));
         jLabel10.setFont(new java.awt.Font("Rockwell Condensed", 0, 22)); // NOI18N
@@ -183,7 +194,7 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
                 jLabel10KeyPressed(evt);
             }
         });
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 60, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,8 +202,8 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -243,7 +254,20 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel9KeyPressed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        // TODO add your handling code here:
+        ArrayList<Nota> notas = new ArrayList<Nota>();
+        notas.add(new Nota(Double.parseDouble(jTextField1.getText()), (byte)1));
+        notas.add(new Nota(Double.parseDouble(jTextField2.getText()), (byte)1));
+        notas.add(new Nota(Double.parseDouble(jTextField3.getText()), (byte)1));
+        notas.add(new Nota(Double.parseDouble(jTextField4.getText()), (byte)1));
+        notas.add(new Nota(Double.parseDouble(jTextField5.getText()), (byte)1));
+        if(frame!=null)
+            frame.dispose();
+        alu.setNotasDoAluno(notas);
+        Tela_Lancar_Nota tln = new Tela_Lancar_Nota((Professor) professor,desktop);
+        desktop.add(tln);
+        tln.setVisible(true);
+        centralizaForm(tln);
+        this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
@@ -261,7 +285,14 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     private void jLabel10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel10KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10KeyPressed
-
+private void centralizaForm(JInternalFrame frame) {
+        
+        Dimension desktopSize = desktop.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+      
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -6,20 +6,17 @@
 package another;
 
 import beans.Aluno;
-import gui.FrameEditaAluno;
+import beans.Professor;
 import gui.Tela_Atribuir_Nota;
-import gui.Tela_Cadastros_Secretaria;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -39,9 +36,16 @@ public class ButtonEditor extends DefaultCellEditor {
   
   private Tela_Atribuir_Nota tan;
   
-  public ButtonEditor(JCheckBox checkBox,JDesktopPane desctop, JTable tabel) {
+  private JInternalFrame frame;
+  
+  private Professor professor;
+  
+  public ButtonEditor(JCheckBox checkBox,JDesktopPane desctop, 
+          JTable tabel,JInternalFrame frame,Professor professor) {
     super(checkBox);
+    this.frame = frame;
     this.desctop = desctop;
+    this.professor = professor;
     button = new JButton();
     button.setOpaque(true);
     button.addActionListener(new ActionListener() {
@@ -73,7 +77,7 @@ public class ButtonEditor extends DefaultCellEditor {
       //
         if(tan != null)
             tan.dispose();
-        tan = new Tela_Atribuir_Nota(aluno);
+        tan = new Tela_Atribuir_Nota(aluno,frame,desctop,professor);
         desctop.add(tan);
         tan.setVisible(true);
         centralizaForm(tan);

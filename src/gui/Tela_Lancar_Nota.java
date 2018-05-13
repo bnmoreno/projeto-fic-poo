@@ -24,13 +24,14 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         initComponents();
         jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
         jTable1.getColumn("ATRIBUIR NOTA").setCellEditor(
-            new ButtonEditor(new JCheckBox(),desktop,jTable1)
+            new ButtonEditor(new JCheckBox(),desktop,jTable1,this,professor)
         );
         jLabel2.setText(professor.getTurma().toString());
         tableModel = (DefaultTableModel) jTable1.getModel();
         tableModel.setNumRows(0);
         for(Aluno a: professor.getTurma().getAlunos()){
-            tableModel.addRow(new Object[]{a.getMatricula(),a,"0","Atribuir"});
+            double media = a.getNotasDoAluno().isEmpty()?0:a.media();
+            tableModel.addRow(new Object[]{a.getMatricula(),a,media,"Atribuir"});
         }
     }
 
