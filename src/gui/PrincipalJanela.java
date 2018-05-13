@@ -349,7 +349,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         fechar();
-        tln = new Tela_Lancar_Nota((Professor) pessoa);
+        tln = new Tela_Lancar_Nota((Professor) pessoa,jDesktopPane1);
         jDesktopPane1.add(tln);
         tln.setVisible(true);
         centralizaForm(tln);

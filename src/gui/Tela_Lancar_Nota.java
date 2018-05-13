@@ -10,6 +10,7 @@ import another.ButtonRenderer;
 import beans.Aluno;
 import beans.Professor;
 import javax.swing.JCheckBox;
+import javax.swing.JDesktopPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,11 +20,12 @@ import javax.swing.table.DefaultTableModel;
 public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
 
     private DefaultTableModel tableModel;
-    public Tela_Lancar_Nota(Professor professor) {
+    public Tela_Lancar_Nota(Professor professor,JDesktopPane desktop) {
         initComponents();
         jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
         jTable1.getColumn("ATRIBUIR NOTA").setCellEditor(
-        new ButtonEditor(new JCheckBox()));
+            new ButtonEditor(new JCheckBox(),desktop,jTable1)
+        );
         jLabel2.setText(professor.getTurma().toString());
         tableModel = (DefaultTableModel) jTable1.getModel();
         tableModel.setNumRows(0);

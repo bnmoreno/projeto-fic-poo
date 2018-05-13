@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Denilson
  */
-public class Tela_Lancar_Nota_Por_Nota extends javax.swing.JInternalFrame {
+public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Tela_Cadastros
@@ -27,9 +27,9 @@ public class Tela_Lancar_Nota_Por_Nota extends javax.swing.JInternalFrame {
     private DefaultTableModel dtmProdutos;
     private Aluno alu;
     private SimpleDateFormat formato;
-    public Tela_Lancar_Nota_Por_Nota() {
+    public Tela_Atribuir_Nota(Aluno aluno) {
         initComponents();
-        
+        jLabel14.setText(aluno.toString());
 
     }
 
