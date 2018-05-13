@@ -7,13 +7,18 @@ package another;
 
 import beans.Aluno;
 import gui.FrameEditaAluno;
+import gui.Tela_Atribuir_Nota;
+import gui.Tela_Cadastros_Secretaria;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -27,13 +32,21 @@ public class ButtonEditor extends DefaultCellEditor {
   private String label;
 
   private boolean isPushed;
-
-  public ButtonEditor(JCheckBox checkBox) {
+  
+  private JDesktopPane desctop;
+  
+  private Aluno aluno;
+  
+  private Tela_Atribuir_Nota tan;
+  
+  public ButtonEditor(JCheckBox checkBox,JDesktopPane desctop, JTable tabel) {
     super(checkBox);
+    this.desctop = desctop;
     button = new JButton();
     button.setOpaque(true);
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
+         aluno = (Aluno) tabel.getValueAt(tabel.getSelectedRow(), 1);
         fireEditingStopped();
       }
     });
@@ -57,8 +70,13 @@ public class ButtonEditor extends DefaultCellEditor {
   public Object getCellEditorValue() {
     if (isPushed) {
       // 
-      // 
-      new FrameEditaAluno(new Aluno(label, label, label, label, label, label, label, label, new Date(), 'A')).setVisible(true);
+      //
+        if(tan != null)
+            tan.dispose();
+        tan = new Tela_Atribuir_Nota(aluno);
+        desctop.add(tan);
+        tan.setVisible(true);
+        centralizaForm(tan);
     }
     isPushed = false;
     return new String(label);
@@ -72,5 +90,13 @@ public class ButtonEditor extends DefaultCellEditor {
   protected void fireEditingStopped() {
     super.fireEditingStopped();
   }
+   private void centralizaForm(JInternalFrame frame) {
+        
+        Dimension desktopSize = desctop.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+      
+    }
 }
 
