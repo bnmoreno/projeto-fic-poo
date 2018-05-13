@@ -5,12 +5,9 @@
  */
 package gui;
 import beans.Aluno;
-import beans.Banco;
-import beans.Pessoa;
-import beans.Secretaria;
+import beans.Nota;
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -21,26 +18,26 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Tela_Cadastros
-     */
-    private DefaultTableModel dtmProdutos;
+    
+    private DefaultTableModel tableModel;
     private Aluno alu;
     private SimpleDateFormat formato;
     public Tela_Exibir_Boletim(Aluno aluno) {
         initComponents();
         alu = aluno;
+        tableModel = (DefaultTableModel) jTable1.getModel();
         jLabel12.setText(alu.getMatricula());
         jLabel13.setText(alu.getNome());
         jLabel4.setText(alu.getCpf());
         jLabel9.setText(alu.getNomeMae());
         jLabel10.setText(alu.getNomePai());
         jLabel6.setText(alu.getTelefone());
-//        jLabel15.setText(formato.format(alu.getNascimento()));
+        jLabel15.setText(formato.format(alu.getNascimento()));
         //preencherDados();
         //Data
       
 //        Tela_Cadastros.setDefaultLocale(null);
+        preencherDados();
     }
 
     
@@ -49,11 +46,10 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
         this.setLocation((d.width - this.getSize().width)/2, (d.height - this.getSize().height)/2);
     }
     private void preencherDados(){
-        dtmProdutos.setNumRows(0);
-        for(Pessoa pesoa: Banco.usuarios){
-            if(pesoa instanceof Secretaria){
-                
-            } 
+        tableModel.setNumRows(0);
+        int cont = 1;
+        for(Nota nota: alu.getNotasDoAluno()){
+            tableModel.addRow(new Object[]{"Nota"+cont++,nota.getNota(),nota.getPeso()});
         }
     }
 
@@ -83,7 +79,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTProdutos = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(16, 212, 47)));
         setClosable(true);
@@ -194,7 +190,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel6))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,8 +223,8 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -244,14 +240,16 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTProdutos.setPreferredSize(new java.awt.Dimension(150, 0));
-        jScrollPane3.setViewportView(jTProdutos);
+        jTable1.setPreferredSize(new java.awt.Dimension(150, 0));
+        jScrollPane3.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 429, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +266,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +285,8 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +305,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 988, 519);
+        setBounds(0, 0, 996, 519);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -333,6 +332,6 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTProdutos;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,9 +62,9 @@ public class Banco {
     public static void prencherParaTeste(){
         usuarios.add(new Secretaria( "1234","1234", "Admin", "", "", "", new Date(), 'P'));
         usuarios.add(new Professor( "12345","1234", "Admin", "", "", "", new Date(), 'P'));
-        usuarios.add(new Aluno( "","","1","1234", "Aluno1", "", "", "", new Date(), 'A'));
-        usuarios.add(new Aluno( "","","2","1234", "Aluno2", "", "", "", new Date(), 'A'));
-        usuarios.add(new Aluno( "","","3","1234", "Aluno3", "", "", "", new Date(), 'A'));
+        usuarios.add(new Aluno( "","","1","1234", "aluno", "111.111.111-11", "", "", new Date(), 'A'));
+        usuarios.add(new Aluno( "","","2","1234", "baluno", "111.111.111-12", "", "", new Date(), 'A'));
+        usuarios.add(new Aluno( "","","3","1234", "caluno", "111.111.111-13", "", "", new Date(), 'A'));
       
    }
 //    public void alterarDadosAluno(String matricula){
