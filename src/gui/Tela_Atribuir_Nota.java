@@ -21,9 +21,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Tela_Cadastros
-     */
     private DefaultTableModel dtmProdutos;
     private Aluno alu;
     private SimpleDateFormat formato;

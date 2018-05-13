@@ -24,7 +24,6 @@ public class Login_Scream extends javax.swing.JFrame {
      */
     public Login_Scream() {
         initComponents();
-        Banco.prencherParaTeste();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }

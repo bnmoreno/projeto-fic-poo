@@ -1,4 +1,5 @@
 
+import beans.Banco;
 import gui.Login_Scream;
 import javax.swing.UIManager;
 
@@ -16,6 +17,7 @@ public class ClassePrincipal {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Banco.prencherParaTeste();
                 new Login_Scream().setVisible(true);
                 try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
