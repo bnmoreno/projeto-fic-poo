@@ -17,10 +17,11 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private ArrayList<Aluno> alunosBanco,alunos;
     private ArrayList<Aluno> buscarAluno ;
-    DefaultTableModel tableModel;
-    DefaultListModel<Aluno> listModel;
+    private DefaultTableModel tableModel;
+    private DefaultListModel<Aluno> listModel;
     private Professor professor;
     boolean teste = false;
+    
     public Novo_Diario(Professor professor) {
         listModel = new DefaultListModel<>();
         initComponents();
@@ -45,16 +46,6 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         }
         jList1.setModel(listModel);
     }
-    
-    private void novoDiario(){
-        if(!alunos.isEmpty()){
-            professor.criarDiario(alunos, jTextField1.getText());
-            JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
-        }else{
-            JOptionPane.showMessageDialog(null, "Adicione um aluno");
-        }
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -352,8 +343,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel6KeyPressed
-        novoDiario();
-        // Evento fazer login com - Enter
+        professor.criarDiario(alunos, jTextField1.getText());
     }//GEN-LAST:event_jLabel6KeyPressed
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
@@ -365,13 +355,11 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        
-        novoDiario();
+        professor.criarDiario(alunos, jTextField1.getText());
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-
-        novoDiario();
+        professor.criarDiario(alunos, jTextField1.getText());
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

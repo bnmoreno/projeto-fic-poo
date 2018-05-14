@@ -7,6 +7,7 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,10 +38,6 @@ public class Professor extends Pessoa{
         a.setNotasDoAluno(notas);
     }
     
-    public void criarDiario(ArrayList<Aluno> alunos, String nomeDiario){
-        turma = new Diario(nomeDiario, alunos);
-    }
-    
     public void atribuirNota(Aluno aluno,Nota nota){
         aluno.addNota(nota);           
     }
@@ -52,7 +49,14 @@ public class Professor extends Pessoa{
     public void setTurma(Diario turma) {
         this.turma = turma;
     }
-   
+    public void criarDiario(ArrayList<Aluno> alunos,String nome){
+         if(!alunos.isEmpty()){
+             turma = new Diario(nome, alunos);
+             JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
+         }else{
+             JOptionPane.showMessageDialog(null, "Adicione um aluno");
+         }
+     }
     
     
 }
