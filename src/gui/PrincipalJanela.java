@@ -50,9 +50,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
             jMenu4.setVisible(false);
             
         }
-        setResizable(false);
-        setLocationRelativeTo(null);
-        pegarResolucao();  
+       pegarResolucao();  
     }
     private void pegarResolucao() {
         Toolkit t = Toolkit.getDefaultToolkit();
