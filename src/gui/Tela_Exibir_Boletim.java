@@ -27,12 +27,12 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
         alu = aluno;
         tableModel = (DefaultTableModel) jTable1.getModel();
         jLabel12.setText(alu.getMatricula());
-        jLabel13.setText(alu.getNome());
+        jLabel13.setText(alu.getMedia()+"");
         jLabel4.setText(alu.getCpf());
         jLabel9.setText(alu.getNomeMae());
         jLabel10.setText(alu.getNomePai());
         jLabel6.setText(alu.getTelefone());
-        jLabel15.setText(formato.format(alu.getNascimento()));
+//        jLabel15.setText(formato.format(alu.getNascimento()));
         //preencherDados();
         //Data
       

@@ -71,8 +71,12 @@ public class Aluno extends Pessoa {
     public void setNotasDoAluno(ArrayList<Nota> notasDoAluno) {
         this.notasDoAluno = notasDoAluno;
     }
+    
+    public void addNota(Nota nota){
+        this.notasDoAluno.add(nota);
+    }
 
-    public double media(){
+    private double media(){
         double media = 0;
         int pesos = 0;
         for(Nota n : notasDoAluno){
@@ -80,6 +84,9 @@ public class Aluno extends Pessoa {
             media += n.getNota();
         }
         return media/pesos;
+    }
+    public double getMedia(){
+        return notasDoAluno.isEmpty()?0: media();
     }
     
 }

@@ -30,8 +30,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         tableModel = (DefaultTableModel) jTable1.getModel();
         tableModel.setNumRows(0);
         for(Aluno a: professor.getTurma().getAlunos()){
-            double media = a.getNotasDoAluno().isEmpty()?0:a.media();
-            tableModel.addRow(new Object[]{a.getMatricula(),a,media,"Atribuir"});
+            tableModel.addRow(new Object[]{a.getMatricula(),a,a.getMedia(),"Atribuir"});
         }
     }
 

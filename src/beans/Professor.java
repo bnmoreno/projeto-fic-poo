@@ -41,6 +41,10 @@ public class Professor extends Pessoa{
         turma = new Diario(nomeDiario, alunos);
     }
     
+    public void atribuirNota(Aluno aluno,Nota nota){
+        aluno.addNota(nota);           
+    }
+    
     public Diario getTurma() {
         return turma;
     }

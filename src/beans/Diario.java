@@ -101,7 +101,14 @@ public class Diario {
     public void setMediaReprovado(float mediaReprovado) {
         this.mediaReprovado = mediaReprovado;
     }
-
+    
+    public void addAluno(Aluno aluno){
+        this.listaDeAlunosDiario.add(aluno);
+    }
+    
+    public void removerAluno(Aluno aluno){
+        this.listaDeAlunosDiario.remove(aluno);
+    }
     //falta implementar
 //    public void lancarNota(Aluno aluno, ArrayList<Double> notas){
 //        boolean status = Banco.lancarNotasNoDiario(aluno, notas);
