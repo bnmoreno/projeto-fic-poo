@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -35,12 +36,15 @@ public class ButtonEditor extends DefaultCellEditor {
   
   private JInternalFrame frame;
   
+  ArrayList<Byte> pesos;
+  
   private Professor professor;
   private JComboBox combo;
   public ButtonEditor(JCheckBox checkBox,JDesktopPane desctop, 
-          JTable tabel,JInternalFrame frame,Professor professor,JComboBox combo) {
+          JTable tabel,JInternalFrame frame,Professor professor,JComboBox combo,ArrayList<Byte> pesos) {
     super(checkBox);
     this.frame = frame;
+    this.pesos = pesos;
     this.desctop = desctop;
     this.professor = professor;
     this.combo = combo;
@@ -75,7 +79,7 @@ public class ButtonEditor extends DefaultCellEditor {
       //
         if(tan != null)
             tan.dispose();
-        tan = new Tela_Atribuir_Nota(aluno,frame,desctop,professor,combo);
+        tan = new Tela_Atribuir_Nota(aluno,frame,desctop,professor,combo,pesos);
         desctop.add(tan);
         tan.setVisible(true);
         centralizaForm(tan);

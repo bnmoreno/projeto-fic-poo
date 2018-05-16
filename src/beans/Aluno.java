@@ -75,13 +75,14 @@ public class Aluno extends Pessoa {
     public void addNota(Nota nota){
         this.notasDoAluno.add(nota);
     }
+ 
 
     private double media(){
         double media = 0;
         int pesos = 0;
         for(Nota n : notasDoAluno){
             pesos += n.getPeso();
-            media += n.getNota();
+            media += n.getNota()*n.getPeso();
         }
         return media/pesos;
     }

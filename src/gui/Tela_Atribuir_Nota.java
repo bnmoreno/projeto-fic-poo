@@ -35,10 +35,11 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     private JDesktopPane desktop;
     private Professor professor;
     private JComboBox combo;
-    
-    public Tela_Atribuir_Nota(Aluno aluno, JInternalFrame frame,JDesktopPane desktop,Professor professor,JComboBox combo) {
+    private ArrayList<Byte> pesos;
+    public Tela_Atribuir_Nota(Aluno aluno, JInternalFrame frame,JDesktopPane desktop,Professor professor,JComboBox combo,ArrayList<Byte> pesos) {
         initComponents();
         this.combo = combo;
+        this.pesos = pesos;
         this.frame = frame;
         this.desktop = desktop;
         this.alu = aluno;
@@ -385,9 +386,14 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
         texto.add(jTextField3);
         texto.add(jTextField4);
         texto.add(jTextField5);
+        int i =0;
         for(JTextField t:texto){
             if(t.isVisible()){
-                notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
+                if(pesos != null){
+                    System.out.println(pesos.get(i));
+                    notas.add(new Nota(Double.parseDouble(t.getText()), pesos.get(i++)));
+                }else
+                    notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
             }
         }
         if(frame!=null)
