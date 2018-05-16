@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -377,11 +378,17 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         ArrayList<Nota> notas = new ArrayList<Nota>();
-        notas.add(new Nota(Double.parseDouble(jTextField1.getText()), (byte)1));
-        notas.add(new Nota(Double.parseDouble(jTextField2.getText()), (byte)1));
-        notas.add(new Nota(Double.parseDouble(jTextField3.getText()), (byte)1));
-        notas.add(new Nota(Double.parseDouble(jTextField4.getText()), (byte)1));
-        notas.add(new Nota(Double.parseDouble(jTextField5.getText()), (byte)1));
+        ArrayList<JTextField> texto = new ArrayList<>();
+        texto.add(jTextField1);
+        texto.add(jTextField2);
+        texto.add(jTextField3);
+        texto.add(jTextField4);
+        texto.add(jTextField5);
+        for(JTextField t:texto){
+            if(t.isVisible()){
+                notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
+            }
+        }
         if(frame!=null)
             frame.dispose();
         alu.setNotasDoAluno(notas);
