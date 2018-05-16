@@ -314,11 +314,11 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel8MousePressed
 
     private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
-        // TODO add your handling code here:
+        jLabel8.setBorder(null);
     }//GEN-LAST:event_jLabel8MouseExited
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
-        // TODO add your handling code here:
+        jLabel8.setBorder(new EtchedBorder());
     }//GEN-LAST:event_jLabel8MouseEntered
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -334,11 +334,13 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+        jLabel7.setBorder(null);
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
         // TODO add your handling code here:
+        jLabel7.setBorder(null);
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
