@@ -17,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
+import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -42,23 +43,23 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
         this.desktop = desktop;
         this.alu = aluno;
         this.professor = professor;
-        switch(combo.getSelectedIndex()){
-            case 0:
+        switch((int)combo.getSelectedItem()){
+            case 1:
                 jLabel3.setVisible(false);  jTextField2.setVisible(false); jSeparator2.setVisible(false);
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
-            case 1:
+            case 2:
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
-            case 2:
+            case 3:
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
-            case 3:
+            case 4:
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
         }
@@ -361,11 +362,11 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
-        // TODO add your handling code here:
+        jLabel9.setBorder(new EtchedBorder());
     }//GEN-LAST:event_jLabel9MouseEntered
 
     private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
-        // TODO add your handling code here:
+        jLabel9.setBorder(null);
     }//GEN-LAST:event_jLabel9MouseExited
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
@@ -400,11 +401,11 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-        // TODO add your handling code here:
+        jLabel10.setBorder(new EtchedBorder());
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        // TODO add your handling code here:
+        jLabel10.setBorder(null);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed

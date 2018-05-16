@@ -26,7 +26,9 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
     public Tela_Lancar_Nota(Professor professor,JDesktopPane desktop) {
         
         initComponents();
-        
+        for(int i =1;i<6;i++){
+            jComboBox2.addItem(i);
+        }
         this.professor = professor;
         this.desktop = desktop;
         jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
@@ -142,8 +144,6 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 0, 18)); // NOI18N
         jLabel4.setText("Quantidades de etadas:");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Media Ponderada");
@@ -279,11 +279,11 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         jLabel10.setEnabled(false);
         Object item = 1;
         jComboBox2.removeAllItems();
-        jComboBox2.addItem("1");
-        jComboBox2.addItem("2");
-        jComboBox2.addItem("3");
-        jComboBox2.addItem("4");
-        jComboBox2.addItem("5");
+        jComboBox2.addItem(1);
+        jComboBox2.addItem(2);
+        jComboBox2.addItem(3);
+        jComboBox2.addItem(4);
+        jComboBox2.addItem(5);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
@@ -318,7 +318,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<Integer> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

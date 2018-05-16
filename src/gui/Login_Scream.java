@@ -294,7 +294,7 @@ public class Login_Scream extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        jLabel6.setBorder(new TitledBorder(""));
+        jLabel6.setBorder(null);
     }//GEN-LAST:event_jLabel6MouseExited
 
     /**
