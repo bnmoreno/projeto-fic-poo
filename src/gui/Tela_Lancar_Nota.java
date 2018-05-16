@@ -28,7 +28,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
         
         jTable1.getColumn("ATRIBUIR NOTA").setCellEditor(
-            new ButtonEditor(new JCheckBox(),desktop,jTable1,this,professor)
+            new ButtonEditor(new JCheckBox(),desktop,jTable1,this,professor,jComboBox2)
         );
         
         jLabel2.setText(professor.getTurma().toString());
@@ -61,7 +61,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<String>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
 
@@ -117,7 +117,6 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setRowHeight(23);
         jTable1.setSelectionBackground(new java.awt.Color(0, 153, 0));
         jScrollPane1.setViewportView(jTable1);
@@ -138,7 +137,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Rockwell Condensed", 0, 18)); // NOI18N
         jLabel4.setText("Quantidades de etadas:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ".....", "1", "2", "3", "4", "5", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
 
         jRadioButton1.setText("Media Ponderada");
 

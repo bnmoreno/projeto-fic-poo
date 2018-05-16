@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package another;
 
 import beans.Aluno;
@@ -15,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JTable;
@@ -39,13 +36,14 @@ public class ButtonEditor extends DefaultCellEditor {
   private JInternalFrame frame;
   
   private Professor professor;
-  
+  private JComboBox combo;
   public ButtonEditor(JCheckBox checkBox,JDesktopPane desctop, 
-          JTable tabel,JInternalFrame frame,Professor professor) {
+          JTable tabel,JInternalFrame frame,Professor professor,JComboBox combo) {
     super(checkBox);
     this.frame = frame;
     this.desctop = desctop;
     this.professor = professor;
+    this.combo = combo;
     button = new JButton();
     button.setOpaque(true);
     button.addActionListener(new ActionListener() {
@@ -77,7 +75,7 @@ public class ButtonEditor extends DefaultCellEditor {
       //
         if(tan != null)
             tan.dispose();
-        tan = new Tela_Atribuir_Nota(aluno,frame,desctop,professor);
+        tan = new Tela_Atribuir_Nota(aluno,frame,desctop,professor,combo);
         desctop.add(tan);
         tan.setVisible(true);
         centralizaForm(tan);
