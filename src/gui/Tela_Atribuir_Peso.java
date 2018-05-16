@@ -35,34 +35,27 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
     private Professor professor;
     private JComboBox combo;
     
-    public Tela_Atribuir_Peso(Aluno aluno, JInternalFrame frame,JDesktopPane desktop,Professor professor,JComboBox combo) {
+    public Tela_Atribuir_Peso(JInternalFrame frame,JDesktopPane desktop,Professor professor,JComboBox combo) {
         initComponents();
         this.combo = combo;
         this.frame = frame;
         this.desktop = desktop;
-        this.alu = aluno;
         this.professor = professor;
         switch(combo.getSelectedIndex()){
             case 0:
-                jLabel3.setVisible(false);  jTextField2.setVisible(false); jSeparator2.setVisible(false);
+               
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
             case 1:
-                jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
             case 2:
-                jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
-                jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
-                break;
-            case 3:
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
         }
-        jLabel14.setText(aluno.toString());
 
     }
 
@@ -356,7 +349,7 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
+       this.dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
@@ -376,7 +369,7 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jLabel9KeyPressed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        ArrayList<Nota> notas = new ArrayList<Nota>();
+        ArrayList<Byte> pesos = new ArrayList<Byte>();
         ArrayList<JTextField> texto = new ArrayList<>();
         texto.add(jTextField1);
         texto.add(jTextField2);
@@ -385,12 +378,15 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
         texto.add(jTextField5);
         for(JTextField t:texto){
             if(t.isVisible()){
-                notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
+                pesos.add(Byte.parseByte(t.getText()));
             }
         }
+        int i=0;
+        for(Nota nota:alu.getNotasDoAluno())
+            nota.setPeso((byte) pesos.get(i++));
         if(frame!=null)
             frame.dispose();
-        alu.setNotasDoAluno(notas);
+        
         Tela_Lancar_Nota tln = new Tela_Lancar_Nota((Professor) professor,desktop);
         desktop.add(tln);
         tln.setVisible(true);

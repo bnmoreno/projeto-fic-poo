@@ -359,6 +359,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         professor.criarDiario(alunos, jTextField1.getText());
+        jLabel6.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
@@ -374,6 +375,7 @@ public class Novo_Diario extends javax.swing.JInternalFrame {
         }
         atualizaLista(buscarAluno);
         jTextField2.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased

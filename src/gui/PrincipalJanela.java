@@ -171,7 +171,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         jMenu1.setText("Diario");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ImagenNovoDiario.png"))); // NOI18N
-        jMenuItem1.setText("Novo Diario");
+        jMenuItem1.setText("Gerenciar Diario");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
