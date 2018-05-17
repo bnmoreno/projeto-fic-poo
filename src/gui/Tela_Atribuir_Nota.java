@@ -6,6 +6,7 @@
 package gui;
 import beans.Aluno;
 import beans.Banco;
+import beans.CentralizarForm;
 import beans.Nota;
 import beans.Pessoa;
 import beans.Professor;
@@ -26,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Denilson
  */
-public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
+public class Tela_Atribuir_Nota extends CentralizarForm {
 
     private DefaultTableModel dtmProdutos;
     private Aluno alu;
@@ -401,7 +402,7 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
         Tela_Lancar_Nota tln = new Tela_Lancar_Nota((Professor) professor,desktop);
         desktop.add(tln);
         tln.setVisible(true);
-        centralizaForm(tln);
+        centralizaForm(tln,desktop);
         this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
@@ -420,14 +421,6 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
     private void jLabel10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel10KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10KeyPressed
-private void centralizaForm(JInternalFrame frame) {
-        
-        Dimension desktopSize = desktop.getSize();
-        Dimension jInternalFrameSize = frame.getSize();
-        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
-      
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

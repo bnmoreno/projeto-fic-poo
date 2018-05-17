@@ -7,9 +7,8 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
-import static beans.Banco.ultimoSecretario;
+import beans.CentralizarForm;
 import beans.Pessoa;
-import beans.Professor;
 import beans.Secretaria;
 import java.awt.Dimension;
 import java.text.ParseException;
@@ -19,16 +18,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import javax.xml.crypto.Data;
 
 /**
  *
  * @author Denilson
  */
-public class Tela_Cadastros_Aluno extends javax.swing.JInternalFrame {
+public class Tela_Cadastros_Aluno extends CentralizarForm {
 
     /**
      * Creates new form Tela_Cadastros

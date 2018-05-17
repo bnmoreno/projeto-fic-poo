@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 import beans.Aluno;
-import beans.Banco;
-import beans.Nota;
-import beans.Pessoa;
 import beans.Professor;
-import beans.Secretaria;
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,14 +56,6 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
     public void setPosicao(){
         Dimension d = getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width)/2, (d.height - this.getSize().height)/2);
-    }
-    private void preencherDados(){
-        dtmProdutos.setNumRows(0);
-        for(Pessoa pesoa: Banco.usuarios){
-            if(pesoa instanceof Secretaria){
-                
-            } 
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -406,14 +390,7 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
     private void jLabel10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel10KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10KeyPressed
-private void centralizaForm(JInternalFrame frame) {
-        
-        Dimension desktopSize = desktop.getSize();
-        Dimension jInternalFrameSize = frame.getSize();
-        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
-      
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

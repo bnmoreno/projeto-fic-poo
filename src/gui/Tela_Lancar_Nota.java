@@ -8,8 +8,8 @@ package gui;
 import another.ButtonEditor;
 import another.ButtonRenderer;
 import beans.Aluno;
+import beans.CentralizarForm;
 import beans.Professor;
-import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JDesktopPane;
@@ -19,13 +19,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 20171134040027
  */
-public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
+public class Tela_Lancar_Nota extends CentralizarForm {
     private ArrayList<Byte> pesos;
     private DefaultTableModel tableModel;
     private Professor professor;
     private JDesktopPane desktop;
     public Tela_Lancar_Nota(Professor professor,JDesktopPane desktop) {
-        
+        super();
         initComponents();
         pesos = new ArrayList<>();
         for(int i =1;i<6;i++){
@@ -280,13 +280,9 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         jLabel10.setEnabled(false);
-        Object item = 1;
         jComboBox2.removeAllItems();
-        jComboBox2.addItem(1);
-        jComboBox2.addItem(2);
-        jComboBox2.addItem(3);
-        jComboBox2.addItem(4);
-        jComboBox2.addItem(5);
+        for(int i =1;i<6;i++)
+            jComboBox2.addItem(i);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
@@ -297,7 +293,7 @@ public class Tela_Lancar_Nota extends javax.swing.JInternalFrame {
        Tela_Atribuir_Peso tap = new Tela_Atribuir_Peso( this, desktop, professor, jComboBox2,pesos);
         desktop.add(tap);
         tap.setVisible(true);
-        //centralizaForm(tap);
+        this.centralizaForm(tap,desktop);
        
     }//GEN-LAST:event_jLabel10MouseClicked
 

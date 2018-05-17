@@ -13,7 +13,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class Novo_Diario extends javax.swing.JInternalFrame {
+public class Novo_Diario extends CentralizarForm {
 
     private ArrayList<Aluno> alunosBanco,alunos;
     private ArrayList<Aluno> buscarAluno ;

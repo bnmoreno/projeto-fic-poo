@@ -5,6 +5,7 @@
  */
 package gui;
 import beans.Aluno;
+import beans.CentralizarForm;
 import beans.Nota;
 import java.awt.Dimension;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Denilson
  */
-public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
+public class Tela_Exibir_Boletim extends CentralizarForm {
 
     
     private DefaultTableModel tableModel;

@@ -5,9 +5,8 @@
  */
 package gui;
 
-import beans.Aluno;
 import beans.Banco;
-import static beans.Banco.ultimoSecretario;
+import beans.CentralizarForm;
 import beans.Pessoa;
 import beans.Professor;
 import beans.Secretaria;
@@ -28,7 +27,7 @@ import javax.xml.crypto.Data;
  *
  * @author Denilson
  */
-public class Tela_Cadastros_Professor extends javax.swing.JInternalFrame {
+public class Tela_Cadastros_Professor extends CentralizarForm {
 
     /**
      * Creates new form Tela_Cadastros

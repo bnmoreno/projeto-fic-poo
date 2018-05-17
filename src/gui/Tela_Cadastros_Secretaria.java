@@ -8,6 +8,7 @@ package gui;
 import beans.Aluno;
 import beans.Banco;
 import static beans.Banco.ultimoSecretario;
+import beans.CentralizarForm;
 import beans.Pessoa;
 import beans.Secretaria;
 import java.awt.Dimension;
@@ -18,7 +19,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -27,7 +27,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Denilson
  */
-public class Tela_Cadastros_Secretaria extends javax.swing.JInternalFrame {
+public class Tela_Cadastros_Secretaria extends CentralizarForm {
 
     /**
      * Creates new form Tela_Cadastros_Secretaria
