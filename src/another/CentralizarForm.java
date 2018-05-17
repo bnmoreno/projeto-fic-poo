@@ -13,7 +13,7 @@ import javax.swing.JInternalFrame;
  *
  * @author 20171134040013
  */
-public class CentralizarForm extends JInternalFrame{
+public abstract class CentralizarForm extends JInternalFrame{
     public void centralizaForm(JInternalFrame frame,JDesktopPane desktop) {
         Dimension desktopSize = desktop.getSize();
         Dimension jInternalFrameSize = frame.getSize();
