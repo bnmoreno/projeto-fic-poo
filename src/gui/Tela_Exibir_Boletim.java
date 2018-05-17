@@ -25,6 +25,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
     public Tela_Exibir_Boletim(Aluno aluno) {
         initComponents();
         alu = aluno;
+        formato = new SimpleDateFormat("dd/MM/yyyy");
         tableModel = (DefaultTableModel) jTable2.getModel();
         jLabel12.setText(alu.getMatricula());
         jLabel13.setText(alu.getMedia()+"");
@@ -32,7 +33,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
         jLabel9.setText(alu.getNomeMae());
         jLabel10.setText(alu.getNomePai());
         jLabel6.setText(alu.getTelefone());
-//        jLabel15.setText(formato.format(alu.getNascimento()));
+        jLabel15.setText(formato.format(alu.getNascimento()));
         //preencherDados();
         //Data
       
