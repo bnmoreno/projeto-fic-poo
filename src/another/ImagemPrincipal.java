@@ -18,14 +18,16 @@ public class ImagemPrincipal implements Border{
     
     public ImagemPrincipal(){
         try {
-            URL imagePath= new URL (getClass().getResource("../img/pfundo.jpg").toString());
+            URL imagePath= new URL (getClass().getResource("../img/pfundo2.jpg").toString());
             back = ImageIO.read(imagePath);
         } catch (Exception ex) {
         }
     }
-    
+
     public void paintBorder (Component c, Graphics g, int x, int y, int width, int height){
-        g.drawImage(back,(x +(width - back.getWidth())/2), (y + (height - back.getHeight())/2), null);
+        //g.drawImage(back,(x +(width - back.getWidth())/2), (y + (height - back.getHeight())/2), null);
+        //Desse jeito deixa responsiva.
+        g.drawImage(back, 0, 0, width,height,null);
     }
     
     public Insets getBorderInsets (Component c){

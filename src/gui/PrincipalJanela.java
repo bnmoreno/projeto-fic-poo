@@ -5,10 +5,12 @@
  */
 package gui;
 
+
 import another.ImagemPrincipal;
 import beans.*;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,9 +35,13 @@ public class PrincipalJanela extends javax.swing.JFrame {
     Tela_Lancar_Nota tln;
     Novo_Diario nd;
     Tela_Exibir_Boletim teb;
-    
+
     public PrincipalJanela(Pessoa pessoa) {
         initComponents();
+	//Imagem Responsiva
+//        setLayout(new GridLayout());
+//        tela = new FundoTela("src/img/pfundo.jpg");
+//        getContentPane().add(tela);
         jDesktopPane1.setBorder((Border)new ImagemPrincipal());
         //this.setExtendedState(MAXIMIZED_BOTH);
         this.pessoa = pessoa;
@@ -52,6 +58,7 @@ public class PrincipalJanela extends javax.swing.JFrame {
         }
        pegarResolucao();  
     }
+    
     private void pegarResolucao() {
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension dimensao = t.getScreenSize();
