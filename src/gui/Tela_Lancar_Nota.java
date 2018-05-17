@@ -8,7 +8,7 @@ package gui;
 import another.ButtonEditor;
 import another.ButtonRenderer;
 import beans.Aluno;
-import beans.CentralizarForm;
+import another.CentralizarForm;
 import beans.Professor;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;

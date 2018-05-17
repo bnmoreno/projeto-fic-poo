@@ -5,6 +5,7 @@
  */
 package gui;
 
+import another.CentralizarForm;
 import beans.*;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;

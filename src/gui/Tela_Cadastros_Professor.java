@@ -6,7 +6,7 @@
 package gui;
 
 import beans.Banco;
-import beans.CentralizarForm;
+import another.CentralizarForm;
 import beans.Pessoa;
 import beans.Professor;
 import beans.Secretaria;

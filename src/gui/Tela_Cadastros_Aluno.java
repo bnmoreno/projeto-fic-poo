@@ -7,7 +7,7 @@ package gui;
 
 import beans.Aluno;
 import beans.Banco;
-import beans.CentralizarForm;
+import another.CentralizarForm;
 import beans.Pessoa;
 import beans.Secretaria;
 import java.awt.Dimension;
