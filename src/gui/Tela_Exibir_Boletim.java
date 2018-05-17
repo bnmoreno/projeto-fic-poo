@@ -7,7 +7,11 @@ package gui;
 import beans.Aluno;
 import beans.Nota;
 import java.awt.Dimension;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -24,15 +28,16 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
     private SimpleDateFormat formato;
     public Tela_Exibir_Boletim(Aluno aluno) {
         initComponents();
+        formato = new SimpleDateFormat("dd/MM/yyyy");
         alu = aluno;
         tableModel = (DefaultTableModel) jTable2.getModel();
         jLabel12.setText(alu.getMatricula());
-        jLabel13.setText(alu.getMedia()+"");
+        jLabel13.setText(alu+"");
         jLabel4.setText(alu.getCpf());
         jLabel9.setText(alu.getNomeMae());
         jLabel10.setText(alu.getNomePai());
         jLabel6.setText(alu.getTelefone());
-//        jLabel15.setText(formato.format(alu.getNascimento()));
+        jLabel15.setText(formato.format(alu.getNascimento()));
         //preencherDados();
         //Data
       
@@ -216,13 +221,13 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel11))
+                                .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel6)))))
+                                .addComponent(jLabel15))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -238,7 +243,7 @@ public class Tela_Exibir_Boletim extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)

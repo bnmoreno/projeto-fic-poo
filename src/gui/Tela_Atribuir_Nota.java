@@ -389,8 +389,7 @@ public class Tela_Atribuir_Nota extends javax.swing.JInternalFrame {
         int i =0;
         for(JTextField t:texto){
             if(t.isVisible()){
-                if(pesos != null){
-                    System.out.println(pesos.get(i));
+                if(!pesos.isEmpty()){
                     notas.add(new Nota(Double.parseDouble(t.getText()), pesos.get(i++)));
                 }else
                     notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
