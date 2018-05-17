@@ -49,12 +49,19 @@ public class Professor extends Pessoa{
     public void setTurma(Diario turma) {
         this.turma = turma;
     }
-    public void criarDiario(ArrayList<Aluno> alunos,String nome){
+    public boolean criarDiario(ArrayList<Aluno> alunos,String nome){
          if(!alunos.isEmpty()){
-             turma = new Diario(nome, alunos);
-             JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
+             if(!nome.equals("")){
+                turma = new Diario(nome, alunos);
+                JOptionPane.showMessageDialog(null, "Diario criado com sucesso");
+                return true;
+             }else{
+                JOptionPane.showMessageDialog(null, "Adicione um nome ao diário");
+                return false;
+             }
          }else{
              JOptionPane.showMessageDialog(null, "Adicione um aluno");
+             return false;
          }
      }
     

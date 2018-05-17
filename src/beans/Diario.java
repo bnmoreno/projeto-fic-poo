@@ -13,12 +13,15 @@ public class Diario {
 //    Esse array tem que ficar na classe Banco
 //    private ArrayList<Aluno> listadeAlunos = new ArrayList<>();
 
-    Banco bankDiario = new Banco();
     
     private String nome;
     private ArrayList<Aluno> listaDeAlunosDiario;
     private int quantidadeEtapas;
     private float notafinal, mediaAprovado, mediaReprovado;
+    private char tipoMedia;
+    public static final char PONDERADA = 'P';
+    public static final char ARITEMETICA = 'A';
+    
     ArrayList<Integer> PesoPorEtapa = new ArrayList<>();
     
     //private double notasDeAluno[] = new double[quantidadeEtapas];
@@ -36,7 +39,7 @@ public class Diario {
         this.listaDeAlunosDiario = listaDeAlunos;
     }
     
-
+    
     public Diario(String nome, ArrayList<Aluno> alunos, int quantidadeEtapas, float notafinal, float mediaAprovado, float mediaReprovado) {
         this.nome = nome;
         this.listaDeAlunosDiario = alunos;
@@ -44,6 +47,30 @@ public class Diario {
         this.notafinal = notafinal;
         this.mediaAprovado = mediaAprovado;
         this.mediaReprovado = mediaReprovado;
+    }
+
+    public ArrayList<Aluno> getListaDeAlunosDiario() {
+        return listaDeAlunosDiario;
+    }
+
+    public void setListaDeAlunosDiario(ArrayList<Aluno> listaDeAlunosDiario) {
+        this.listaDeAlunosDiario = listaDeAlunosDiario;
+    }
+
+    public char getTipoMedia() {
+        return tipoMedia;
+    }
+
+    public void setTipoMedia(char tipoMedia) {
+        this.tipoMedia = tipoMedia;
+    }
+
+    public ArrayList<Integer> getPesoPorEtapa() {
+        return PesoPorEtapa;
+    }
+
+    public void setPesoPorEtapa(ArrayList<Integer> PesoPorEtapa) {
+        this.PesoPorEtapa = PesoPorEtapa;
     }
     
     public boolean cadastrarAlunoDiario(Aluno aluno){

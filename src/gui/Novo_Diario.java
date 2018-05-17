@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class Novo_Diario extends CentralizarForm {
@@ -372,8 +371,8 @@ public class Novo_Diario extends CentralizarForm {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        professor.criarDiario(alunos, jTextField1.getText());
-        jLabel6.setVisible(false);
+        if(professor.criarDiario(alunos, jTextField1.getText()))
+            jLabel6.setVisible(false);
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
