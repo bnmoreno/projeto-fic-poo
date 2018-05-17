@@ -22,7 +22,7 @@ public class Diario {
     public static final char PONDERADA = 'P';
     public static final char ARITEMETICA = 'A';
     
-    ArrayList<Integer> PesoPorEtapa = new ArrayList<>();
+    ArrayList<Byte> PesoPorEtapa = new ArrayList<>();
     
     //private double notasDeAluno[] = new double[quantidadeEtapas];
     
@@ -65,11 +65,11 @@ public class Diario {
         this.tipoMedia = tipoMedia;
     }
 
-    public ArrayList<Integer> getPesoPorEtapa() {
+    public ArrayList<Byte> getPesoPorEtapa() {
         return PesoPorEtapa;
     }
 
-    public void setPesoPorEtapa(ArrayList<Integer> PesoPorEtapa) {
+    public void setPesoPorEtapa(ArrayList<Byte> PesoPorEtapa) {
         this.PesoPorEtapa = PesoPorEtapa;
     }
     

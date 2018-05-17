@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +46,12 @@ public class Tela_Atribuir_Nota extends CentralizarForm {
         this.desktop = desktop;
         this.alu = aluno;
         this.professor = professor;
+        ArrayList<JTextField> listaDeLabels = new ArrayList<>();
+        listaDeLabels.add(jTextField1);
+        listaDeLabels.add(jTextField2);
+        listaDeLabels.add(jTextField3);
+        listaDeLabels.add(jTextField4);
+        listaDeLabels.add(jTextField5);
         switch(professor.getTurma().getQuantidadeEtapas()){
             case 1:
                 jLabel3.setVisible(false);  jTextField2.setVisible(false); jSeparator2.setVisible(false);
@@ -66,6 +73,13 @@ public class Tela_Atribuir_Nota extends CentralizarForm {
                 break;
         }
         jLabel14.setText(aluno.toString());
+        int i=0;
+        if(!alu.getNotasDoAluno().isEmpty()){
+            for(JTextField t:listaDeLabels){
+                if(t.isVisible())
+                    t.setText(alu.getNotasDoAluno().get(i++).toString());
+            }
+        }
 
     }
 
@@ -396,6 +410,7 @@ public class Tela_Atribuir_Nota extends CentralizarForm {
                     notas.add(new Nota(Double.parseDouble(t.getText()), (byte)1));
             }
         }
+        professor.getTurma().setPesoPorEtapa(pesos);
         if(frame!=null)
             frame.dispose();
         alu.setNotasDoAluno(notas);

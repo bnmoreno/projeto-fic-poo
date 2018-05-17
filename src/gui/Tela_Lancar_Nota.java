@@ -37,7 +37,7 @@ public class Tela_Lancar_Nota extends CentralizarForm {
         jTable1.getColumn("ATRIBUIR NOTA").setCellRenderer(new ButtonRenderer());
         
         jTable1.getColumn("ATRIBUIR NOTA").setCellEditor(
-            new ButtonEditor(new JCheckBox(),desktop,jTable1,this,professor,jComboBox2,pesos)
+            new ButtonEditor(new JCheckBox(),desktop,jTable1,this,professor,jComboBox2,professor.getTurma().getPesoPorEtapa())
         );
         
         jLabel2.setText(professor.getTurma().toString());
@@ -48,6 +48,11 @@ public class Tela_Lancar_Nota extends CentralizarForm {
         
         for(Aluno a: professor.getTurma().getAlunos()){
             tableModel.addRow(new Object[]{a.getMatricula(),a,a.getMedia(),"Atribuir"});
+        }
+        if(professor.getTurma().getTipoMedia()==Diario.PONDERADA){
+            jRadioButton1.setSelected(true);
+        }else if(professor.getTurma().getTipoMedia()==Diario.ARITEMETICA){
+            jRadioButton2.setSelected(true);
         }
     }
 
