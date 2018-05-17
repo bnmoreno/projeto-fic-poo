@@ -290,11 +290,11 @@ public class Tela_Lancar_Nota extends CentralizarForm {
     }//GEN-LAST:event_jLabel10MousePressed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-       Tela_Atribuir_Peso tap = new Tela_Atribuir_Peso( this, desktop, professor, jComboBox2,pesos);
+        Tela_Atribuir_Peso tap = new Tela_Atribuir_Peso( this, desktop, professor, jComboBox2,pesos);
         desktop.add(tap);
         tap.setVisible(true);
         this.centralizaForm(tap,desktop);
-       
+        professor.getTurma().setQuantidadeEtapas((int)jComboBox2.getSelectedItem());
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited

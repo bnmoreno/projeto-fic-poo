@@ -45,7 +45,7 @@ public class Tela_Atribuir_Nota extends CentralizarForm {
         this.desktop = desktop;
         this.alu = aluno;
         this.professor = professor;
-        switch((int)combo.getSelectedItem()){
+        switch(professor.getTurma().getQuantidadeEtapas()){
             case 1:
                 jLabel3.setVisible(false);  jTextField2.setVisible(false); jSeparator2.setVisible(false);
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);

@@ -34,30 +34,22 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
         this.frame = frame;
         this.desktop = desktop;
         this.professor = professor;
-        switch(combo.getSelectedIndex()){
-            case 0:
-               
+        switch((int)combo.getSelectedItem()){
+            case 2:
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
-            case 1:
+            case 3:
                 jLabel8.setVisible(false);  jTextField4.setVisible(false); jSeparator4.setVisible(false);
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
-            case 2:
+            case 4:
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
         }
 
     }
-
-    
-    public void setPosicao(){
-        Dimension d = getDesktopPane().getSize();
-        this.setLocation((d.width - this.getSize().width)/2, (d.height - this.getSize().height)/2);
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
