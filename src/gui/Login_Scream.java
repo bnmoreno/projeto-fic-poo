@@ -30,16 +30,14 @@ public class Login_Scream extends javax.swing.JFrame {
     private void logar(){
         for(Pessoa pessoa:Banco.usuarios){
             if(usuario_txt.getText().equals(pessoa.getMatricula()) && (senha_txt.getText().equals(pessoa.getSenha()))){
-                Carregando sc = new Carregando();
-                sc.setVisible(true);
-                
+                Carregando sc = new Carregando(pessoa);
+                sc.setVisible(true);                
                //new PrincipalJanela(pessoa).setVisible(true);
                //sc.setVisible(false);
             this.dispose();
             }else{
                 //jLabel1.setVisible(true);
                 //jLabel1.setText("Login ou senha incorreta");
-                //
             }
         }
     }

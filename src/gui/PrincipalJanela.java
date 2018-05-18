@@ -36,12 +36,13 @@ public class PrincipalJanela extends javax.swing.JFrame {
     Novo_Diario nd;
     Tela_Exibir_Boletim teb;
 
-    public PrincipalJanela(Pessoa pessoa) {
+    public PrincipalJanela(Pessoa pessoa, Carregando c) {
         initComponents();
 	//Imagem Responsiva
 //        setLayout(new GridLayout());
 //        tela = new FundoTela("src/img/pfundo.jpg");
 //        getContentPane().add(tela);
+        c.dispose();
         jDesktopPane1.setBorder((Border)new ImagemPrincipal());
         //this.setExtendedState(MAXIMIZED_BOTH);
         this.pessoa = pessoa;

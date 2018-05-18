@@ -18,12 +18,12 @@ public class Carregando extends javax.swing.JFrame{
     /**
      * Creates new form Carregando
      */
-    Pessoa pessoa;
-    public Carregando() {
+    public Carregando(Pessoa pessoa) {
         initComponents();
+        Carregando c = this;
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        new Thread() {
+         new Thread() {
             public void run() {
                 int i = 0;
                 while (i < 101) {
@@ -35,12 +35,14 @@ public class Carregando extends javax.swing.JFrame{
                         //Logger.getLogger(Splash.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                PrincipalJanela p = new PrincipalJanela(pessoa);
+                PrincipalJanela p = new PrincipalJanela(pessoa,c);
                 p.validate();
                 p.pack();
-                p.setVisible(true);
+                p.setVisible(true);     
+                
             }
         }.start();
+        this.dispose();
     }
 
     /**
