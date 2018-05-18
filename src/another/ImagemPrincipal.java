@@ -18,7 +18,7 @@ public class ImagemPrincipal implements Border{
     
     public ImagemPrincipal(){
         try {
-            URL imagePath= new URL (getClass().getResource("../img/pfundo2.jpg").toString());
+            URL imagePath= new URL (getClass().getResource("../img/pfundo.jpg").toString());
             back = ImageIO.read(imagePath);
         } catch (Exception ex) {
         }

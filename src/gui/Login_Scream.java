@@ -30,7 +30,11 @@ public class Login_Scream extends javax.swing.JFrame {
     private void logar(){
         for(Pessoa pessoa:Banco.usuarios){
             if(usuario_txt.getText().equals(pessoa.getMatricula()) && (senha_txt.getText().equals(pessoa.getSenha()))){
-               new PrincipalJanela(pessoa).setVisible(true);
+                Carregando sc = new Carregando();
+                sc.setVisible(true);
+                
+               //new PrincipalJanela(pessoa).setVisible(true);
+               //sc.setVisible(false);
             this.dispose();
             }else{
                 //jLabel1.setVisible(true);
@@ -266,6 +270,7 @@ public class Login_Scream extends javax.swing.JFrame {
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         // Evento ao click no botão - Fazer Login
         logar();
+        
         
     }//GEN-LAST:event_jLabel6MousePressed
 
