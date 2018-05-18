@@ -34,6 +34,12 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
         this.frame = frame;
         this.desktop = desktop;
         this.professor = professor;
+        ArrayList<JTextField> listaDeLabels = new ArrayList<>();
+        listaDeLabels.add(jTextField1);
+        listaDeLabels.add(jTextField2);
+        listaDeLabels.add(jTextField3);
+        listaDeLabels.add(jTextField4);
+        listaDeLabels.add(jTextField5);
         switch((int)combo.getSelectedItem()){
             case 2:
                 jLabel7.setVisible(false);  jTextField3.setVisible(false); jSeparator3.setVisible(false);
@@ -47,6 +53,13 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
             case 4:
                 jLabel16.setVisible(false); jTextField5.setVisible(false); jSeparator5.setVisible(false);
                 break;
+        }
+        int i=0;
+        if(!professor.getTurma().getPesoPorEtapa().isEmpty()){
+            for(JTextField t:listaDeLabels){
+                if(t.isVisible())
+                    t.setText(professor.getTurma().getPesoPorEtapa().get(i++)+"");
+            }
         }
 
     }
@@ -364,6 +377,7 @@ public class Tela_Atribuir_Peso extends javax.swing.JInternalFrame {
                 pesos.add(Byte.parseByte(t.getText()));
             }
         }
+        professor.getTurma().setPesoPorEtapa(pesos);
         this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
